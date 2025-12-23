@@ -48,8 +48,8 @@ Object-oriented design, private encapsulation, method chaining logic, basic erro
 
 ### Using Visual Studio (Recommended - Windows)
 
-1- Open SourceFile.cs or the folder as a project
-2- Build and run (Ctrl + F5)
+1. Open SourceFile.cs or the folder as a project
+2. Build and run (Ctrl + F5)
 
 ### Using Visual Studio Code with .NET SDK
 
