@@ -54,6 +54,7 @@ Core features are being implemented and tested step by step.
 ├── Data Access Layer (DAL)
 ├── Local Database (SQL Server)
 └── Helpers / Utilities
+└── README.md
 
 📅 Status
 
