@@ -62,7 +62,7 @@ namespace Business
             } 
         }
         
-        public clsUser createdByserInfo;
+        public clsUser createdByUserInfo;
 
 
         public clsApplication()
@@ -92,7 +92,7 @@ namespace Business
             this.CreatedByUserID = createdByUserID;
 
             this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationID);
-            this.createdByserInfo = clsUser.FindByUserID(CreatedByUserID);
+            this.createdByUserInfo = clsUser.FindByUserID(CreatedByUserID);
             mode = enMode.Update;
         }
 
@@ -103,30 +103,26 @@ namespace Business
 
         private bool AddNewApplication()
         {
-            int applicationID = -1; int applicantPersonID = -1; DateTime applicationDate = DateTime.Now; 
-            int applicationTypeID = -1; enApplicationStatus applicationStatus = enApplicationStatus.New;
-            DateTime lastStatusDate = DateTime.Now; float paidFees = 0; int createdByUserID = -1;
+            this.ApplicationID = clsApplicationData.AddNewApplicationData( this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+                                    (byte) this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
 
-            this.ApplicationID = clsApplicationData.AddNewApplicationData();
-
-            return applicationID != -1; ggg
+            return (this.ApplicationID != -1); 
         }
 
-        public static int UpdateApplication()
+        private bool UpdateApplication()
         {
-
-
+            return clsApplicationData.UpdateApplicationData(this.ApplicationID,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+                                    (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
-        public static int DeleteApplication()
+        public  bool DeleteApplication(int applicationId)
         {
-
-
+           return  clsApplicationData.DeleteApplicationData(this.ApplicationID);
         }
 
-        public static clsApplication FindBaseApplicationByID()
+        public static clsApplication FindBaseApplicationByID(int applicationId)
         {
-
+            clsApplicationData.FindApplicationByIdData(int applicationId);
 
         }
 
