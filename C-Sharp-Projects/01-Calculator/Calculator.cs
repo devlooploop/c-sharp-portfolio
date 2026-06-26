@@ -63,7 +63,7 @@ public class clsCalculator
     }
     public void Subtruct(float Num)
     {
-         _MathOpsName = "Subtructing";
+         _MathOpsName = "Subtracting";
          _LastNumber = Num;
          _Result -= Num;
     }

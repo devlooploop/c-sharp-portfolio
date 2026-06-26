@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Business.clsApplication;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Business
@@ -20,7 +21,6 @@ namespace Business
             ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7 }
 
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
-
 
         public int ApplicationID { get; set; }
         public int ApplicantPersonID { get; set; }
@@ -79,19 +79,19 @@ namespace Business
             mode = enMode.AddNew;
         }
 
-        private clsApplication(int applicationID, int applicantPersonID, DateTime applicationDate, 
-            int applicationTypeID, enApplicationStatus applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserID)
+        private clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
+            int applicationTypeId, enApplicationStatus applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserId)
         {
-            this.ApplicationID = applicationID;
-            this.ApplicantPersonID = applicantPersonID;
+            this.ApplicationID = applicationId;
+            this.ApplicantPersonID = applicantPersonId;
             this.ApplicationDate = applicationDate;
-            this.ApplicationTypeID = applicationTypeID;
+            this.ApplicationTypeID = applicationTypeId;
             this.ApplicationStatus = applicationStatus;
             this.LastStatusDate = lastStatusDate;
             this.PaidFees = paidFees;
-            this.CreatedByUserID = createdByUserID;
+            this.CreatedByUserID = createdByUserId;
 
-            this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationID);
+            this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationId);
             this.createdByUserInfo = clsUser.FindByUserID(CreatedByUserID);
             mode = enMode.Update;
         }
@@ -103,9 +103,8 @@ namespace Business
 
         private bool AddNewApplication()
         {
-            this.ApplicationID = clsApplicationData.AddNewApplicationData( this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+            this.ApplicationID = clsApplicationData.AddNewApplicationData(this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
                                     (byte) this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
-
             return (this.ApplicationID != -1); 
         }
 
@@ -115,24 +114,79 @@ namespace Business
                                     (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
-        public  bool DeleteApplication(int applicationId)
+        public  bool DeleteApplication()
         {
            return  clsApplicationData.DeleteApplicationData(this.ApplicationID);
         }
 
         public static clsApplication FindBaseApplicationByID(int applicationId)
         {
-            clsApplicationData.FindApplicationByIdData(int applicationId);
+            int applicantPersonId = -1; DateTime applicationDate = DateTime.Now; 
+            int applicationTypeId = -1; byte applicationStatus = 1;
+            DateTime lastStatusDate = DateTime.Now; float paidFees = 0; int createdByUserId = -1;
 
+            bool isFound = clsApplicationData.FindApplicationByIdData(applicationId, ref applicantPersonId, ref applicationDate, ref applicationTypeId,
+             ref applicationStatus, ref lastStatusDate, ref paidFees, ref createdByUserId);
+            
+            if (isFound)
+                return new clsApplication(applicationId, applicantPersonId, applicationDate, applicationTypeId, 
+                                           (enApplicationStatus)applicationStatus, lastStatusDate, paidFees, createdByUserId);
+            else
+                return null;
         }
 
-        public void Save()
+        public bool Save()
         {
+            switch (mode)
+            {
+                case enMode.AddNew:
+                    if(AddNewApplication())
+                    {
+                       mode = enMode.Update;
+                       return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+               
+                case enMode.Update:
+                    return UpdateApplication();
 
+            }
+
+            return false;
         }
 
+        public static bool IsApplicationExist(int applicationId)
+        {
+             return clsApplicationData.IsApplicationExistData(applicationId);
+        }
 
+        public static bool DoesPersonHaveActiveApplication(int personId, int applicationTypeId)
+        {
+           return clsApplicationData.DoesPersonHaveActiveApplicationData(personId, applicationTypeId);
+        }
 
+        public bool DoesPersonHaveActiveApplication(int applicationTypeId)
+        {
+            return clsApplicationData.DoesPersonHaveActiveApplicationData(this.ApplicantPersonID, applicationTypeId);
+        }
+
+        public static int GetActiveApplicationID(int personId, clsApplication.enApplicationType applicationTypeId)
+        {
+           return clsApplicationData.GetActiveApplicationIdData(personId, (int) applicationTypeId);
+        }
+
+        public static int GetActiveApplicationIDForLicenseClass(int personId, clsApplication.enApplicationType applicationTypeId, int licenseClassId)
+        {
+            return clsApplicationData.GetActiveApplicationIDForLicenseClassData(personId, (int)applicationTypeId, licenseClassId);
+        }
+
+        public int GetActiveApplicationID(clsApplication.enApplicationType ApplicationTypeID)
+        {
+            return clsApplicationData.GetActiveApplicationIdData((int)ApplicationTypeID);
+        }
 
         
     }
