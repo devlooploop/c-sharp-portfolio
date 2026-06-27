@@ -96,10 +96,10 @@ namespace Business
             mode = enMode.Update;
         }
 
-        public static DataTable GetAllApplicationsInfo()
-        {
-               return clsApplicationData.GetAllApplicationsData();
-        }
+        //public static DataTable GetAllApplicationsInfo()
+        //{
+        //       return clsApplicationData.GetAllApplicationsData();
+        //}
 
         private bool AddNewApplication()
         {
@@ -125,7 +125,7 @@ namespace Business
             int applicationTypeId = -1; byte applicationStatus = 1;
             DateTime lastStatusDate = DateTime.Now; float paidFees = 0; int createdByUserId = -1;
 
-            bool isFound = clsApplicationData.FindApplicationByIdData(applicationId, ref applicantPersonId, ref applicationDate, ref applicationTypeId,
+            bool isFound = clsApplicationData.GetApplicationByIdData(applicationId, ref applicantPersonId, ref applicationDate, ref applicationTypeId,
              ref applicationStatus, ref lastStatusDate, ref paidFees, ref createdByUserId);
             
             if (isFound)
@@ -185,9 +185,19 @@ namespace Business
 
         public int GetActiveApplicationID(clsApplication.enApplicationType ApplicationTypeID)
         {
-            return clsApplicationData.GetActiveApplicationIdData((int)ApplicationTypeID);
+            return clsApplicationData.GetActiveApplicationIdData(this.ApplicantPersonID,(int)ApplicationTypeID);
         }
 
-        
+        public bool Cancel()
+        {
+
+        }
+
+        public bool SetComplete()
+        {
+
+        }
+
+
     }
 }

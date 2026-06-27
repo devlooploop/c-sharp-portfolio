@@ -38,7 +38,7 @@ namespace DataAccess
                     applicationTypeId = (int)reader["ApplicationTypeID"];
                     applicationStatus = (byte)reader["ApplicationStatus"];
                     lastStatusDate = (DateTime)reader["LastStatusDate"];
-                    paidFees = (float)(reader["PaidFees"]);
+                    paidFees = Convert.ToSingle(reader["PaidFees"]);
                     createdByUserId = (int)reader["CreatedByUserID"];
                 }
                 else
@@ -206,59 +206,9 @@ namespace DataAccess
                 conn.Close();
             }
 
-            return (rowsAffected > 0);
+            return (rowsAffected  0);
         }
 
-        public static bool FindApplicationByIdData(int applicationId, ref int applicantPersonId, ref DateTime applicationDate, ref int applicationTypeId,
-             ref byte applicationStatus, ref DateTime lastStatusDate, ref float paidFees, ref int createdByUserId)
-        {
-            bool isFound = false;
-            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT ApplicationID ,ApplicantPersonID ,ApplicationDate ,ApplicationTypeID,ApplicationStatus ,
-                                        LastStatusDate , PaidFees, CreatedByUserID
-                            FROM  Applications
-                            WHERE ApplicationID = @applicationId";
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-
-            cmd.Parameters.AddWithValue("@ApplicationID", applicationId);
-            cmd.Parameters.AddWithValue("@ApplicantPersonID", applicantPersonId);
-            cmd.Parameters.AddWithValue("@ApplicationDate", applicationDate);
-            cmd.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeId);
-            cmd.Parameters.AddWithValue("@ApplicationStatus", applicationStatus);
-            cmd.Parameters.AddWithValue("@LastStatusDate", lastStatusDate);
-            cmd.Parameters.AddWithValue("@PaidFees", paidFees);
-            cmd.Parameters.AddWithValue("@CreatedByUserID", createdByUserId);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-            try
-            {
-                conn.Open();
-                if(reader.Read())
-                {
-                    isFound = true;
-
-                    applicantPersonId = (int)(reader["ApplicationID"]);
-                    applicationDate = (DateTime)(reader["ApplicationDate"]);
-                    applicationTypeId = (int)(reader["ApplicationTypeID"]);
-                    applicationStatus = (byte)(reader["ApplicationStatus"]);
-                    lastStatusDate = (DateTime)(reader["LastStatusDate"]);
-                    paidFees = (float)(reader["PaidFees"]);
-                    createdByUserId = (int)(reader["CreatedByUserID"]);
-                }
-                reader.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return isFound;
-        }
 
         public static bool IsApplicationExistData(int applicationId)
         {
@@ -298,7 +248,7 @@ namespace DataAccess
             return (GetActiveApplicationIdData(personId, applicationTypeId) !=-1);
         }
 
-        public static int GetActiveApplicationIdData(int personId, int ApplicationTypeId)
+        public static int GetActiveApplicationIdData(int personId, int applicationTypeId)
         {
             int activeApplicationId = -1;
             
@@ -309,8 +259,8 @@ namespace DataAccess
 
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@PersonID", personId);
-            cmd.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeId);
+            cmd.Parameters.AddWithValue("@ApplicantPersonID", personId);
+            cmd.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeId);
 
             try
             {
@@ -335,22 +285,23 @@ namespace DataAccess
             return activeApplicationId;
         }
 
-        public static int GetActiveApplicationIDForLicenseClassData(int personId, int applicationTypeId, int licenseClassId) ffff
+        public static int GetActiveApplicationIDForLicenseClassData(int personId, int applicationTypeId, int licenseClassId) 
         {
             int activeApplicationId = -1; 
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @" SELECT * FROM Applications 
-                              INNER JOIN    LicenseClasses 
-                              ON       Applications.ApplicationTypeID = LicenseClasses.LicenseClassID 
-                              INNER JOIN  People ON People.PersonID = Applications.ApplicationID
-                        SELECT SCOPE_IDENTITY();";
-
-            
+            string query = @"SELECT ActiveApplicationID=Applications.ApplicationID  
+                            From
+                            Applications INNER JOIN
+                            LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                            WHERE ApplicantPersonID = @ApplicantPersonID 
+                            AND ApplicationTypeID=@ApplicationTypeID 
+							AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
+                            AND ApplicationStatus=1";
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@PersonID", personId);
+            cmd.Parameters.AddWithValue("@ApplicantPersonID", personId);
             cmd.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeId);
             cmd.Parameters.AddWithValue("@LicenseClassID", licenseClassId);
 
@@ -365,7 +316,7 @@ namespace DataAccess
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -377,39 +328,91 @@ namespace DataAccess
             return activeApplicationId;
         }
 
-        public static int GetActiveApplicationIdData(int applicationTypeId)
+
+        public static bool UpdateStatus(int applicationId, short newStatus)
         {
-            int activeApplicationId = -1;
+            int rowsAffected = 0;
 
-            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"UPDATE Applications SET 
+                                                ApplicationStatus = @newStatus,
+                                                LastStatusDate = @lastStatusDate
+                                         WHERE  ApplicationID = @applicationId";
+            
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
 
-            string query = @"SELECT  ApplicationStatus FROM  Applications
-                        SELECT SCOPE_IDENTITY();";
-
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeId);
-
+            command.Parameters.AddWithValue("@applicationId", applicationId);
+            command.Parameters.AddWithValue("@newStatus", newStatus);
+            command.Parameters.AddWithValue("@lastStatusDate", DateTime.Now);
             try
             {
-                conn.Open();
-                object result = cmd.ExecuteScalar();
-
-                if (result != null && int.TryParse(result.ToString(), out int returnedId))
-                {
-                    activeApplicationId = returnedId;
-                }
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
             finally
             {
-                conn.Close();
+                connection.Close();
             }
 
-            return activeApplicationId;
+            return (rowsAffected > 0);
+        }
+
+        public static bool GetApplicationByIdData(int applicationId, ref int applicantPersonId, ref DateTime applicationDate, ref int applicationTypeId,
+                                                     ref byte applicationStatus, ref DateTime lastStatusDate, ref float paidFees, ref int createdByUserId)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", applicationId);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+                    // The record was found
+                    isFound = true;
+
+                    applicantPersonId = (int)reader["ApplicantPersonID"];
+                    applicationDate = (DateTime)reader["ApplicationDate"];
+                    applicationTypeId = (int)reader["ApplicationTypeID"];
+                    applicationStatus = (byte)reader["ApplicationStatus"];
+                    lastStatusDate = (DateTime)reader["LastStatusDate"];
+                    paidFees = Convert.ToSingle(reader["PaidFees"]);
+                    createdByUserId = (int)reader["CreatedByUserID"];
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
         }
     }
 }
