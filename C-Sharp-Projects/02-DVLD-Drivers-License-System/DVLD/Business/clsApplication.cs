@@ -190,12 +190,12 @@ namespace Business
 
         public bool Cancel()
         {
-
+           return  clsApplicationData.UpdateStatus(this.ApplicationID, (byte)enApplicationStatus.Cancelled);
         }
 
-        public bool SetComplete()
+        public bool SetComplete(int applicationId)
         {
-
+            return clsApplicationData.UpdateStatus(this.ApplicationID, (byte)enApplicationStatus.Completed);
         }
 
 
