@@ -206,7 +206,7 @@ namespace DataAccess
                 conn.Close();
             }
 
-            return (rowsAffected  0);
+            return (rowsAffected > 0);
         }
 
 

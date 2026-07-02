@@ -13,7 +13,7 @@ namespace DVLD_2_my.Applications
 {
     public partial class frmListLocalDrivingLicenseApplications : Form
     {
-        DataTable _AllApplicationsInfo;
+        //DataTable _AllApplicationsInfo;
 
 
         public frmListLocalDrivingLicenseApplications()
@@ -24,8 +24,8 @@ namespace DVLD_2_my.Applications
         private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
             cbFilterBy.SelectedIndex = 0;
-            _AllApplicationsInfo = clsApplication.GetAllApplicationsInfo();
-            dgvLocalDrivingLicenseApplications.DataSource = _AllApplicationsInfo;
+            //_AllApplicationsInfo = clsApplication.
+            //dgvLocalDrivingLicenseApplications.DataSource = _AllApplicationsInfo;
 
             
         }

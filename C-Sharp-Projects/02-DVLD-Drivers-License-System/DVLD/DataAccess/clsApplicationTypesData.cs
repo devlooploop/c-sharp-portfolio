@@ -114,7 +114,6 @@ namespace DataAccess
             { connection.Close(); }
 
             return isFound;
-
         }
 
         public static bool UpdateTestTypeData(int appID, string appTitle, float appFees)
@@ -147,8 +146,6 @@ namespace DataAccess
 
             return (rowAffected > 0);
         }
-
-
 
     }
 }

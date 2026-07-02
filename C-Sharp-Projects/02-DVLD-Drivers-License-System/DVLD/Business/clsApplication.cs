@@ -24,6 +24,8 @@ namespace Business
 
         public int ApplicationID { get; set; }
         public int ApplicantPersonID { get; set; }
+        public clsPerson PersonInfo {  get; set; }
+
         public DateTime ApplicationDate { get; set; }
         
         public int ApplicationTypeID { get; set; }
@@ -84,6 +86,8 @@ namespace Business
         {
             this.ApplicationID = applicationId;
             this.ApplicantPersonID = applicantPersonId;
+            this.PersonInfo = clsPerson.Find(ApplicantPersonID);
+
             this.ApplicationDate = applicationDate;
             this.ApplicationTypeID = applicationTypeId;
             this.ApplicationStatus = applicationStatus;
