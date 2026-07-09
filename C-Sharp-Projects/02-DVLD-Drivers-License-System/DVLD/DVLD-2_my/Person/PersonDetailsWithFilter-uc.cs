@@ -33,11 +33,15 @@ namespace DVLD_2_my
 
         private bool _isGBFilterPersonEnabled = true;
 
-
         public bool DisableFilterPersonGroupBox
         {
             set { gbFilterPersonBy.Enabled = this._isGBFilterPersonEnabled; }
             get { return gbFilterPersonBy.Enabled = _isGBFilterPersonEnabled; }
+        }
+
+        public void FoucusTxtUc()
+        {
+            txtFilterPerson.Focus();
         }
 
         public PersonDetailsWithFilter_uc()

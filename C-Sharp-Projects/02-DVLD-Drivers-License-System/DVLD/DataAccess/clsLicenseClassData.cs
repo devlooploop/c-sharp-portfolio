@@ -23,7 +23,7 @@ namespace DataAccess
             {
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                if (reader.HasRows)
                 {
                     dt.Load(reader);
                 }
@@ -47,23 +47,25 @@ namespace DataAccess
                 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = @"SELECT ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees FROM LicenseClasses
-                              WHERE id = @ID";
+                              WHERE LicenseClassID = @Id";
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@Id", id);
 
             try
             {
+                conn.Open();
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     isFound = true;
 
-                    string name = (string)reader["Name"];
+                    string name = (string)reader["ClassName"];
                     string desiciption = (string)reader["ClassDescription"];
-                    string minAllowedAge = (string)reader["MinimumAllowedAge"];
-                    string validityLength = (string)reader["DefaultValidityLength"];
-                    string fees = (string)reader["ClassFees"];
+                    byte minAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    byte validityLength = (byte)reader["DefaultValidityLength"];
+                    float fees = (float)reader["ClassFees"];
                 }
             }
             catch (Exception)

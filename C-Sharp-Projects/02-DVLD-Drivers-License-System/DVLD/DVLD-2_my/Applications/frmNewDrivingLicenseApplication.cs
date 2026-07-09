@@ -36,13 +36,16 @@ namespace DVLD_2_my
 
         private void ResetDefaultValues()
         {
+            
+            FillLicenseClassesCBbox();
+
             btnSave.Enabled = false;
+            tpApplicationInfo.Enabled = false;
 
             lbl_DLApplicationID.Text = "[???]";
             tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpPersonal_Info"];
 
-            tpApplicationInfo.Enabled = false;
-            lblDate.Text = DateTime.Now.ToString();
+            lblDate.Text = DateTime.Now.ToShortDateString();
 
             cbxLicenseClass.SelectedIndex = 3;
             lbl_ApplicationFees.Text = clsApplicationTypes.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
@@ -59,15 +62,14 @@ namespace DVLD_2_my
             {
                 cbxLicenseClass.Items.Add(item["ClassName"]);
             }
-
         }
 
         private void LoadDataValues()
         {
-            FillLicenseClassesCBbox();
         
             if(mode == enMode.AddNew)
             {
+
                 btnSave.Enabled = false;
                 tpApplicationInfo.Enabled = false;
                 lbl_DLApplicationID.Text = "[???]";
@@ -77,6 +79,7 @@ namespace DVLD_2_my
 
                 cbxLicenseClass.SelectedIndex = cbxLicenseClass.FindString(cbxLicenseClass.Text);
                 clsLocalDrivingLicenseApplication newLocalDrivingLicenseApplication = new clsLocalDrivingLicenseApplication();
+        
             }
 
             if(mode == enMode.Update)
@@ -99,8 +102,7 @@ namespace DVLD_2_my
             lblDate.Text = DateTime.Now.ToString("dd/mm/yyyy");
             lbl_UserName.Text = clsGlobal.currentUser.UserName;
             lbl_ApplicationFees.Text = clsApplicationTypes.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
-
-
+        
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -110,25 +112,28 @@ namespace DVLD_2_my
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-           // LoadDataValues();
-            tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
-            btnNext.Hide();
 
-            if (mode == enMode.AddNew)
+            // personDetailsWithFilter_uc1.FoucusTxtUc();    
+
+            if (mode == enMode.Update || personDetailsWithFilter_uc1.PersonID != -1)
             {
-                ResetDefaultValues();
+                btnSave.Enabled = true;
+                tpApplicationInfo.Enabled = true;
+                tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
             }
-
-            if(mode == enMode.Update)
+            else
             {
-                LoadDataValues();
+                MessageBox.Show("Please select a person", "Select a person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
-        }
+            
+        } 
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             
+
+          
 
         }
 
@@ -139,6 +144,7 @@ namespace DVLD_2_my
             if(mode == enMode.Update) 
                 LoadDataValues();
         }
-
+       
     }
+
 }

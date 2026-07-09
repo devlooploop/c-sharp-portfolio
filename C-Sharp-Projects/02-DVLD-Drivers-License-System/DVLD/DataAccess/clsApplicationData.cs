@@ -11,9 +11,10 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace DataAccess
 {
+
     public class clsApplicationData
     {
-        public static bool GetApplicationInfoBuIdData(int applicationId, ref int applicantPersonId, ref DateTime applicationDate, ref int applicationTypeId,
+        public static bool GetApplicationInfoBuyIdData(int applicationId, ref int applicantPersonId, ref DateTime applicationDate, ref int applicationTypeId,
                                                      ref byte applicationStatus, ref DateTime lastStatusDate, ref float paidFees, ref int createdByUserId)
         {
             bool isFound = false;
@@ -60,7 +61,7 @@ namespace DataAccess
             return isFound;
         }
 
-        public static DataTable GetAllApplicationsData()
+        public static DataTable GetAllApplicationsInfoData()
         {
 
             DataTable dt = new DataTable();
@@ -415,4 +416,5 @@ namespace DataAccess
             return isFound;
         }
     }
+
 }
