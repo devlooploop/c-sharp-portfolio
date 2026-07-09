@@ -8,62 +8,6 @@ namespace DataAccess
     public class clsPersonDataAccess
     {
 
-        private const string SelectQuery = @"SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
-                                                     DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath  
-                                            FROM    People WHERE PersonID = @PersonID";
-
-        private const string SelectQueryNationalNo = @"SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
-                                                     DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath  
-                                            FROM    People WHERE NationalNo = @NationalNo";
-
-
-        private const string InsertQuery = @"INSERT INTO People (NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, Address, DateOfBirth, 
-                                                        Phone, Email, NationalityCountryID, ImagePath)
-                                            VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @Gender, @Address, @DateOfBirth, 
-                                                    @Phone, @Email, @NationalityCountryID, @ImagePath);
-                                            SELECT SCOPE_IDENTITY();";
-
-        private const string UpdateQuery = @"Update  People  
-                        SET NationalNo = @NationalNo, 
-                            FirstName = @FirstName, 
-                            SecondName = @SecondName, 
-                            ThirdName = @ThirdName, 
-                            LastName = @LastName, 
-                            Gender = @Gender, 
-                            Address = @Address, 
-                            DateOfBirth = @DateOfBirth, 
-                            Phone = @Phone, 
-                            Email = @Email, 
-                            NationalityCountryID = @NationalityCountryID, 
-                            ImagePath = @ImagePath
-                            
-                            WHERE PersonID = @PersonID";
-
-        private const string AllPeopleQuery = "SELECT * FROM People";
-
-        private const string DeletePersonQuery = @"DELETE People WHERE PersonID = @PersonID";
-
-        private const string NationalNoExistsQuery = "SELECT Found=1 FROM People WHERE NationalNo = @NationalNo";
-
-        private const string SelectByNationalNoQuery = @"SELECT * FROM People WHERE NationalNo = @NationalNo";
-
-        private const string QueryGetAllPeopleWithDetails = @"SELECT People.PersonID, People.NationalNo,
-                                 People.FirstName, People.SecondName, People.ThirdName, People.LastName,
-			                     People.DateOfBirth, People.Gender,  
-				                    CASE
-                                    WHEN People.Gender = 0 THEN 'Male'
-
-                                    ELSE 'Female'
-
-                                    END as GenderCaption ,
-			                    People.Address, People.Phone, People.Email, 
-                                People.NationalityCountryID, Countries.CountryName, People.ImagePath
-                                FROM            People INNER JOIN
-                                Countries ON People.NationalityCountryID = Countries.CountryID
-                                ORDER BY People.FirstName";
-
-
-        // ====================== Get Person ======================
         public static bool GetPersonInfoByID(int PersonID, ref string NationalNo, ref string FirstName,
             ref string SecondName, ref string ThirdName,
             ref string LastName, ref DateTime DateOfBirth, ref short Gender, ref string Address, ref string Phone,
@@ -73,7 +17,10 @@ namespace DataAccess
 
             SqlConnection SqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            SqlCommand command = new SqlCommand(SelectQuery, SqlConnection);
+            string query = @"SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
+                                                     DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath  
+                                            FROM    People WHERE PersonID = @PersonID";
+        SqlCommand command = new SqlCommand(query, SqlConnection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
@@ -142,6 +89,12 @@ namespace DataAccess
             //this function will return the new Person id if succeeded and -1 if not.
             int PersonID = -1;
 
+            string InsertQuery = @"INSERT INTO People (NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, Address, DateOfBirth, 
+                                                        Phone, Email, NationalityCountryID, ImagePath)
+                                            VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @Gender, @Address, @DateOfBirth, 
+                                                    @Phone, @Email, @NationalityCountryID, @ImagePath);
+                                            SELECT SCOPE_IDENTITY();";
+
             SqlConnection SqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             SqlCommand command = new SqlCommand(InsertQuery, SqlConnection);
@@ -202,8 +155,23 @@ namespace DataAccess
         {
 
             int rowsAffected = 0;
+            string UpdateQuery = @"Update  People  
+                        SET NationalNo = @NationalNo, 
+                            FirstName = @FirstName, 
+                            SecondName = @SecondName, 
+                            ThirdName = @ThirdName, 
+                            LastName = @LastName, 
+                            Gender = @Gender, 
+                            Address = @Address, 
+                            DateOfBirth = @DateOfBirth, 
+                            Phone = @Phone, 
+                            Email = @Email, 
+                            NationalityCountryID = @NationalityCountryID, 
+                            ImagePath = @ImagePath
+                            
+                            WHERE PersonID = @PersonID";
 
-            SqlConnection SqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+        SqlConnection SqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(UpdateQuery, SqlConnection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -254,9 +222,20 @@ namespace DataAccess
         public static DataTable GetAllPeople()
         {
             DataTable dt = new DataTable();
-
+            string query = @"SELECT People.PersonID, People.NationalNo,
+                                 People.FirstName, People.SecondName, People.ThirdName, People.LastName,
+			                     People.DateOfBirth, People.Gender,  
+				                    CASE
+                                    WHEN People.Gender = 0 THEN 'Male'
+                                    ELSE 'Female'
+                                    END as GenderCaption ,
+			                    People.Address, People.Phone, People.Email, 
+                                People.NationalityCountryID, Countries.CountryName, People.ImagePath
+                                FROM            People INNER JOIN
+                                Countries ON People.NationalityCountryID = Countries.CountryID
+                                ORDER BY People.FirstName";
             SqlConnection SqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            SqlCommand command = new SqlCommand(QueryGetAllPeopleWithDetails, SqlConnection);
+            SqlCommand command = new SqlCommand(query, SqlConnection);
 
             try
             {
@@ -286,6 +265,8 @@ namespace DataAccess
         public static bool DeletePerson(int PersonID)
         {
             int rowsAffected = 0;
+
+            string DeletePersonQuery = @"DELETE People WHERE PersonID = @PersonID";
 
             SqlConnection SqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(DeletePersonQuery, SqlConnection);
