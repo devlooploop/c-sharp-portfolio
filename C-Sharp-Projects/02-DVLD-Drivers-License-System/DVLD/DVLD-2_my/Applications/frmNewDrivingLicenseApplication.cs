@@ -132,7 +132,7 @@ namespace DVLD_2_my
         private void btnSave_Click(object sender, EventArgs e)
         {
             
-
+            // save from cntrl to obj !
           
 
         }

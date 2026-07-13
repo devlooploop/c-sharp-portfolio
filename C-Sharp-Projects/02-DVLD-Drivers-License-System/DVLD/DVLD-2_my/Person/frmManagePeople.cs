@@ -15,7 +15,7 @@ namespace DVLD_2_my
                                                         "FirstName", "SecondName", "ThirdName", "LastName",
                                                         "GenderCaption", "DateOfBirth", "CountryName",
                                                         "Phone", "Email");
-        //----  //----
+        //----  
         private void _RefreshPeopleData()
         {
             _AllPeopleData = clsPerson.GetAllPeople();
@@ -32,7 +32,6 @@ namespace DVLD_2_my
         {
             InitializeComponent();
         }
-
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
