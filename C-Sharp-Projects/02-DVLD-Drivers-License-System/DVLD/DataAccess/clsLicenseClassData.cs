@@ -41,12 +41,13 @@ namespace DataAccess
             return dt;
         }
 
-        public static bool FindByID(int id)
+        public static bool GetLicenseClassInfoByIdData(int id, ref string className, ref string description,
+                       ref byte minAllowedAge,ref byte defaultValidatyLength, ref float fees)
         {
             bool isFound = false;    
                 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"SELECT ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees FROM LicenseClasses
+            string query = @"SELECT * FROM LicenseClasses
                               WHERE LicenseClassID = @Id";
 
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -61,11 +62,50 @@ namespace DataAccess
                 {
                     isFound = true;
 
-                    string name = (string)reader["ClassName"];
-                    string desiciption = (string)reader["ClassDescription"];
-                    byte minAllowedAge = (byte)reader["MinimumAllowedAge"];
-                    byte validityLength = (byte)reader["DefaultValidityLength"];
-                    float fees = (float)reader["ClassFees"];
+                    className = (string)reader["ClassName"];
+                    description = (string)reader["ClassDescription"];
+                   minAllowedAge = (byte)reader["MinimumAllowedAge"];
+                   defaultValidatyLength = (byte)reader["DefaultValidityLength"];
+                   fees = Convert.ToSingle(reader["ClassFees"]);
+                }
+            }
+            catch (Exception)
+            {
+                isFound = false;
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isFound;
+        }
+        public static bool GetLicenseClassInfoByNameData(ref int id, string className, ref string description,
+                       ref byte minAllowedAge, ref byte defaultValidatyLength, ref float fees)
+        {
+            bool isFound = false;    
+                
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT * FROM LicenseClasses
+                              WHERE ClassName = @className";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@className", className);
+
+            try
+            {
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    id = (int)reader["LicenseClassID"];
+                    description = (string)reader["ClassDescription"];
+                    minAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    defaultValidatyLength = (byte)reader["DefaultValidityLength"];
+                    fees = Convert.ToSingle(reader["ClassFees"]);
                 }
             }
             catch (Exception)

@@ -131,9 +131,18 @@ namespace DVLD_2_my
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
-            // save from cntrl to obj !
-          
+            clsLicenseClass LicenseClass = clsLicenseClass.FindByName(cbxLicenseClass.Text);
+            int LicesensClassTypeId = LicenseClass.ID;
+
+           // int appId = clsApplication.GetActiveApplicationID(personDetailsWithFilter_uc1.FoucusTxtUc,);
+            int selectedPersonId = personDetailsWithFilter_uc1.PersonID;
+
+            // Check for active application
+
+            if (clsApplication.DoesPersonHaveActiveApplication(selectedPersonId, LicesensClassTypeId))
+            {
+                MessageBox.Show("Person have already an application","Please select another Type",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
 
         }
 

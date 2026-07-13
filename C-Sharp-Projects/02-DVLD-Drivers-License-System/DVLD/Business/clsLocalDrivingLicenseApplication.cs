@@ -37,8 +37,7 @@ namespace Business
             ApplicationInfo = clsApplication.FindBaseApplicationByID(this.ApplicationId);
             LicenseClassInfo = clsLicenseClass.FindByID(this.LicenseClassId);
         }
-
-        
+                
         public static DataTable GetLocalDrivingLicenseApplicationInfo()
         {
             // int localDrivingLicenseApplicationId = -1; int applicationId = -1; int licenseClassId = -1;
