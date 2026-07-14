@@ -134,15 +134,16 @@ namespace DVLD_2_my
             clsLicenseClass LicenseClass = clsLicenseClass.FindByName(cbxLicenseClass.Text);
             int LicesensClassTypeId = LicenseClass.ID;
 
-           // int appId = clsApplication.GetActiveApplicationID(personDetailsWithFilter_uc1.FoucusTxtUc,);
             int selectedPersonId = personDetailsWithFilter_uc1.PersonID;
 
-            // Check for active application
+            clsApplication.GetActiveApplicationIDForLicenseClass(selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,
+                LicesensClassTypeId); www
 
-            if (clsApplication.DoesPersonHaveActiveApplication(selectedPersonId, LicesensClassTypeId))
-            {
-                MessageBox.Show("Person have already an application","Please select another Type",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
+            /* if (BaseApplication != null)
+             {
+                 MessageBox.Show("Person have already an application","Please select another Type",
+                     MessageBoxButtons.OK,MessageBoxIcon.Warning);
+             } */
 
         }
 
