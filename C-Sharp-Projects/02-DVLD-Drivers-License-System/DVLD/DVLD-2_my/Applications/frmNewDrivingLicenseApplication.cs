@@ -136,25 +136,27 @@ namespace DVLD_2_my
 
             int selectedPersonId = personDetailsWithFilter_uc1.PersonID;
 
-            int ActiveApplicationID = 
+            int ActiveApplicationID =   
                 clsApplication.GetActiveApplicationIDForLicenseClass
-                (selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId); 
+                (selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
 
-             if (ActiveApplicationID != -1)
+            // ++++ fix ActiveApplicationID = -1 +++*****
+            if (ActiveApplicationID != -1) // +++ we can get the personId from event ***
              {
                  MessageBox.Show("Person already have an application with the same driving license type "
                      + "please select another driving license class", 
                      "Not allowed ",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
+                 return;
              }
 
-            if (personDetailsWithFilter_uc1.PersonID != -1)
+            if (personDetailsWithFilter_uc1.PersonID != -1) 
             {
                 MessageBox.Show($"Choose another license class, the selected Person already have " +
                     $"an active application for the selected class with id:{ActiveApplicationID} please select another driving license class",
                     "Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                //return;
             }
+
 
 
         }
