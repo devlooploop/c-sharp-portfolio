@@ -292,14 +292,14 @@ namespace DataAccess
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT ActiveApplicationID=Applications.ApplicationID  
+            string query = @"SELECT ActiveApplicationID = Applications.ApplicationID  
                             From
                             Applications INNER JOIN
                             LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
                             WHERE ApplicantPersonID = @ApplicantPersonID 
-                            AND ApplicationTypeID=@ApplicationTypeID 
+                            AND ApplicationTypeID = @ApplicationTypeID 
 							AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
-                            AND ApplicationStatus=1";
+                            AND ApplicationStatus = 1";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ApplicantPersonID", personId);

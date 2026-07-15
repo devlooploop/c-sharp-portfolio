@@ -136,14 +136,16 @@ namespace DVLD_2_my
 
             int selectedPersonId = personDetailsWithFilter_uc1.PersonID;
 
-            clsApplication.GetActiveApplicationIDForLicenseClass(selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,
-                LicesensClassTypeId); www
+            int ActiveApplicationID = clsApplication.GetActiveApplicationIDForLicenseClass(selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,
+                LicesensClassTypeId); 
 
-            /* if (BaseApplication != null)
+             if (ActiveApplicationID != -1)
              {
-                 MessageBox.Show("Person have already an application","Please select another Type",
+                 MessageBox.Show("Person have already an application " + $"with id [{ActiveApplicationID}]", "Please select another Type",
                      MessageBoxButtons.OK,MessageBoxIcon.Warning);
-             } */
+             }
+
+
 
         }
 
