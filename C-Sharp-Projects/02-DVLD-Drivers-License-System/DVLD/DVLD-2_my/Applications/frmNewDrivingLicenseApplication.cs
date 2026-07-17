@@ -125,40 +125,38 @@ namespace DVLD_2_my
             {
                 MessageBox.Show("Please select a person", "Select a person", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
+            }                                            
             
         } 
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            clsLicenseClass LicenseClass = clsLicenseClass.FindByName(cbxLicenseClass.Text);
-            int LicesensClassTypeId = LicenseClass.ID;
+            int LicesensClassTypeId = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
+            //int LicesensClassTypeId = LicenseClass.ID;
 
             int selectedPersonId = personDetailsWithFilter_uc1.PersonID;
-
+            
             int ActiveApplicationID =   
                 clsApplication.GetActiveApplicationIDForLicenseClass
                 (selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
 
-            // ++++ fix ActiveApplicationID = -1 +++*****
-            if (ActiveApplicationID != -1) // +++ we can get the personId from event ***
-             {
-                 MessageBox.Show("Person already have an application with the same driving license type "
-                     + "please select another driving license class", 
-                     "Not allowed ",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                 return;
-             }
-
-            if (personDetailsWithFilter_uc1.PersonID != -1) 
+            
+            if (ActiveApplicationID != -1) 
             {
-                MessageBox.Show($"Choose another license class, the selected Person already have " +
-                    $"an active application for the selected class with id:{ActiveApplicationID} please select another driving license class",
-                    "Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //return;
+                 MessageBox.Show($"The selected person already have an application with the same class id:{ActiveApplicationID}"
+                     , "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                 return;
+            }
+                                                     
+            if (personDetailsWithFilter_uc1.PersonID != -1)  // ++++ here ActiveApplicationID = -1 ?? +++
+            {
+                MessageBox.Show($"The selected Person already have " +
+                    "same applied driving class, please select diffrent driving class",
+                    "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-
-
+            // +++ we can get the personId from event ++onPersonSelected++ ***
         }
 
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
