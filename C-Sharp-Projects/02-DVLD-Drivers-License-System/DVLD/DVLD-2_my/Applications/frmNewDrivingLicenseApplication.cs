@@ -159,11 +159,10 @@ namespace DVLD_2_my
             }
 
           
-            _localDrivingLicenseApplication. Save from controls = objct;
+            _localDrivingLicenseApplication.PersonInfo.NationalNo =  
+                personDetailsWithFilter_uc1.
 
-            this.personDetailsWithFilter_uc1.
-
-             National No
+// NationalNo
 Gender
 Email
 Edit Person Info

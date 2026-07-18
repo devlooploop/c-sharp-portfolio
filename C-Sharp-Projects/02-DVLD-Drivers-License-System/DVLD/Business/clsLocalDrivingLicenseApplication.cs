@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using DataAccess;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Business
@@ -28,11 +29,15 @@ namespace Business
             LicenseClassId = -1;
         }
 
-        public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId)
+        public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
+            int applicantPersonId, DateTime applicationDate, int applicationTypeId, byte applicationStatus, DateTime lastStatusDate, 
+            float paidFees, string createdByUserId)
         {
             this.LocalDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
             this.ApplicationId = applicationId;
             this.LicenseClassId = licenseClassId;
+
+            applicantPersonId 
 
             ApplicationInfo = clsApplication.FindBaseApplicationByID(this.ApplicationId);
             LicenseClassInfo = clsLicenseClass.FindByID(this.LicenseClassId);
