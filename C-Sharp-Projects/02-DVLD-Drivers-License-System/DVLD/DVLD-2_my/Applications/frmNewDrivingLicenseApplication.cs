@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
-using Business;
 
 
 namespace DVLD_2_my
@@ -18,8 +19,11 @@ namespace DVLD_2_my
         public enum enMode { AddNew = 0, Update = 1 }
         public enMode mode = enMode.AddNew;
 
-        private int _localDrivingLicesnseApplicationId = -1;
         private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
+        private int _localDrivingLicesnseApplicationId = -1;
+
+        private int _selectedPersonId = -1; 
+        
 
         public frmAddUpdateLocalDrivingLicesnseApplication()
         {
@@ -132,13 +136,11 @@ namespace DVLD_2_my
         private void btnSave_Click(object sender, EventArgs e)
         {
             int LicesensClassTypeId = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
-            //int LicesensClassTypeId = LicenseClass.ID;
 
-            int selectedPersonId = personDetailsWithFilter_uc1.PersonID;
-            
+
             int ActiveApplicationID =   
                 clsApplication.GetActiveApplicationIDForLicenseClass
-                (selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
+                (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
 
             
             if (ActiveApplicationID != -1) 
@@ -148,7 +150,7 @@ namespace DVLD_2_my
                  return;
             }
                                                      
-            if (personDetailsWithFilter_uc1.PersonID != -1)  // ++++ here ActiveApplicationID = -1 ?? +++
+            if (personDetailsWithFilter_uc1.PersonID != -1)  
             {
                 MessageBox.Show($"The selected Person already have " +
                     "same applied driving class, please select diffrent driving class",
@@ -156,7 +158,25 @@ namespace DVLD_2_my
                 return;
             }
 
-            // +++ we can get the personId from event ++onPersonSelected++ ***
+          
+            _localDrivingLicenseApplication. Save from controls = objct;
+
+            this.personDetailsWithFilter_uc1.
+
+             National No
+Gender
+Email
+Edit Person Info
+Date OF Birth
+Phone
+Country
+Address
+Date OF Birth
+Phone
+Country
+
+
+
         }
 
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
@@ -166,7 +186,11 @@ namespace DVLD_2_my
             if(mode == enMode.Update) 
                 LoadDataValues();
         }
-       
+
+        private void personDetailsWithFilter_uc1_OnPersonSelected(int obj)
+        {
+            _selectedPersonId = obj;
+        }
     }
 
 }

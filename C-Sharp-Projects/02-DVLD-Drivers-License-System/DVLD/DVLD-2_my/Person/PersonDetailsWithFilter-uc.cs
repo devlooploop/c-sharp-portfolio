@@ -68,8 +68,8 @@ namespace DVLD_2_my
 
             if (string.IsNullOrEmpty(txtFilterPerson.Text))
             {
-                MessageBox.Show("Please enter search value.", "Missing Data",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a search value.", "Missing Data",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
