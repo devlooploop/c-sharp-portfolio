@@ -37,8 +37,6 @@ namespace Business
             this.ApplicationId = applicationId;
             this.LicenseClassId = licenseClassId;
 
-            applicantPersonId 
-
             ApplicationInfo = clsApplication.FindBaseApplicationByID(this.ApplicationId);
             LicenseClassInfo = clsLicenseClass.FindByID(this.LicenseClassId);
         }

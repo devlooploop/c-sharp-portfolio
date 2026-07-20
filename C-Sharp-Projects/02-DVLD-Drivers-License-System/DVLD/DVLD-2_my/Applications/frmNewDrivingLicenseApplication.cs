@@ -97,9 +97,7 @@ namespace DVLD_2_my
 
                 cbxLicenseClass.SelectedIndex = cbxLicenseClass.FindString(cbxLicenseClass.Text);
                 
-                clsLocalDrivingLicenseApplication newLocalDrivingLicenseApplication = new
-                    clsLocalDrivingLicenseApplication(this._localDrivingLicesnseApplicationId, this._localDrivingLicenseApplication.ApplicationID,
-                        this._localDrivingLicenseApplication.LicenseClassId);
+                clsLocalDrivingLicenseApplication newLocalDrivingLicenseApplication = new clsLocalDrivingLicenseApplication(this._localDrivingLicesnseApplicationId, this._localDrivingLicenseApplication.ApplicationID, this._localDrivingLicenseApplication.LicenseClassId);
 
             }
 
@@ -158,21 +156,14 @@ namespace DVLD_2_my
                 return;
             }
 
-          
-            _localDrivingLicenseApplication.PersonInfo.NationalNo =  
-                personDetailsWithFilter_uc1.
 
-// NationalNo
-Gender
-Email
-Edit Person Info
-Date OF Birth
-Phone
-Country
-Address
-Date OF Birth
-Phone
-Country
+            _localDrivingLicenseApplication.ApplicantPersonID = personDetailsWithFilter_uc1.PersonID;
+            _localDrivingLicenseApplication;
+            _localDrivingLicenseApplication;
+            _localDrivingLicenseApplication;
+            _localDrivingLicenseApplication;
+            _localDrivingLicenseApplication;
+
 
 
 
