@@ -31,14 +31,19 @@ namespace Business
 
         public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
             int applicantPersonId, DateTime applicationDate, int applicationTypeId, byte applicationStatus, DateTime lastStatusDate, 
-            float paidFees, string createdByUserId)
+            float paidFees, int createdByUserId)
         {
             this.LocalDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
             this.ApplicationId = applicationId;
             this.LicenseClassId = licenseClassId;
+            this.ApplicationInfo.ApplicantPersonID = applicantPersonId;
+            this.ApplicationInfo.ApplicationDate = applicationDate;
+            this.ApplicationInfo.ApplicationTypeID = applicationTypeId;
+            this.ApplicationInfo.ApplicationStatus = (clsApplication.enApplicationStatus)applicationStatus;
+            this.ApplicationInfo.LastStatusDate = lastStatusDate;
+            this.ApplicationInfo.PaidFees = paidFees;
+            this.ApplicationInfo.CreatedByUserID = createdByUserId;
 
-            ApplicationInfo = clsApplication.FindBaseApplicationByID(this.ApplicationId);
-            LicenseClassInfo = clsLicenseClass.FindByID(this.LicenseClassId);
         }
                 
         public static DataTable GetLocalDrivingLicenseApplicationInfo()

@@ -24,7 +24,6 @@ namespace DVLD_2_my
 
         private int _selectedPersonId = -1; 
         
-
         public frmAddUpdateLocalDrivingLicesnseApplication()
         {
             InitializeComponent();
@@ -96,8 +95,9 @@ namespace DVLD_2_my
                 tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
 
                 cbxLicenseClass.SelectedIndex = cbxLicenseClass.FindString(cbxLicenseClass.Text);
-                
-                clsLocalDrivingLicenseApplication newLocalDrivingLicenseApplication = new clsLocalDrivingLicenseApplication(this._localDrivingLicesnseApplicationId, this._localDrivingLicenseApplication.ApplicationID, this._localDrivingLicenseApplication.LicenseClassId);
+
+
+                _localDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindBaseApplicationByID(_localDrivingLicesnseApplicationId);
 
             }
 
@@ -140,7 +140,7 @@ namespace DVLD_2_my
                 clsApplication.GetActiveApplicationIDForLicenseClass
                 (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
 
-            
+    
             if (ActiveApplicationID != -1) 
             {
                  MessageBox.Show($"The selected person already have an application with the same class id:{ActiveApplicationID}"
@@ -163,8 +163,6 @@ namespace DVLD_2_my
             _localDrivingLicenseApplication;
             _localDrivingLicenseApplication;
             _localDrivingLicenseApplication;
-
-
 
 
         }
