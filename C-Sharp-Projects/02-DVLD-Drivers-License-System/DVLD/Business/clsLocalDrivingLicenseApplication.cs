@@ -45,7 +45,14 @@ namespace Business
             this.ApplicationInfo.CreatedByUserID = createdByUserId;
 
         }
-                
+
+        public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int LocalDrivingLicenseApplicationID)
+        {
+
+            ....
+        }
+
+
         public static DataTable GetLocalDrivingLicenseApplicationInfo()
         {
             // int localDrivingLicenseApplicationId = -1; int applicationId = -1; int licenseClassId = -1;

@@ -97,6 +97,7 @@ namespace Business
 
             this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationId);
             this.createdByUserInfo = clsUser.FindByUserID(CreatedByUserID);
+           
             mode = enMode.Update;
         }
 
