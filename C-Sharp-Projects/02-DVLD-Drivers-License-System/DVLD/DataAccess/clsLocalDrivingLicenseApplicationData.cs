@@ -67,17 +67,18 @@ namespace DataAccess
             
             string query = @"SELECT LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, LocalDrivingLicenseApplications.ApplicationID, 
 		                        LocalDrivingLicenseApplications.LicenseClassID ,Applications.ApplicationID, Applications.ApplicantPersonID, 
-		                        Applications.ApplicationDate, Applications.ApplicationTypeID, Applications.ApplicationStatus, Applications.LastStatusDate,
-                                Applications.PaidFees, Applications.CreatedByUserID 
-        FROM Applications 
-			INNER JOIN  LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
-			WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+		                        Applications.ApplicationDate, Applications.ApplicationTypeID, Applications.ApplicationStatus, 
+                                Applications.LastStatusDate,Applications.PaidFees, Applications.CreatedByUserID 
+                            FROM Applications   
+			                INNER JOIN LocalDrivingLicenseApplications 
+                            ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+			                WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
-            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", applicationId);
-            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
-            
+            // cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", applicationId);
+            // cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
+
             bool isFound = false;
             try
             {
@@ -91,6 +92,7 @@ namespace DataAccess
                     localDrivingLicenseApplicationId = (int)reader["LocalDrivingLicenseApplicationID"];
                     applicationId = (int)reader["ApplicationID"];
                     licenseClassId = (int)reader["LicenseClassID"];
+                
                 }
 
                 reader.Close();
@@ -107,7 +109,6 @@ namespace DataAccess
 
             return isFound;
         }
-
 
         public static bool AddNewData()
         {

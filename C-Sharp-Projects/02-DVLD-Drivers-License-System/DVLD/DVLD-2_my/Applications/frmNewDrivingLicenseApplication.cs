@@ -117,6 +117,7 @@ namespace DVLD_2_my
         {
 
             // personDetailsWithFilter_uc1.FoucusTxtUc();    
+            fix needed here !
 
             if (mode == enMode.Update || personDetailsWithFilter_uc1.PersonID != -1)
             {
@@ -164,7 +165,6 @@ namespace DVLD_2_my
             _localDrivingLicenseApplication.LastStatusDate = DateTime.Now;
             _localDrivingLicenseApplication.PaidFees = Convert.ToSingle(lbl_ApplicationFees);
             _localDrivingLicenseApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
-
 
         }
 
