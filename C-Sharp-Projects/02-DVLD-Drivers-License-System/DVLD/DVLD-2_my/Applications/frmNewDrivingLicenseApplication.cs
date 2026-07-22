@@ -69,7 +69,7 @@ namespace DVLD_2_my
 
         private void LoadDataValues()
         {
-            www 
+            
             _localDrivingLicenseApplication =
                     clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
 
@@ -103,7 +103,8 @@ namespace DVLD_2_my
 
             lblDate.Text = DateTime.Now.ToString("dd/mm/yyyy");
             lbl_UserName.Text = clsGlobal.currentUser.UserName;
-            lbl_ApplicationFees.Text = clsApplicationTypes.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
+            lbl_ApplicationFees.Text = 
+                clsApplicationTypes.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
         
         }
 
@@ -155,7 +156,6 @@ namespace DVLD_2_my
                     "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
 
             _localDrivingLicenseApplication.ApplicantPersonID = personDetailsWithFilter_uc1.PersonID;
             _localDrivingLicenseApplication.ApplicationDate = DateTime.Now;

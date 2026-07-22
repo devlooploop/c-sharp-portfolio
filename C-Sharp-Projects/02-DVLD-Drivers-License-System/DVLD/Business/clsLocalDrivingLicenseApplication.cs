@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Business.clsApplication;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -46,10 +47,25 @@ namespace Business
 
         }
 
-        public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int LocalDrivingLicenseApplicationID)
+        public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int localDrivingLicenseApplicationId)
         {
+            int applicationId = -1; int licenseClassId = -1;
+            int applicantPersonId = -1;
+            DateTime applicationDate = DateTime.Now; int applicationTypeId = -1; byte applicationStatus = 1; DateTime lastStatusDate = DateTime.Now; 
+            float paidFees = 0; int createdByUserId = -1; 
 
-            ....
+            if (clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseApplicationId, ref applicationId,
+            ref licenseClassId))
+            {
+                return new clsLocalDrivingLicenseApplication(localDrivingLicenseApplicationId, applicationId, licenseClassId,applicantPersonId, 
+                    applicationDate, applicationTypeId, applicationStatus, lastStatusDate,paidFees, createdByUserId);
+            }
+            else
+            {
+                return null; 
+            }
+
+
         }
 
 

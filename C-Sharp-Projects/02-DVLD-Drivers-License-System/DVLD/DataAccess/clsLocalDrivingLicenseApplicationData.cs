@@ -59,6 +59,56 @@ namespace DataAccess
 
         }
 
+        public static bool GetLocalDrivingLicenseApplicationInfoByIdData(int localDrivingLicenseApplicationId, ref int applicationId,
+            ref int licenseClassId)
+        {
+            
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            
+            string query = @"SELECT LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, LocalDrivingLicenseApplications.ApplicationID, 
+		                        LocalDrivingLicenseApplications.LicenseClassID ,Applications.ApplicationID, Applications.ApplicantPersonID, 
+		                        Applications.ApplicationDate, Applications.ApplicationTypeID, Applications.ApplicationStatus, Applications.LastStatusDate,
+                                Applications.PaidFees, Applications.CreatedByUserID 
+        FROM Applications 
+			INNER JOIN  LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+			WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", applicationId);
+            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
+            
+            bool isFound = false;
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    localDrivingLicenseApplicationId = (int)reader["LocalDrivingLicenseApplicationID"];
+                    applicationId = (int)reader["ApplicationID"];
+                    licenseClassId = (int)reader["LicenseClassID"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
+
         public static bool AddNewData()
         {
             int rowsAffected = 0;
@@ -146,6 +196,7 @@ namespace DataAccess
             return (rowsAffected > 0);
         }
 
+    
     }
 
 }
