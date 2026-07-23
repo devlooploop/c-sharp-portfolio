@@ -79,7 +79,7 @@ namespace DVLD_2_my
             }
             else
             {
-                int person_ID = -1;
+                int person_ID = -1; // ?? 
                 if (int.TryParse(txtFilterPerson.Text, out person_ID))
                 {
                     if (clsPerson.IsPersonExists(person_ID))
@@ -107,7 +107,10 @@ namespace DVLD_2_my
             if (_personID != -1)
             {
                 personDetails_uc1.AllowLinkLabelEditPersonEnabled = true;
-                PersonSelected(_personID);
+                // PersonSelected(_personID);
+
+                OnPersonSelected(_personID); 
+            
             }
 
         }
@@ -159,6 +162,7 @@ namespace DVLD_2_my
         {
             LoadPersonInfo(personID);
         }
+
 
 
     }

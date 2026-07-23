@@ -120,7 +120,7 @@ namespace DVLD_2_my
             // personDetailsWithFilter_uc1.FoucusTxtUc();    
             
 
-            if (mode == enMode.Update && personDetailsWithFilter_uc1.PersonID != -1)
+            if (mode == enMode.AddNew && personDetailsWithFilter_uc1.PersonID == -1)
             {
                 
                 MessageBox.Show("Please select a person", "Select a person", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -147,7 +147,7 @@ namespace DVLD_2_my
     
             if (ActiveApplicationID != -1) 
             {
-                 MessageBox.Show($"The selected person already have an application with the same class id:{ActiveApplicationID}"
+                 MessageBox.Show($"The selected person already have an application with the same class id = {ActiveApplicationID}"
                      , "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                  return;
             }
