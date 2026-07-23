@@ -86,6 +86,7 @@ namespace DVLD_2_my
                 cbxLicenseClass.SelectedIndex = cbxLicenseClass.FindString(cbxLicenseClass.Text);
                 clsLocalDrivingLicenseApplication localDrivingLicenseApplication = new clsLocalDrivingLicenseApplication();
         
+
             }
 
             if(mode == enMode.Update)
@@ -117,18 +118,19 @@ namespace DVLD_2_my
         {
 
             // personDetailsWithFilter_uc1.FoucusTxtUc();    
-            fix needed here !
+            
 
-            if (mode == enMode.Update || personDetailsWithFilter_uc1.PersonID != -1)
+            if (mode == enMode.Update && personDetailsWithFilter_uc1.PersonID != -1)
+            {
+                
+                MessageBox.Show("Please select a person", "Select a person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
             {
                 btnSave.Enabled = true;
                 tpApplicationInfo.Enabled = true;
                 tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
-            }
-            else
-            {
-                MessageBox.Show("Please select a person", "Select a person", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }                                            
             
         } 
