@@ -20,7 +20,6 @@ namespace DVLD_2_my
             InitializeComponent();
         }
 
-
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
             Form frm = new frmManagePeople();

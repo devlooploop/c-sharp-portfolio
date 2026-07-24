@@ -319,7 +319,8 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw;
+                return activeApplicationId;
+                //throw;
             }
             finally
             {

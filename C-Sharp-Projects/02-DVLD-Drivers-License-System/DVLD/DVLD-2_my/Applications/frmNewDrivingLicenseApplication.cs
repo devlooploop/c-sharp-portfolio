@@ -73,6 +73,14 @@ namespace DVLD_2_my
             _localDrivingLicenseApplication =
                     clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
 
+            if( _localDrivingLicenseApplication == null )
+            {
+                MessageBox.Show("No Application with ID = " + _localDrivingLicesnseApplicationId, "Application Not Found",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+                return;
+            }
+
             if (mode == enMode.AddNew)
             {
 
@@ -91,9 +99,10 @@ namespace DVLD_2_my
 
             if(mode == enMode.Update)
             {
+                
                 btnSave.Enabled = true;
                 tpApplicationInfo.Enabled = true;
-                lbl_DLApplicationID.Text = "[???]";
+                lbl_DLApplicationID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
                 this.Text = "Update Local Driving License Application";
                 lblTitle.Text = "Update Local Driving License Application";
                 tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
@@ -119,7 +128,6 @@ namespace DVLD_2_my
 
             // personDetailsWithFilter_uc1.FoucusTxtUc();    
             
-
             if (mode == enMode.AddNew && personDetailsWithFilter_uc1.PersonID == -1)
             {
                 
@@ -144,22 +152,26 @@ namespace DVLD_2_my
                 clsApplication.GetActiveApplicationIDForLicenseClass
                 (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
 
-    
-            if (ActiveApplicationID != -1) 
-            {
-                 MessageBox.Show($"The selected person already have an application with the same class id = {ActiveApplicationID}"
-                     , "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                 return;
-            }
-                                                     
-            if (personDetailsWithFilter_uc1.PersonID != -1)  
-            {
-                MessageBox.Show($"The selected Person already have " +
-                    "same applied driving class, please select diffrent driving class",
-                    "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            /*
+                    if (ActiveApplicationID != -1) 
+                    {
 
+                        MessageBox.Show($"The selected person already have an application with the same class id = {ActiveApplicationID}"
+                             , "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                         return;
+                    }
+
+                    if (personDetailsWithFilter_uc1.PersonID != -1)  
+                    {
+                        MessageBox.Show($"The selected Person already have " +
+                            "same applied driving class, please select diffrent driving class",
+                            "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+            */
+
+
+            _localDrivingLicenseApplication.ApplicationID = ActiveApplicationID;
             _localDrivingLicenseApplication.ApplicantPersonID = personDetailsWithFilter_uc1.PersonID;
             _localDrivingLicenseApplication.ApplicationDate = DateTime.Now;
             _localDrivingLicenseApplication.ApplicationTypeID = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
@@ -167,6 +179,17 @@ namespace DVLD_2_my
             _localDrivingLicenseApplication.LastStatusDate = DateTime.Now;
             _localDrivingLicenseApplication.PaidFees = Convert.ToSingle(lbl_ApplicationFees);
             _localDrivingLicenseApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
+
+            if(_localDrivingLicenseApplication.Save())
+            {
+                MessageBox.Show("Local driving license application saved successfully",
+                    "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Local driving license application Not saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
