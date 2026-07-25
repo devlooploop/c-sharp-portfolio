@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business
 {
+
     public class clsLicenseClass
     {
        enum enIssueReason { FirstTime = 1, Renew = 2, ReplacementDamaged = 3, ReplacementLost = 4}

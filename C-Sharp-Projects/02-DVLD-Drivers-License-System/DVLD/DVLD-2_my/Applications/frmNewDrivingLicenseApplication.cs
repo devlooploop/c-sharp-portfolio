@@ -145,6 +145,7 @@ namespace DVLD_2_my
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             int LicesensClassTypeId = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
 
 
@@ -161,15 +162,13 @@ namespace DVLD_2_my
                 return;
             }
 
-            if (clsLicense.IsLicenseExistByPersonID(ctrlPersonCardWithFilter1.PersonID, LicenseClassID))
+            if (clsLicense.IsLicenseExistByPersonID(personDetailsWithFilter_uc1.PersonID, LicesensClassTypeId))
             {
                 MessageBox.Show($"The selected Person already have " +
                     "same applied driving class, please select diffrent driving class",
-                    "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-
 
             _localDrivingLicenseApplication.ApplicationID = ActiveApplicationID;
             

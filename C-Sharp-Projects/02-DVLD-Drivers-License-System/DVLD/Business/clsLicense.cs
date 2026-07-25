@@ -73,7 +73,11 @@ namespace Business
 
         }
 
-        Fix business & Data layer for clsLicense
+        public static bool IsLicenseExistByPersonID(int personId, int LicesensClassTypeId)
+        {
+            kkkkk
+            return true;
+        }
 
 
     }
