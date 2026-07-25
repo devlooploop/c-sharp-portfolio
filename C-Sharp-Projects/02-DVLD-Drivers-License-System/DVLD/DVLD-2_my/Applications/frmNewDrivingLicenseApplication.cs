@@ -152,26 +152,27 @@ namespace DVLD_2_my
                 clsApplication.GetActiveApplicationIDForLicenseClass
                 (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
 
-            /*
-                    if (ActiveApplicationID != -1) 
-                    {
 
-                        MessageBox.Show($"The selected person already have an application with the same class id = {ActiveApplicationID}"
-                             , "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                         return;
-                    }
+            if (ActiveApplicationID != -1)
+            {
 
-                    if (personDetailsWithFilter_uc1.PersonID != -1)  
-                    {
-                        MessageBox.Show($"The selected Person already have " +
-                            "same applied driving class, please select diffrent driving class",
-                            "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-            */
+                MessageBox.Show($"The selected person already have an application with the same class id = {ActiveApplicationID}"
+                     , "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (clsLicense.IsLicenseExistByPersonID(ctrlPersonCardWithFilter1.PersonID, LicenseClassID))
+            {
+                MessageBox.Show($"The selected Person already have " +
+                    "same applied driving class, please select diffrent driving class",
+                    "Action Not allowed ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
 
             _localDrivingLicenseApplication.ApplicationID = ActiveApplicationID;
+            
             _localDrivingLicenseApplication.ApplicantPersonID = personDetailsWithFilter_uc1.PersonID;
             _localDrivingLicenseApplication.ApplicationDate = DateTime.Now;
             _localDrivingLicenseApplication.ApplicationTypeID = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
@@ -189,7 +190,6 @@ namespace DVLD_2_my
             {
                 MessageBox.Show("Local driving license application Not saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
 
         }
 

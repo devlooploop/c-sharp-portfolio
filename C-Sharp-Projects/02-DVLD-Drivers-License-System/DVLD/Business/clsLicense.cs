@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
@@ -8,6 +9,7 @@ using DataAccess;
 
 namespace Business
 {
+
     public class clsLicense
     {
         public int License_ID { get; set; }
@@ -70,6 +72,9 @@ namespace Business
             }
 
         }
+
+        Fix business & Data layer for clsLicense
+
 
     }
 }
