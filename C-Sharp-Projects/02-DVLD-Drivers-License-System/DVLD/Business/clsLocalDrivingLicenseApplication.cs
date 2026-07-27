@@ -86,6 +86,11 @@ namespace Business
 
         public bool Save()
         {
+
+            if(!base.Save())
+                return !base.Save();
+      
+
             switch (mode)
             {
                 case enMode.AddNew:

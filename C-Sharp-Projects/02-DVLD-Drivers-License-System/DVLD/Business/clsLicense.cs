@@ -75,7 +75,7 @@ namespace Business
 
         public static bool IsLicenseExistByPersonID(int personId, int LicesensClassTypeId)
         {
-            kkkkk
+            
             return true;
         }
 
