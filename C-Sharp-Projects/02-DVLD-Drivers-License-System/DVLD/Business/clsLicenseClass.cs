@@ -14,7 +14,7 @@ namespace Business
        enum enIssueReason { FirstTime = 1, Renew = 2, ReplacementDamaged = 3, ReplacementLost = 4}
 
 
-       public int ID { get; private set; }
+       public int LicenseClassId { get; private set; }
 
        public string ClassName { get; set; }
 
@@ -32,7 +32,7 @@ namespace Business
 
        public clsLicenseClass() 
        {
-            this.ID = -1;
+            this.LicenseClassId = -1;
             this.ClassName = "";
             this.ClassDescription = "";
             this.MinimumAllowedAge = 18;
@@ -40,9 +40,9 @@ namespace Business
             this.Fees = 0;
        }
 
-       public clsLicenseClass(int id, string className, string classDescription, byte minAllowedAge=18, byte defaultValidatyLength=0, float fees=0) 
+       public clsLicenseClass(int licenseClassId, string className, string classDescription, byte minAllowedAge=18, byte defaultValidatyLength=0, float fees=0) 
        {
-            this.ID = id;
+            this.LicenseClassId = licenseClassId;
             this.ClassName = className;
             this.ClassDescription = classDescription;
             this.MinimumAllowedAge = minAllowedAge;
@@ -55,15 +55,15 @@ namespace Business
            return clsLicenseClassData.GetAllLicenseClassesData();
        }
 
-       public static clsLicenseClass FindByID(int id)
+       public static clsLicenseClass FindByID(int licenseClassId)
        {
             string className = ""; string description = ""; 
             byte minAllowedAge = 18; byte defaultValidatyLength = 0; float fees = 0;
 
-            if (clsLicenseClassData.GetLicenseClassInfoByIdData( id, ref className, ref description,
+            if (clsLicenseClassData.GetLicenseClassInfoByIdData( licenseClassId, ref className, ref description,
                        ref minAllowedAge, ref defaultValidatyLength, ref fees))
             {
-                return new clsLicenseClass(id, className, description, minAllowedAge, defaultValidatyLength, fees);
+                return new clsLicenseClass(licenseClassId, className, description, minAllowedAge, defaultValidatyLength, fees);
             }
             else
             {
@@ -74,12 +74,12 @@ namespace Business
 
        public static clsLicenseClass FindByName(string className)
        {
-            int id = -1; string classDescription = ""; byte minAllowedAge = 18; 
+            int licenseClassId = -1; string classDescription = ""; byte minAllowedAge = 18; 
             byte defaultValidatyLength = 0; float fees = 0;
 
-            if (clsLicenseClassData.GetLicenseClassInfoByNameData(ref id, className, ref classDescription, ref minAllowedAge, ref defaultValidatyLength, ref fees))
+            if (clsLicenseClassData.GetLicenseClassInfoByNameData(ref licenseClassId, className, ref classDescription, ref minAllowedAge, ref defaultValidatyLength, ref fees))
             {
-                return new clsLicenseClass(id, className, classDescription, minAllowedAge, defaultValidatyLength, fees);
+                return new clsLicenseClass(licenseClassId, className, classDescription, minAllowedAge, defaultValidatyLength, fees);
             }
             else
             {

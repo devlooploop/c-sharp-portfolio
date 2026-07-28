@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DataAccess
@@ -96,6 +97,40 @@ namespace DataAccess
         }
 
 
+        public static bool IsLicenseExistByPersonIdData(int personId, int licesensClassTypeId)
+        {
+
+            bool isFound = false;
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT isFound = 1 FROM Licenses 
+                              WHERE    Licenses.ApplicationID = @ApplicationId";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@ApplicationId", licesensClassTypeId);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if(reader.HasRows)
+                {
+                    isFound = reader.HasRows;
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception)
+            {
+                isFound =false; throw;
+            }
+            finally
+            {  conn.Close(); }
+
+            return isFound;
+        }
 
     }
 }

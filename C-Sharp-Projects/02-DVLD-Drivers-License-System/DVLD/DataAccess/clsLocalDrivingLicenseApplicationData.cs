@@ -110,21 +110,29 @@ namespace DataAccess
             return isFound;
         }
 
-        public static bool AddNewData()
+        public static bool AddNewData(int applicationId, int licenseClassId)
         {
-            int rowsAffected = 0;
+            int localDrivingLicenseApplicationId = -1;
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            
             string query = @"INSERT INTO  LocalDrivingLicenseApplications (ApplicationID, LicenseClassID)
                                     VALUES  (@applicationId, @licenseClassId);
                                SELECT SCOPE_IDENTITY();";
 
             SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@applicationId", applicationId);
+            cmd.Parameters.AddWithValue("@licenseClassId", licenseClassId);
 
             try
             {
                 conn.Open();
-                rowsAffected = cmd.ExecuteNonQuery();
+                object obj = cmd.ExecuteScalar();
+
+                if (obj != null && int.TryParse(obj.ToString(), out int resultId))
+                {
+                    localDrivingLicenseApplicationId = resultId;
+                }
             }
             catch (Exception ex)
             {
@@ -135,7 +143,7 @@ namespace DataAccess
                 conn.Close();
             }
 
-            return (rowsAffected > 0);
+            return (localDrivingLicenseApplicationId > 0);
         }
 
         public static bool UpdateApplicationData(int applicationId)

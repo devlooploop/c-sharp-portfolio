@@ -17,6 +17,7 @@ namespace Business
         public enMode mode = enMode.AddNew;
         
         public int LocalDrivingLicenseApplicationId {  get; set; }
+       
         public int ApplicationId {  get; set; }
         public int LicenseClassId {  get; set; }
 
@@ -76,7 +77,7 @@ namespace Business
 
         private bool AddNewApplication()
         {
-            return clsLocalDrivingLicenseApplicationData.AddNewData();
+            return clsLocalDrivingLicenseApplicationData.AddNewData(this.ApplicationID, this.LicenseClassId);
         }
 
         private bool UpdateApplication()

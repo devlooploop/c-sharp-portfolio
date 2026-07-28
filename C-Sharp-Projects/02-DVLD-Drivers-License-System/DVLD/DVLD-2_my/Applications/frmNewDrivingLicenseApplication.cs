@@ -87,7 +87,7 @@ namespace DVLD_2_my
 
         private void LoadDataValues()
         {
-            mmm
+           
             _localDrivingLicenseApplication =
                     clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
 
@@ -101,7 +101,6 @@ namespace DVLD_2_my
 
             if(mode == enMode.Update)
             {
-                
                 btnSave.Enabled = true;
                 tpApplicationInfo.Enabled = true;
                 lbl_DLApplicationID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
@@ -111,7 +110,7 @@ namespace DVLD_2_my
 
                 cbxLicenseClass.SelectedIndex = cbxLicenseClass.FindString(cbxLicenseClass.Text);
 
-            }
+            }   www
 
             lblDate.Text = DateTime.Now.ToString("dd/mm/yyyy");
             lbl_UserName.Text = clsGlobal.currentUser.UserName;
@@ -147,7 +146,8 @@ namespace DVLD_2_my
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            int LicesensClassTypeId = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
+            int LicesensClassTypeId = 
+                clsLicenseClass.FindByName(cbxLicenseClass.Text).LicenseClassId;
 
             int ActiveApplicationID =   
                 clsApplication.GetActiveApplicationIDForLicenseClass
@@ -155,7 +155,6 @@ namespace DVLD_2_my
 
             if (ActiveApplicationID != -1)
             {
-
                 MessageBox.Show($"The selected person already have an application with the same class id = {ActiveApplicationID}"
                      , "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -169,14 +168,18 @@ namespace DVLD_2_my
                 return;
             }
 
-            _localDrivingLicenseApplication.ApplicationID = ActiveApplicationID;
+            _localDrivingLicenseApplication.LicenseClassId = LicesensClassTypeId;
+
             
             _localDrivingLicenseApplication.ApplicantPersonID = personDetailsWithFilter_uc1.PersonID;
             _localDrivingLicenseApplication.ApplicationDate = DateTime.Now;
-            _localDrivingLicenseApplication.ApplicationTypeID = clsLicenseClass.FindByName(cbxLicenseClass.Text).ID;
+           
+            // _localDrivingLicenseApplication.ApplicationTypeID = clsLicenseClass.FindByName(cbxLicenseClass.Text).LicenseClassId;
+            _localDrivingLicenseApplication.ApplicationTypeID = (int)clsApplication.enApplicationType.NewDrivingLicense;
+            
             _localDrivingLicenseApplication.ApplicationStatus = clsApplication.enApplicationStatus.New;
             _localDrivingLicenseApplication.LastStatusDate = DateTime.Now;
-            _localDrivingLicenseApplication.PaidFees = Convert.ToSingle(lbl_ApplicationFees);
+            _localDrivingLicenseApplication.PaidFees = Convert.ToSingle(lbl_ApplicationFees.Text);
             _localDrivingLicenseApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
 
 
