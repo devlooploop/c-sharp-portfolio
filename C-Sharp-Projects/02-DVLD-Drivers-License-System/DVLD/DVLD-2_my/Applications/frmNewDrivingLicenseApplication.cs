@@ -1,4 +1,5 @@
 ﻿using Business;
+using DVLD_2_my.Global_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,7 +85,8 @@ namespace DVLD_2_my
 
         private void LoadDataValues()
         {
-           
+            personDetailsWithFilter_uc1.DisableFilterPersonGroupBox = true;
+
             _localDrivingLicenseApplication =
                     clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
 
@@ -95,23 +97,28 @@ namespace DVLD_2_my
                 this.Close();
                 return;
             }
-           
+
+            /*
             btnSave.Enabled = true;
             tpApplicationInfo.Enabled = true;
             this.Text = "Update Local Driving License Application";
             lblTitle.Text = "Update Local Driving License Application";
             tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
-            
+            */
+
+            personDetailsWithFilter_uc1.LoadPersonInfo(_localDrivingLicenseApplication.ApplicantPersonID);
+
             lbl_DLApplicationID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
 
             cbxLicenseClass.SelectedIndex = 
                 cbxLicenseClass.FindString(clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName);
-         
-            lblDate.Text = DateTime.Now.ToString("dd/mm/yyyy"); www
-            lbl_UserName.Text = clsGlobal.currentUser.UserName;
 
-            lbl_ApplicationFees.Text = 
-                clsApplicationTypes.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
+            lblDate.Text = clsFormat.DateToShort(_localDrivingLicenseApplication.ApplicationDate); 
+            lbl_UserName.Text = clsUser.FindByUserID(_localDrivingLicenseApplication.CreatedByUserID).UserName;
+
+            lbl_ApplicationFees.Text = _localDrivingLicenseApplication.PaidFees.ToString();
+               
+            To be continue.....
         
         }
 

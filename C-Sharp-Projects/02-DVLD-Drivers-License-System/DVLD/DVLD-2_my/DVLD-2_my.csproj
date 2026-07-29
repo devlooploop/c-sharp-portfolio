@@ -79,6 +79,7 @@
     <Compile Include="frmTestTest.Designer.cs">
       <DependentUpon>frmTestTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsFormat.cs" />
     <Compile Include="Person\frmFindPerson.cs">
       <SubType>Form</SubType>
     </Compile>
