@@ -14,7 +14,7 @@ namespace Business
        enum enIssueReason { FirstTime = 1, Renew = 2, ReplacementDamaged = 3, ReplacementLost = 4}
 
 
-       public int LicenseClassId { get; private set; }
+       public int LicenseClassId { get; set; }
 
        public string ClassName { get; set; }
 

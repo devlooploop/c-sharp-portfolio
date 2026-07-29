@@ -14,7 +14,7 @@ namespace Business
     public class clsLocalDrivingLicenseApplication : clsApplication
     {
         public enum enMode {AddNew =0,Update =1 };
-        public enMode mode = enMode.AddNew;
+        private enMode _mode;
         
         public int LocalDrivingLicenseApplicationId {  get; set; }
        
@@ -92,12 +92,12 @@ namespace Business
                 return !base.Save();
       
 
-            switch (mode)
+            switch (_mode)
             {
                 case enMode.AddNew:
                     if(AddNewApplication())
                     {
-                        mode = enMode.Update;
+                        _mode = enMode.Update;
                         return true;
                     }
                     else
