@@ -98,14 +98,6 @@ namespace DVLD_2_my
                 return;
             }
 
-            /*
-            btnSave.Enabled = true;
-            tpApplicationInfo.Enabled = true;
-            this.Text = "Update Local Driving License Application";
-            lblTitle.Text = "Update Local Driving License Application";
-            tcPersonalApplicationInfo.SelectedTab = tcPersonalApplicationInfo.TabPages["tpApplicationInfo"];
-            */
-
             personDetailsWithFilter_uc1.LoadPersonInfo(_localDrivingLicenseApplication.ApplicantPersonID);
 
             lbl_DLApplicationID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
@@ -182,7 +174,6 @@ namespace DVLD_2_my
             _localDrivingLicenseApplication.PaidFees = Convert.ToSingle(lbl_ApplicationFees.Text);
             _localDrivingLicenseApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
 
-            
 
             if (_localDrivingLicenseApplication.Save())
             {

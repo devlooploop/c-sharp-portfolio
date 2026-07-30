@@ -71,7 +71,6 @@ namespace Business
 
         public static DataTable GetLocalDrivingLicenseApplicationInfo()
         {
-            // int localDrivingLicenseApplicationId = -1; int applicationId = -1; int licenseClassId = -1;
             return  clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoData();
         }
 
@@ -94,7 +93,7 @@ namespace Business
             if(!base.Save())
                 return !base.Save();
 
-            _mode = enMode.AddNew;
+            base.mode = (clsApplication.enMode) _mode;
 
             switch (_mode)
             {

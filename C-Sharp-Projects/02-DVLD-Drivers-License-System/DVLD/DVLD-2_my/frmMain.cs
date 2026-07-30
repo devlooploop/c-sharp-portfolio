@@ -46,7 +46,6 @@ namespace DVLD_2_my
             frm.ShowDialog();
         }
 
-
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChangePassword frm = new frmChangePassword(clsGlobal.currentUser.UserID);

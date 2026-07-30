@@ -16,35 +16,23 @@ namespace DataAccess
 
         public static DataTable GetLocalDrivingLicenseApplicationInfoData()
         {
-            // int localDrivingLicenseApplicationId, int applicationId, int licenseClassId
             DataTable dt = new DataTable();
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"SELECT * FROM LocalDrivingLicenseApplications";
+            string query = @"SELECT * FROM LocalDrivingLicenseApplications_View";
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            //cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationId", localDrivingLicenseApplicationId);
-            //cmd.Parameters.AddWithValue("@ApplicationId", applicationId);
-            //cmd.Parameters.AddWithValue("@LicenseClassId", licenseClassId);
             
             try
             {
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.HasRows)
                 {
-                    //localDrivingLicenseApplicationId = (int)reader["LocalDrivingLicenseApplicationID"];
-                    //applicationId = (int)reader["ApplicationID"];
-                    //licenseClassId = (int)reader["LicenseClassID"];
-
                     dt.Load(reader);
                 }
-                else
-                {
-                    dt = null;
-                }
-
+             
                 reader.Close();
             }
             catch (Exception ex)
@@ -56,7 +44,6 @@ namespace DataAccess
                 conn.Close();
             }
             return dt;
-
         }
 
         public static bool GetLocalDrivingLicenseApplicationInfoByIdData(int localDrivingLicenseApplicationId, ref int applicationId,
