@@ -110,7 +110,7 @@ namespace DataAccess
             return isFound;
         }
 
-        public static bool AddNewData(int applicationId, int licenseClassId)
+        public static int AddNewData(int applicationId, int licenseClassId)
         {
             int localDrivingLicenseApplicationId = -1;
 
@@ -143,7 +143,7 @@ namespace DataAccess
                 conn.Close();
             }
 
-            return (localDrivingLicenseApplicationId > 0);
+            return localDrivingLicenseApplicationId ;
         }
 
         public static bool UpdateApplicationData(int applicationId)

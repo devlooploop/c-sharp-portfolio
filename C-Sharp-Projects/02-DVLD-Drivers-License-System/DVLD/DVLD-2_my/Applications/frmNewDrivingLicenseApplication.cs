@@ -118,7 +118,6 @@ namespace DVLD_2_my
 
             lbl_ApplicationFees.Text = _localDrivingLicenseApplication.PaidFees.ToString();
                
-            To be continue.....
         
         }
 
@@ -149,12 +148,12 @@ namespace DVLD_2_my
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            int LicesensClassTypeId = 
+            int LicesensClassId = 
                 clsLicenseClass.FindByName(cbxLicenseClass.Text).LicenseClassId;
 
             int ActiveApplicationID =   
                 clsApplication.GetActiveApplicationIDForLicenseClass
-                (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassTypeId);
+                (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassId);
 
             if (ActiveApplicationID != -1)
             {
@@ -163,7 +162,7 @@ namespace DVLD_2_my
                 return;
             }
 
-            if (clsLicense.IsLicenseExistByPersonID(personDetailsWithFilter_uc1.PersonID, LicesensClassTypeId))
+            if (clsLicense.IsLicenseExistByPersonID(personDetailsWithFilter_uc1.PersonID, LicesensClassId))
             {
                 MessageBox.Show($"The selected Person already have " +
                     "same applied driving class, please select diffrent driving class",
@@ -171,7 +170,7 @@ namespace DVLD_2_my
                 return;
             }
 
-            _localDrivingLicenseApplication.LicenseClassId = LicesensClassTypeId;
+            _localDrivingLicenseApplication.LicenseClassId = LicesensClassId;
                         
             _localDrivingLicenseApplication.ApplicantPersonID = personDetailsWithFilter_uc1.PersonID;
             _localDrivingLicenseApplication.ApplicationDate = DateTime.Now;
@@ -183,9 +182,16 @@ namespace DVLD_2_my
             _localDrivingLicenseApplication.PaidFees = Convert.ToSingle(lbl_ApplicationFees.Text);
             _localDrivingLicenseApplication.CreatedByUserID = clsGlobal.currentUser.UserID;
 
+            
 
-            if(_localDrivingLicenseApplication.Save())
+            if (_localDrivingLicenseApplication.Save())
             {
+                lbl_DLApplicationID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
+
+                _mode = enMode.Update;
+
+                lblTitle.Text = "Update Local Driving License Application";
+
                 MessageBox.Show("Local driving license application saved successfully",
                     "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -77,7 +77,10 @@ namespace Business
 
         private bool AddNewApplication()
         {
-            return clsLocalDrivingLicenseApplicationData.AddNewData(this.ApplicationID, this.LicenseClassId);
+             this.LocalDrivingLicenseApplicationId = 
+                clsLocalDrivingLicenseApplicationData.AddNewData(this.ApplicationID, this.LicenseClassId);
+            
+            return this.LocalDrivingLicenseApplicationId != -1;
         }
 
         private bool UpdateApplication()
@@ -90,7 +93,8 @@ namespace Business
 
             if(!base.Save())
                 return !base.Save();
-        
+
+            _mode = enMode.AddNew;
 
             switch (_mode)
             {

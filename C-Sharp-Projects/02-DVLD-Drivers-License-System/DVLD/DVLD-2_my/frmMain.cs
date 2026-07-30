@@ -24,7 +24,6 @@ namespace DVLD_2_my
         {
             Form frm = new frmManagePeople();
             frm.ShowDialog();
-
         }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,7 +37,6 @@ namespace DVLD_2_my
         {
             Form frm = new frmManageUsers();
             frm.ShowDialog();
-
         }
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
