@@ -103,26 +103,9 @@ namespace DVLD_2_my.Applications
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
-        {         
-
-
-        }
-
-        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterValue.Clear();
-            RefreshLocalDrivingLicenseApplications();
-        }
-
-        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == ' ')
-            {
-                e.Handled = true;
-            }
-
             string column = GetColumnName(cbFilterBy.Text);
-
+            
             if (string.IsNullOrEmpty(column) || string.IsNullOrEmpty(txtFilterValue.Text))
                 return;
 
@@ -147,10 +130,33 @@ namespace DVLD_2_my.Applications
             {
                 _AllApplicationsInfo.DefaultView.RowFilter = $"{column} LIKE '{txtFilterValue.Text}%'";
             }
+
             else
             {
-                _AllApplicationsInfo.DefaultView.RowFilter = "";
+                //  _AllApplicationsInfo.DefaultView.RowFilter = "";
+                 RefreshLocalDrivingLicenseApplications();
+
             }
+
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilterValue.Clear();
+            
+            if (cbFilterBy.SelectedItem.ToString() == "None")
+                txtFilterValue.Hide();
+            else
+                txtFilterValue.Show();
+        }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+                        
         }
 
         private void txtFilterValue_KeyDown(object sender, KeyEventArgs e)
@@ -160,9 +166,10 @@ namespace DVLD_2_my.Applications
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
+
         }
 
-        fixing Key Down Event in 
+        
     }
 
 }
