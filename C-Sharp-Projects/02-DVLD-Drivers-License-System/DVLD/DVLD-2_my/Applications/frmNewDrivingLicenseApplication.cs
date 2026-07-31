@@ -110,7 +110,6 @@ namespace DVLD_2_my
 
             lbl_ApplicationFees.Text = _localDrivingLicenseApplication.PaidFees.ToString();
                
-        
         }
 
         private void btnClose_Click(object sender, EventArgs e)

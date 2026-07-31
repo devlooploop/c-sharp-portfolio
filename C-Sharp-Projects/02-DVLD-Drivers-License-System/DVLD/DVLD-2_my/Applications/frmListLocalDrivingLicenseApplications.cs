@@ -16,9 +16,9 @@ namespace DVLD_2_my.Applications
 {
     public partial class frmListLocalDrivingLicenseApplications : Form
     {
+
        private DataTable _AllApplicationsInfo;
        private clsLocalDrivingLicenseApplication _listLocalDrivingLicenseApplications;
-
 
        public frmListLocalDrivingLicenseApplications()
        {
@@ -93,26 +93,40 @@ namespace DVLD_2_my.Applications
 
                 case "Status":
                     columnName = "Status";
-                    break;
-
-                    fix the rest.....
+                    break;            
 
                 default:
-                    return "";
+                    return "None";
             }
             
             return columnName;
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {         
+
+
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // RefreshLocalDrivingLicenseApplications();
+            txtFilterValue.Clear();
+            RefreshLocalDrivingLicenseApplications();
+        }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+
             string column = GetColumnName(cbFilterBy.Text);
 
             if (string.IsNullOrEmpty(column) || string.IsNullOrEmpty(txtFilterValue.Text))
                 return;
 
-            if (column == "LocalDrivingLicenseApplicationID" && 
+            if (column == "LocalDrivingLicenseApplicationID" &&
                 clsValidations.ValidatePersonID(txtFilterValue.Text)
                 && int.TryParse(txtFilterValue.Text, out int AppId))
             {
@@ -133,8 +147,22 @@ namespace DVLD_2_my.Applications
             {
                 _AllApplicationsInfo.DefaultView.RowFilter = $"{column} LIKE '{txtFilterValue.Text}%'";
             }
-
-
+            else
+            {
+                _AllApplicationsInfo.DefaultView.RowFilter = "";
+            }
         }
+
+        private void txtFilterValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        fixing Key Down Event in 
     }
+
 }
