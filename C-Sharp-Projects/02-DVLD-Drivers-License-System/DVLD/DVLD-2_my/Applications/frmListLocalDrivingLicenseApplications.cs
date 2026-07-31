@@ -1,16 +1,8 @@
 ﻿using Business;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace DVLD_2_my.Applications
 {
@@ -18,8 +10,7 @@ namespace DVLD_2_my.Applications
     {
 
        private DataTable _AllApplicationsInfo;
-       private clsLocalDrivingLicenseApplication _listLocalDrivingLicenseApplications;
-
+       
        public frmListLocalDrivingLicenseApplications()
        {
            InitializeComponent();
@@ -69,98 +60,110 @@ namespace DVLD_2_my.Applications
                 new frmAddUpdateLocalDrivingLicesnseApplication();
 
             frm.ShowDialog();
+
+            RefreshLocalDrivingLicenseApplications();
+            lblRecordCount.Text = _AllApplicationsInfo.DefaultView.Count.ToString();
         }
 
         private string  GetColumnName(string filter)
         {
             
-            string columnName = "";
-
             switch (filter)
             {
-
                 case "L.D.LAppID":
-                    columnName = "LocalDrivingLicenseApplicationID";
-                    break;
+                    return "LocalDrivingLicenseApplicationID";
 
                 case "National No.":
-                    columnName = "NationalNo";
-                    break;
+                    return "NationalNo";
 
                 case "Full Name":
-                    columnName = "FullName";
-                    break;
+                    return "FullName";
 
                 case "Status":
-                    columnName = "Status";
-                    break;            
+                    return "Status";            
 
                 default:
-                    return "None";
+                    return "";
             }
             
-            return columnName;
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             string column = GetColumnName(cbFilterBy.Text);
             
-            if (string.IsNullOrEmpty(column) || string.IsNullOrEmpty(txtFilterValue.Text))
+            if (string.IsNullOrEmpty(txtFilterValue.Text))
+            {
+                _AllApplicationsInfo.DefaultView.RowFilter = "";
+                lblRecordCount.Text = _AllApplicationsInfo.DefaultView.Count.ToString();
                 return;
-
-            if (column == "LocalDrivingLicenseApplicationID" &&
-                clsValidations.ValidatePersonID(txtFilterValue.Text)
-                && int.TryParse(txtFilterValue.Text, out int AppId))
-            {
-                _AllApplicationsInfo.DefaultView.RowFilter = $"{column} = {AppId}";
             }
 
-            else if (column == "NationalNo" && clsValidations.ValidateNationalNo(txtFilterValue.Text))
+            switch (column)
             {
-                _AllApplicationsInfo.DefaultView.RowFilter = $"{column} = '{txtFilterValue.Text}'";
+                case "LocalDrivingLicenseApplicationID":
+                    if(!string.IsNullOrEmpty(txtFilterValue.Text))
+                    {
+                        _AllApplicationsInfo.DefaultView.RowFilter =
+                        $"{column} = {Convert.ToInt32(txtFilterValue.Text)}";
+                    }
+                    break;
+
+                case "NationalNo":
+                    if(clsValidations.ValidateNationalNo(txtFilterValue.Text))
+                    {
+                        _AllApplicationsInfo.DefaultView.RowFilter = 
+                            $"{column} = '{txtFilterValue.Text}'";
+                    }
+                    break;
+
+                case "FullName":
+                    if(clsValidations.ValidateName(txtFilterValue.Text))
+                    {
+                        _AllApplicationsInfo.DefaultView.RowFilter = 
+                            $"{column} LIKE '{txtFilterValue.Text}%'";
+                    }
+                    break;
+
+                case "Status":
+                    _AllApplicationsInfo.DefaultView.RowFilter = 
+                        $"{column} LIKE '{txtFilterValue.Text}%'";
+                    break;
             }
 
-            else if (column == "FullName" && clsValidations.ValidateName(txtFilterValue.Text))
-            {
-                _AllApplicationsInfo.DefaultView.RowFilter = $"{column} LIKE '{txtFilterValue.Text}%'";
-            }
-
-            else if (column == "Status")
-            {
-                _AllApplicationsInfo.DefaultView.RowFilter = $"{column} LIKE '{txtFilterValue.Text}%'";
-            }
-
-            else
-            {
-                //  _AllApplicationsInfo.DefaultView.RowFilter = "";
-                 RefreshLocalDrivingLicenseApplications();
-
-            }
-
+            lblRecordCount.Text = _AllApplicationsInfo.DefaultView.Count.ToString();
+        
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtFilterValue.Clear();
             
-            if (cbFilterBy.SelectedItem.ToString() == "None")
+            if (cbFilterBy.SelectedIndex == 0)
+            {
                 txtFilterValue.Hide();
+                _AllApplicationsInfo.DefaultView.RowFilter = "";
+            }
             else
+            {
                 txtFilterValue.Show();
+            }
+
         }
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == ' ')
+            if(cbFilterBy.SelectedIndex == 1 && !char.IsDigit(e.KeyChar) 
+                && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
-                        
+
         }
 
         private void txtFilterValue_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
@@ -169,7 +172,12 @@ namespace DVLD_2_my.Applications
 
         }
 
-        
+        private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
+        {
+            frmPersonDetails frm = 
+                new frmPersonDetails(dgvLocalDrivingLicenseApplications.Columns.va);
+
+        }
     }
 
 }

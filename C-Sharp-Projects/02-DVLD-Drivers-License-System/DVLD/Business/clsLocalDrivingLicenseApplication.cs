@@ -68,7 +68,6 @@ namespace Business
 
         }
 
-
         public static DataTable GetLocalDrivingLicenseApplicationInfo()
         {
             return  clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoData();

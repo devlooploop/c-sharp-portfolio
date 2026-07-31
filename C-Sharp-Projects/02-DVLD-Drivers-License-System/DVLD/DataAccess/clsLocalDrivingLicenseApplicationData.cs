@@ -63,8 +63,6 @@ namespace DataAccess
 
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
-            // cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", applicationId);
-            // cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationId);
 
             bool isFound = false;
             try
