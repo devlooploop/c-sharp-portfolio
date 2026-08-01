@@ -186,6 +186,11 @@ namespace DVLD_2_my.Applications
 
         }
 
+        private void tsmiDeleteApplication_Click(object sender, EventArgs e)
+        {
+                   ...
+        }
+
     }
 
 }

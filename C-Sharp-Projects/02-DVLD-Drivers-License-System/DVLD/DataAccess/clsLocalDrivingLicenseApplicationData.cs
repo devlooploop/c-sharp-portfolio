@@ -190,7 +190,11 @@ namespace DataAccess
             return (rowsAffected > 0);
         }
 
-    
+        public static CanceLocalDrivingLicenseApplicationData(int applicationId)
+        {
+            to be continue .......
+        }
+
     }
 
 }
