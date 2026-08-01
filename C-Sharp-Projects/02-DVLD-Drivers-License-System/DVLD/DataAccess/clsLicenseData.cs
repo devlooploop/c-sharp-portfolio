@@ -96,7 +96,6 @@ namespace DataAccess
             return isFound; 
         }
 
-
         public static bool IsLicenseExistByPersonIdData(int personId, int licesensClassTypeId)
         {
 
@@ -127,7 +126,9 @@ namespace DataAccess
                 isFound =false; throw;
             }
             finally
-            {  conn.Close(); }
+            {  
+                conn.Close(); 
+            }
 
             return isFound;
         }

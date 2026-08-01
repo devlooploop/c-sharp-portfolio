@@ -174,10 +174,18 @@ namespace DVLD_2_my.Applications
 
         private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
         {
-            frmPersonDetails frm = 
-                new frmPersonDetails(dgvLocalDrivingLicenseApplications.Columns.va);
+            // ****** make class/ form LocalDrivingLicesnseApplicationInfo
+
+            /*
+            
+            frmLocalDrivingLicesnseApplicationInfo frm = 
+                new frmLocalDrivingLicesnseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frm.Show();
+            
+             */
 
         }
+
     }
 
 }
