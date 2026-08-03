@@ -216,9 +216,10 @@ namespace DVLD_2_my.Applications
                 {
                     MessageBox.Show($"Application deleted successfully");
 
-                    app.LicenseClassInfo = clsApplication.enApplicationStatus.Cancelled;
+                 //   app.LicenseClassInfo = clsApplication.enApplicationStatus.Cancelled;
                     tsmiCancelApplication.Enabled = false;
 
+                    eeee
                     RefreshLocalDrivingLicenseApplications();
 
                 }
