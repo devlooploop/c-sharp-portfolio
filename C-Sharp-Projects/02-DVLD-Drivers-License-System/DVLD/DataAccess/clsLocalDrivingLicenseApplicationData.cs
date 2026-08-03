@@ -131,18 +131,23 @@ namespace DataAccess
             return localDrivingLicenseApplicationId ;
         }
 
-        public static bool UpdateApplicationData(int applicationId)
+        public static bool UpdateApplicationStatus(int applicationId, short newStatus)
         {
             int rowsAffected = 0;
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"UPDATE LocalDrivingLicenseApplications 
-                                    SET ApplicationID = @ApplicationID, LicenseClassID = @licenseClassId
-                                    WHERE LocalDrivingLicenseApplicationID = @applicationId";
+            string query = @"UPDATE Applications 
+                             SET    ApplicationStatus = @newStatus, 
+                                    LastStatusDate = @lastStatusDate
+                            
+                            WHERE  ApplicationID = @applicationId";
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", applicationId);
+            
+            cmd.Parameters.AddWithValue("@applicationID", applicationId);
+            cmd.Parameters.AddWithValue("@newStatus", newStatus);
+            cmd.Parameters.AddWithValue("@lastStatusDate", DateTime.Now);
 
             try
             {
@@ -190,11 +195,13 @@ namespace DataAccess
             return (rowsAffected > 0);
         }
 
-        public static CanceLocalDrivingLicenseApplicationData(int LocalDrivingLicenseApplicationId, int ApplicationId, int LicenseClass)
-        {
+        
+        //public static bool FindData(int appId)
+        //{
+        //    string query = @"SELECT found = 1 From LocalDrivingLicenseApplications 
+        //                       WHERE LocalDrivingLicenseApplicationID = @appId";
 
-
-        }
+        //}
 
     }
 

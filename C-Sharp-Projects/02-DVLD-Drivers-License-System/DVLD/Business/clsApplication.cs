@@ -66,7 +66,6 @@ namespace Business
         
         public clsUser createdByUserInfo;
 
-
         public clsApplication()
         {
             this.ApplicationID = -1;

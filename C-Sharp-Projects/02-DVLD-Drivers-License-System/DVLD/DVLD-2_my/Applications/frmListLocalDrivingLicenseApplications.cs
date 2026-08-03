@@ -10,7 +10,9 @@ namespace DVLD_2_my.Applications
     {
 
        private DataTable _AllApplicationsInfo;
-       
+
+       private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
+
        public frmListLocalDrivingLicenseApplications()
        {
            InitializeComponent();
@@ -199,11 +201,17 @@ namespace DVLD_2_my.Applications
 
                 int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-               // MessageBox.Show($"Record {recordId}");
+                if(_localDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show($"Application deleted successfully");
 
-               jkjk 
+                    RefreshLocalDrivingLicenseApplications();
+                }
+                else
+                {
+                    MessageBox.Show($"Error application deleted");
+                }
 
-                MessageBox.Show("Record successfully deleted");
             }
 
         }

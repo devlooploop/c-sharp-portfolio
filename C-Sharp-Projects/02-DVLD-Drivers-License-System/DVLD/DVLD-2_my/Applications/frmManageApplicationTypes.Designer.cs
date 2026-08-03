@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvApplicationTypes = new System.Windows.Forms.DataGridView();
+            this.cmsManageApplicationTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRecordCount = new System.Windows.Forms.Label();
-            this.cmsManageApplicationTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).BeginInit();
@@ -58,9 +58,25 @@
             this.dgvApplicationTypes.RowHeadersWidth = 62;
             this.dgvApplicationTypes.RowTemplate.Height = 28;
             this.dgvApplicationTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApplicationTypes.Size = new System.Drawing.Size(799, 386);
+            this.dgvApplicationTypes.Size = new System.Drawing.Size(1353, 386);
             this.dgvApplicationTypes.TabIndex = 0;
             this.dgvApplicationTypes.TabStop = false;
+            // 
+            // cmsManageApplicationTypes
+            // 
+            this.cmsManageApplicationTypes.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.cmsManageApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editApplicationTypesToolStripMenuItem});
+            this.cmsManageApplicationTypes.Name = "cmsManageApplicationTypes";
+            this.cmsManageApplicationTypes.Size = new System.Drawing.Size(268, 36);
+            // 
+            // editApplicationTypesToolStripMenuItem
+            // 
+            this.editApplicationTypesToolStripMenuItem.Image = global::DVLD_2_my.Properties.Resources.edit_321;
+            this.editApplicationTypesToolStripMenuItem.Name = "editApplicationTypesToolStripMenuItem";
+            this.editApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(267, 32);
+            this.editApplicationTypesToolStripMenuItem.Text = "&Edit Application Types";
+            this.editApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.editApplicationTypesToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -94,22 +110,6 @@
             this.lblRecordCount.TabIndex = 4;
             this.lblRecordCount.Text = "???";
             // 
-            // cmsManageApplicationTypes
-            // 
-            this.cmsManageApplicationTypes.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.cmsManageApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editApplicationTypesToolStripMenuItem});
-            this.cmsManageApplicationTypes.Name = "cmsManageApplicationTypes";
-            this.cmsManageApplicationTypes.Size = new System.Drawing.Size(268, 36);
-            // 
-            // editApplicationTypesToolStripMenuItem
-            // 
-            this.editApplicationTypesToolStripMenuItem.Image = global::DVLD_2_my.Properties.Resources.edit_321;
-            this.editApplicationTypesToolStripMenuItem.Name = "editApplicationTypesToolStripMenuItem";
-            this.editApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(267, 32);
-            this.editApplicationTypesToolStripMenuItem.Text = "&Edit Application Types";
-            this.editApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.editApplicationTypesToolStripMenuItem_Click);
-            // 
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -117,7 +117,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD_2_my.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(679, 736);
+            this.btnClose.Location = new System.Drawing.Point(1233, 748);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(148, 52);
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 807);
+            this.ClientSize = new System.Drawing.Size(1411, 807);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecordCount);
             this.Controls.Add(this.label2);

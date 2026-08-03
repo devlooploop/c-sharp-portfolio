@@ -13,46 +13,58 @@ namespace Business
 {
     public class clsLocalDrivingLicenseApplication : clsApplication
     {
-        public enum enMode {AddNew =0,Update =1 };
-        private enMode _mode;
+        public enum enMode {AddNew = 0,Update = 1 };
+        private enMode _mode = enMode.AddNew;
         
         public int LocalDrivingLicenseApplicationId {  get; set; }
        
-        public int ApplicationId {  get; set; }
         public int LicenseClassId {  get; set; }
-
-        public clsApplication  ApplicationInfo;
+    
         public clsLicenseClass LicenseClassInfo;
+
+        public string PersonFullName
+        {
+            get 
+            {
+                    return base.PersonInfo.FullName;
+                // return clsPerson.Find(ApplicantPersonID).FullName;
+            }
+        }
 
         public clsLocalDrivingLicenseApplication()
         {
             LocalDrivingLicenseApplicationId = -1;
-            ApplicationId = -1;
             LicenseClassId = -1;
+
+            _mode = enMode.AddNew;
         }
 
         public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
-            int applicantPersonId, DateTime applicationDate, int applicationTypeId, byte applicationStatus, DateTime lastStatusDate, 
-            float paidFees, int createdByUserId)
+            int applicantPersonId, DateTime applicationDate, int applicationTypeId, enApplicationStatus applicationStatus, 
+            DateTime lastStatusDate,float paidFees, int createdByUserId)
+
         {
             this.LocalDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
-            this.ApplicationId = applicationId;
+            this.ApplicationID = applicationId;
+            this.ApplicantPersonID = applicantPersonId;
+            this.ApplicationDate = applicationDate;
+            this.ApplicationTypeID = (int)applicationTypeId;
+            this.ApplicationStatus = applicationStatus;
+            this.LastStatusDate = lastStatusDate;
+            this.PaidFees = paidFees;
+            this.CreatedByUserID = createdByUserId;
             this.LicenseClassId = licenseClassId;
-            this.ApplicationInfo.ApplicantPersonID = applicantPersonId;
-            this.ApplicationInfo.ApplicationDate = applicationDate;
-            this.ApplicationInfo.ApplicationTypeID = applicationTypeId;
-            this.ApplicationInfo.ApplicationStatus = (clsApplication.enApplicationStatus)applicationStatus;
-            this.ApplicationInfo.LastStatusDate = lastStatusDate;
-            this.ApplicationInfo.PaidFees = paidFees;
-            this.ApplicationInfo.CreatedByUserID = createdByUserId;
+            
+            this.LicenseClassInfo = clsLicenseClass.FindByID(licenseClassId);
 
+            _mode = enMode.Update;
         }
 
         public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int localDrivingLicenseApplicationId)
         {
             int applicationId = -1; int licenseClassId = -1;
             int applicantPersonId = -1;
-            DateTime applicationDate = DateTime.Now; int applicationTypeId = -1; byte applicationStatus = 1; DateTime lastStatusDate = DateTime.Now; 
+            DateTime applicationDate = DateTime.Now; int applicationTypeId = -1; enApplicationStatus applicationStatus = enApplicationStatus.New; DateTime lastStatusDate = DateTime.Now; 
             float paidFees = 0; int createdByUserId = -1; 
 
             if (clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseApplicationId, ref applicationId,
@@ -81,11 +93,6 @@ namespace Business
             return this.LocalDrivingLicenseApplicationId != -1;
         }
 
-        private bool UpdateApplication()
-        {
-            return clsLocalDrivingLicenseApplicationData.UpdateApplicationData(this.ApplicationId);
-        }
-
         public bool Save()
         {
 
@@ -104,7 +111,7 @@ namespace Business
                     }
                     else
                     { return false; }
-
+              
                 case enMode.Update:
                     return UpdateApplication();
             }
@@ -114,13 +121,44 @@ namespace Business
         
         public bool Delete()
         {
-            return clsLocalDrivingLicenseApplicationData.DeleteData(this.ApplicationId);
+            return clsLocalDrivingLicenseApplicationData.DeleteData();
         }
 
-        public void Cancel()
+        public bool Cancel(int applicationId)
         {
-           clsLocalDrivingLicenseApplicationData.can
+            return (clsLocalDrivingLicenseApplicationData.UpdateApplicationStatus
+                  (applicationId, (short)enApplicationStatus.Cancelled));
+        }
 
+        public static clsLocalDrivingLicenseApplication FindLocalApplication(int localDrivingLicenseAppId)
+        {
+            int applicationId = -1; int licenseClassId = -1; int applicantPersonId = -1;
+            DateTime applicationDate = DateTime.Now; int applicationTypeId = -1; 
+            enApplicationStatus applicationStatus = enApplicationStatus.New; 
+            DateTime lastStatusDate = DateTime.Now; float paidFees = 0; int createdByUserId = -1;
+
+            bool isFound =
+                clsLocalDrivingLicenseApplicationData.
+                GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseAppId,ref applicationId,ref licenseClassId);
+            
+            if(isFound)
+            {
+               return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, applicationId, licenseClassId, 
+                      applicantPersonId, applicationDate, applicationTypeId, 
+                      (byte)applicationStatus, lastStatusDate,paidFees, createdByUserId);
+            }
+            else
+            {
+                return null;
+            }
+                    
+        }
+
+        private bool UpdateApplication()
+        {
+            // Apply logic later ......
+
+            return true;
         }
 
     }
