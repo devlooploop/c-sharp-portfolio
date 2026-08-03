@@ -121,7 +121,7 @@ namespace Business
         
         public bool Delete()
         {
-            return clsLocalDrivingLicenseApplicationData.DeleteData();
+            return clsLocalDrivingLicenseApplicationData.DeleteData(LocalDrivingLicenseApplicationId);
         }
 
         public bool Cancel(int applicationId)
@@ -145,7 +145,7 @@ namespace Business
             {
                return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, applicationId, licenseClassId, 
                       applicantPersonId, applicationDate, applicationTypeId, 
-                      (byte)applicationStatus, lastStatusDate,paidFees, createdByUserId);
+                      applicationStatus, lastStatusDate,paidFees, createdByUserId);
             }
             else
             {
