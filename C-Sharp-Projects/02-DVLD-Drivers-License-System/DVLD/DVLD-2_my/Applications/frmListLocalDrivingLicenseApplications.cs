@@ -188,7 +188,24 @@ namespace DVLD_2_my.Applications
 
         private void tsmiDeleteApplication_Click(object sender, EventArgs e)
         {
-                   ...
+                  
+        }
+
+        private void tsmiCancelApplication_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this record","Confirme",
+                MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+            {
+
+                int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+               // MessageBox.Show($"Record {recordId}");
+
+               jkjk 
+
+                MessageBox.Show("Record successfully deleted");
+            }
+
         }
 
     }

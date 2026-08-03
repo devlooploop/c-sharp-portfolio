@@ -190,9 +190,10 @@ namespace DataAccess
             return (rowsAffected > 0);
         }
 
-        public static CanceLocalDrivingLicenseApplicationData(int applicationId)
+        public static CanceLocalDrivingLicenseApplicationData(int LocalDrivingLicenseApplicationId, int ApplicationId, int LicenseClass)
         {
-            to be continue .......
+
+
         }
 
     }

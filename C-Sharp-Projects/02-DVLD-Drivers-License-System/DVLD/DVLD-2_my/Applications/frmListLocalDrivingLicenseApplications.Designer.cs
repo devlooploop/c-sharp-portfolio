@@ -177,7 +177,7 @@
             this.toolStripMenuItem6,
             this.tsmiShowPersonLicenseHistory});
             this.cmsListLocalDrivingLicenseApplications.Name = "contextMenuStrip1";
-            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 280);
+            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 302);
             // 
             // tsmiShowApplicationDetails
             // 
@@ -218,6 +218,7 @@
             this.tsmiCancelApplication.Name = "tsmiCancelApplication";
             this.tsmiCancelApplication.Size = new System.Drawing.Size(254, 30);
             this.tsmiCancelApplication.Text = "Cancel Application";
+            this.tsmiCancelApplication.Click += new System.EventHandler(this.tsmiCancelApplication_Click);
             // 
             // toolStripMenuItem3
             // 

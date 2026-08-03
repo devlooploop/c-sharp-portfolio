@@ -117,6 +117,12 @@ namespace Business
             return clsLocalDrivingLicenseApplicationData.DeleteData(this.ApplicationId);
         }
 
+        public void Cancel()
+        {
+           clsLocalDrivingLicenseApplicationData.can
+
+        }
+
     }
 
 }
