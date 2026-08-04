@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using static Business.clsApplication;
 
 
 namespace DVLD_2_my.Applications
@@ -18,8 +19,8 @@ namespace DVLD_2_my.Applications
            InitializeComponent();
        }
 
-        private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
-        {
+       private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
+       {
             RefreshLocalDrivingLicenseApplications();
 
             cbFilterBy.SelectedIndex = 0;
@@ -45,11 +46,10 @@ namespace DVLD_2_my.Applications
 
                 dgvLocalDrivingLicenseApplications.Columns[5].HeaderText = "Passed Tests";
                 dgvLocalDrivingLicenseApplications.Columns[5].Width = 100;
+
             }
 
-
-            
-        }
+       }
 
         private void RefreshLocalDrivingLicenseApplications()
         {
@@ -60,6 +60,9 @@ namespace DVLD_2_my.Applications
 
         private void btnAddNewApplication_Click(object sender, EventArgs e)
         {
+            if (_localDrivingLicenseApplication.ApplicationStatus != clsApplication.enApplicationStatus.New)
+                    return;
+
             frmAddUpdateLocalDrivingLicesnseApplication frm = 
                 new frmAddUpdateLocalDrivingLicesnseApplication();
 
@@ -67,6 +70,7 @@ namespace DVLD_2_my.Applications
 
             RefreshLocalDrivingLicenseApplications();
             lblRecordCount.Text = _AllApplicationsInfo.DefaultView.Count.ToString();
+       
         }
 
         private string  GetColumnName(string filter)
@@ -197,41 +201,92 @@ namespace DVLD_2_my.Applications
 
         private void tsmiCancelApplication_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this record","Confirme",
-                MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+            //if(_localDrivingLicenseApplication.ApplicationStatus == enApplicationStatus.Cancelled)
+            //    tsmiCancelApplication.Enabled = false;
+
+
+            if (MessageBox.Show("Are you sure you want to delete this record", "Confirme",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-
-                int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
-
-                clsLocalDrivingLicenseApplication app = 
-                    clsLocalDrivingLicenseApplication.FindLocalApplication(recordId);
-
-                if (app == null)
-                {
-                    MessageBox.Show("Application not found.");
-                    return;
-                }
-
-                if (app.Cancel())
-                {
-                    MessageBox.Show($"Application deleted successfully");
-
-                 //   app.LicenseClassInfo = clsApplication.enApplicationStatus.Cancelled;
-                    tsmiCancelApplication.Enabled = false;
-
-                    eeee
-                    RefreshLocalDrivingLicenseApplications();
-
-                }
-                else
-                {
-                    MessageBox.Show($"Error application deleted");
-                }
-
+                return;
             }
+
+            int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication app = 
+                 clsLocalDrivingLicenseApplication.FindLocalApplication(recordId);
+
+            if (app == null)
+            {
+                 MessageBox.Show("Application not found.");
+                    return;
+            }
+
+           if (app.Cancel())
+           {
+                 tsmiCancelApplication.Enabled = false;
+  
+                 MessageBox.Show($"Application deleted successfully");
+                    
+                 RefreshLocalDrivingLicenseApplications();
+           }
+           else
+           {
+                 MessageBox.Show($"Error application deleted");
+           }
 
         }
 
+        private void cmsListLocalDrivingLicenseApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            yyyy
+            
+            int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication app =
+                 clsLocalDrivingLicenseApplication.FindLocalApplication(recordId);
+          
+            if(app == null)
+            {
+                e.Cancel = true;   // don't show the menu
+                return;
+            }
+
+            //if (app.ApplicationStatus == enApplicationStatus.Cancelled)
+            //    tsmiCancelApplication.Enabled = false;
+
+            //if (MessageBox.Show("Are you sure you want to delete this record", "Confirme",
+            //    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            //{
+            //    return;
+            //}
+
+            tsmiCancelApplication.Enabled = (app.ApplicationStatus != enApplicationStatus.Cancelled);
+
+
+            if (app == null)
+            {
+                MessageBox.Show("Application not found.");
+                return;
+            }
+
+            if (app.Cancel())
+            {
+                tsmiCancelApplication.Enabled = false;
+
+                MessageBox.Show($"Application deleted successfully");
+
+                RefreshLocalDrivingLicenseApplications();
+            }
+            else
+            {
+                MessageBox.Show($"Error application deleted");
+            }
+
+           
+        }
     }
 
+
 }
+
