@@ -241,9 +241,7 @@ namespace DVLD_2_my.Applications
         private void cmsListLocalDrivingLicenseApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             
-            
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
-
             clsLocalDrivingLicenseApplication app =
                  clsLocalDrivingLicenseApplication.FindLocalApplication(recordId);
           
@@ -256,7 +254,7 @@ namespace DVLD_2_my.Applications
             //if (app.ApplicationStatus == enApplicationStatus.Cancelled)
             //    tsmiCancelApplication.Enabled = false;
 
-            tsmiCancelApplication.Enabled = (app.ApplicationStatus != enApplicationStatus.Cancelled);
+            tsmiCancelApplication.Enabled = (app.ApplicationStatus == enApplicationStatus.New);
 
             if (app == null)
             {
