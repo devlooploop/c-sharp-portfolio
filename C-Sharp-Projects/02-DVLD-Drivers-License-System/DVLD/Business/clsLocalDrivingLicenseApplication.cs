@@ -130,22 +130,21 @@ namespace Business
                   (applicationId, (short)enApplicationStatus.Cancelled));
         }
 
-        public static clsLocalDrivingLicenseApplication FindLocalApplication(int localDrivingLicenseAppId)
+        public static clsLocalDrivingLicenseApplication FindLocalApplicationById(int localDrivingLicenseAppId)
         {
-            int applicationId = -1; int licenseClassId = -1; int applicantPersonId = -1;
-            DateTime applicationDate = DateTime.Now; int applicationTypeId = -1; 
-            enApplicationStatus applicationStatus = enApplicationStatus.New; 
-            DateTime lastStatusDate = DateTime.Now; float paidFees = 0; int createdByUserId = -1;
+            int applicationId = -1; int licenseClassId = -1; 
 
-            bool isFound =
-                clsLocalDrivingLicenseApplicationData.
-                GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseAppId,ref applicationId,ref licenseClassId);
+            bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseAppId,
+                ref applicationId,ref licenseClassId);
             
+
             if(isFound)
-            {
-               return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, applicationId, licenseClassId, 
-                      applicantPersonId, applicationDate, applicationTypeId, 
-                      applicationStatus, lastStatusDate,paidFees, createdByUserId);
+            {               kkkkk
+                clsApplication application = clsApplication.FindBaseApplicationByID(applicationId); 
+
+               return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, application.ApplicationID, application.LicenseClassId,
+                      application.ApplicantPersonID, application.ApplicationDate, application.ApplicationTypeID,
+                      (enApplicationStatus)application.ApplicationStatus, application.LastStatusDate, application.PaidFees, application.CreatedByUserID);
             }
             else
             {
