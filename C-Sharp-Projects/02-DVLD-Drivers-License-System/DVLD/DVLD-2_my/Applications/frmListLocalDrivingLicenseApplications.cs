@@ -201,6 +201,7 @@ namespace DVLD_2_my.Applications
 
         private void tsmiCancelApplication_Click(object sender, EventArgs e)
         {
+            
             //if(_localDrivingLicenseApplication.ApplicationStatus == enApplicationStatus.Cancelled)
             //    tsmiCancelApplication.Enabled = false;
 
@@ -239,50 +240,29 @@ namespace DVLD_2_my.Applications
 
         private void cmsListLocalDrivingLicenseApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            yyyy
+            
             
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
             clsLocalDrivingLicenseApplication app =
                  clsLocalDrivingLicenseApplication.FindLocalApplication(recordId);
           
-            if(app == null)
-            {
-                e.Cancel = true;   // don't show the menu
-                return;
-            }
+            //if(app == null)
+            //{
+            //    e.Cancel = true;   // don't show the menu
+            //    return;
+            //}
 
             //if (app.ApplicationStatus == enApplicationStatus.Cancelled)
             //    tsmiCancelApplication.Enabled = false;
 
-            //if (MessageBox.Show("Are you sure you want to delete this record", "Confirme",
-            //    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            //{
-            //    return;
-            //}
-
             tsmiCancelApplication.Enabled = (app.ApplicationStatus != enApplicationStatus.Cancelled);
-
 
             if (app == null)
             {
                 MessageBox.Show("Application not found.");
                 return;
             }
-
-            if (app.Cancel())
-            {
-                tsmiCancelApplication.Enabled = false;
-
-                MessageBox.Show($"Application deleted successfully");
-
-                RefreshLocalDrivingLicenseApplications();
-            }
-            else
-            {
-                MessageBox.Show($"Error application deleted");
-            }
-
            
         }
     }
