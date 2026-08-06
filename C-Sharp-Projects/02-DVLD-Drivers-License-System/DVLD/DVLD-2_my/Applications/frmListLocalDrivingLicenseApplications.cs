@@ -19,6 +19,12 @@ namespace DVLD_2_my.Applications
            InitializeComponent();
        }
 
+       public frmListLocalDrivingLicenseApplications(int localDrivingLicenseApplicationId )
+       {
+           InitializeComponent();
+            // add logic here ....
+       }
+
        private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
        {
             RefreshLocalDrivingLicenseApplications();
@@ -211,7 +217,7 @@ namespace DVLD_2_my.Applications
             int localDrivingLicenseApplicationId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
             clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
-                 clsLocalDrivingLicenseApplication.FindLocalApplication(localDrivingLicenseApplicationId);
+                 clsLocalDrivingLicenseApplication.FindLocalApplicationById(localDrivingLicenseApplicationId);
 
             if (localDrivingLicenseApplication == null)
             {
@@ -221,7 +227,9 @@ namespace DVLD_2_my.Applications
 
            if (localDrivingLicenseApplication.Cancel())
            {
-                 tsmiCancelApplication.Enabled = false;
+                MessageBox.Show(localDrivingLicenseApplication.ApplicationStatus.ToString());
+
+                tsmiCancelApplication.Enabled = clsLocalDrivingLicenseApplication.Ap;
   
                  MessageBox.Show($"Application deleted successfully");
                     
@@ -236,7 +244,7 @@ namespace DVLD_2_my.Applications
 
         private void cmsListLocalDrivingLicenseApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
+
             if (dgvLocalDrivingLicenseApplications.CurrentRow == null)
             {
                 e.Cancel = true;   // don't show the menu
@@ -245,7 +253,7 @@ namespace DVLD_2_my.Applications
 
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
             clsLocalDrivingLicenseApplication app =
-                 clsLocalDrivingLicenseApplication.FindLocalApplication(recordId);
+                 clsLocalDrivingLicenseApplication.FindLocalApplicationById(recordId);
 
 
             if (app == null)

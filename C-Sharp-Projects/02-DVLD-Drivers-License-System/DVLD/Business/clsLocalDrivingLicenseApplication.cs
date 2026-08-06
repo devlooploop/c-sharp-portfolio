@@ -139,10 +139,10 @@ namespace Business
             
 
             if(isFound)
-            {               kkkkk
+            {               
                 clsApplication application = clsApplication.FindBaseApplicationByID(applicationId); 
 
-               return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, application.ApplicationID, application.LicenseClassId,
+               return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, application.ApplicationID, licenseClassId,
                       application.ApplicantPersonID, application.ApplicationDate, application.ApplicationTypeID,
                       (enApplicationStatus)application.ApplicationStatus, application.LastStatusDate, application.PaidFees, application.CreatedByUserID);
             }
