@@ -262,12 +262,20 @@ namespace DVLD_2_my.Applications
                 return;
             }
 
-
             tsmiCancelApplication.Enabled = (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
 
            
         }
 
+        private void tsmiEditApplication_Click(object sender, EventArgs e)
+        {
+
+            int licesnse = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication(licesnse);
+
+            frm.ShowDialog();
+        }
     }
 
 

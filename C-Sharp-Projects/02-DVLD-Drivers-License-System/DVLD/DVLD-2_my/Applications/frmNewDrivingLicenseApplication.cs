@@ -21,7 +21,7 @@ namespace DVLD_2_my
         private enMode _mode;
 
         private int _localDrivingLicesnseApplicationId = -1;
-        private int _selectedPersonId = -1; 
+       // private int _selectedPersonId = -1;  
 
         private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication; 
         
@@ -87,10 +87,14 @@ namespace DVLD_2_my
         {
             personDetailsWithFilter_uc1.DisableFilterPersonGroupBox = true;
 
+            //_localDrivingLicenseApplication =
+            //        clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
+            
             _localDrivingLicenseApplication =
-                    clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
+                    clsLocalDrivingLicenseApplication.FindLocalApplicationById(_localDrivingLicesnseApplicationId);
 
-            if( _localDrivingLicenseApplication == null )
+            
+            if ( _localDrivingLicenseApplication == null )
             {
                 MessageBox.Show("No Application with ID = " + _localDrivingLicesnseApplicationId, "Application Not Found",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -144,7 +148,7 @@ namespace DVLD_2_my
 
             int ActiveApplicationID =   
                 clsApplication.GetActiveApplicationIDForLicenseClass
-                (_selectedPersonId,clsApplication.enApplicationType.NewDrivingLicense,LicesensClassId);
+                (personDetailsWithFilter_uc1.PersonID , clsApplication.enApplicationType.NewDrivingLicense,LicesensClassId);
 
             if (ActiveApplicationID != -1)
             {
@@ -202,7 +206,7 @@ namespace DVLD_2_my
 
         private void personDetailsWithFilter_uc1_OnPersonSelected(int obj)
         {
-            _selectedPersonId = obj;
+          //  _selectedPersonId = obj;
         }
 
     }
