@@ -9,6 +9,10 @@ namespace DVLD_2_my.Applications
 {
     public partial class frmListLocalDrivingLicenseApplications : Form
     {
+       public enum enMode { New = 0, Update = -1}
+       public enMode mode = enMode.New;
+
+       private int _localDrivingLicenseApplicationId = -1;
 
        private DataTable _AllApplicationsInfo;
 
@@ -17,12 +21,16 @@ namespace DVLD_2_my.Applications
        public frmListLocalDrivingLicenseApplications()
        {
            InitializeComponent();
+            mode = enMode.New;
        }
 
        public frmListLocalDrivingLicenseApplications(int localDrivingLicenseApplicationId )
        {
            InitializeComponent();
-            // add logic here ....
+
+           _localDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
+           mode = enMode.Update;
+       
        }
 
        private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
@@ -229,11 +237,10 @@ namespace DVLD_2_my.Applications
            {
                 MessageBox.Show(localDrivingLicenseApplication.ApplicationStatus.ToString());
 
-                tsmiCancelApplication.Enabled = clsLocalDrivingLicenseApplication.Ap;
-  
-                 MessageBox.Show($"Application deleted successfully");
+                MessageBox.Show($"Application deleted successfully");
                     
-                 RefreshLocalDrivingLicenseApplications();
+                RefreshLocalDrivingLicenseApplications();
+           
            }
            else
            {
@@ -252,9 +259,9 @@ namespace DVLD_2_my.Applications
             }
 
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
             clsLocalDrivingLicenseApplication app =
                  clsLocalDrivingLicenseApplication.FindLocalApplicationById(recordId);
-
 
             if (app == null)
             {
@@ -263,7 +270,6 @@ namespace DVLD_2_my.Applications
             }
 
             tsmiCancelApplication.Enabled = (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
-
            
         }
 
@@ -272,7 +278,8 @@ namespace DVLD_2_my.Applications
 
             int licesnse = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication(licesnse);
+            frmAddUpdateLocalDrivingLicesnseApplication frm = 
+                new frmAddUpdateLocalDrivingLicesnseApplication(licesnse);
 
             frm.ShowDialog();
         }

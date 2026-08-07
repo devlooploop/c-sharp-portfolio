@@ -21,7 +21,6 @@ namespace DVLD_2_my
         private enMode _mode;
 
         private int _localDrivingLicesnseApplicationId = -1;
-       // private int _selectedPersonId = -1;  
 
         private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication; 
         
@@ -31,13 +30,14 @@ namespace DVLD_2_my
             _mode = enMode.AddNew;
         }
 
-        public frmAddUpdateLocalDrivingLicesnseApplication(int localDrivingLicesnseApplicationId)
+        public frmAddUpdateLocalDrivingLicesnseApplication(int LocalDrivingLicesnseApplicationId)
         {
             InitializeComponent();
 
+            _localDrivingLicesnseApplicationId = LocalDrivingLicesnseApplicationId;
             _mode = enMode.Update;
-            _localDrivingLicesnseApplicationId = localDrivingLicesnseApplicationId;
         }
+
 
         private void ResetDefaultValues()
         {
@@ -85,10 +85,8 @@ namespace DVLD_2_my
 
         private void LoadDataValues()
         {
-            personDetailsWithFilter_uc1.DisableFilterPersonGroupBox = true;
+            personDetailsWithFilter_uc1.DisableFilterPersonGroupBox = false;
 
-            //_localDrivingLicenseApplication =
-            //        clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicesnseApplicationId);
             
             _localDrivingLicenseApplication =
                     clsLocalDrivingLicenseApplication.FindLocalApplicationById(_localDrivingLicesnseApplicationId);
@@ -206,7 +204,7 @@ namespace DVLD_2_my
 
         private void personDetailsWithFilter_uc1_OnPersonSelected(int obj)
         {
-          //  _selectedPersonId = obj;
+            //  _selectedPersonId = obj;
         }
 
     }

@@ -140,16 +140,9 @@ namespace Business
 
             if(isFound)
             {               
-<<<<<<< HEAD
-                clsApplication application = clsApplication.FindBaseApplicationByID(applicationId); 
-
-               return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, application.ApplicationID, licenseClassId,
-=======
-
                 clsApplication application = clsApplication.FindBaseApplicationByID(applicationId); 
 
                     return new clsLocalDrivingLicenseApplication(localDrivingLicenseAppId, application.ApplicationID, licenseClassId,
->>>>>>> a28eab7 (wip: fixed SelectedPersonId = -1 bug at LoadDataValues())
                       application.ApplicantPersonID, application.ApplicationDate, application.ApplicationTypeID,
                         (enApplicationStatus)application.ApplicationStatus, application.LastStatusDate, application.PaidFees, application.CreatedByUserID);
             }

@@ -35,8 +35,13 @@ namespace DVLD_2_my
 
         public bool DisableFilterPersonGroupBox
         {
-            set { gbFilterPersonBy.Enabled = this._isGBFilterPersonEnabled; }
-            get { return gbFilterPersonBy.Enabled = _isGBFilterPersonEnabled; }
+            get { return  _isGBFilterPersonEnabled; }
+            
+            set 
+            {   _isGBFilterPersonEnabled = value;
+                gbFilterPersonBy.Enabled = _isGBFilterPersonEnabled;
+            }
+
         }
 
         public void FoucusTxtUc()
@@ -52,6 +57,7 @@ namespace DVLD_2_my
         public void LoadPersonInfo(int personID)
         {
             txtFilterPerson.Text = personID.ToString();
+
             personDetails_uc1.LoadPersonInfo(personID);
         }
 
@@ -73,13 +79,14 @@ namespace DVLD_2_my
                 return;
             }
 
+             
             if (cbFilterPersonBy.SelectedIndex == (int)enUserFilter.eNationalNo)
             {
                 personDetails_uc1.LoadPersonInfo(txtFilterPerson.Text);
             }
             else
             {
-                int person_ID = -1; // ?? 
+                int person_ID = -1; 
                 if (int.TryParse(txtFilterPerson.Text, out person_ID))
                 {
                     if (clsPerson.IsPersonExists(person_ID))
@@ -117,7 +124,8 @@ namespace DVLD_2_my
 
         private void PersonDetailsWithFilter_uc_Load(object sender, EventArgs e)
         {
-            cbFilterPersonBy.SelectedIndex = 0;
+            cbFilterPersonBy.SelectedIndex = (int)enUserFilter.ePersonID;
+
             personDetails_uc1.AllowLinkLabelEditPersonEnabled = true;
         }
 
@@ -133,6 +141,7 @@ namespace DVLD_2_my
                 return;
 
             filter = (enUserFilter)cbFilterPersonBy.SelectedIndex;
+
             switch (filter)
             {
                 case enUserFilter.eNationalNo:
