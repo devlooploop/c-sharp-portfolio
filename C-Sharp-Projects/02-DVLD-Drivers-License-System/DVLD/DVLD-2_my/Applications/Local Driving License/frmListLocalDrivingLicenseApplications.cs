@@ -262,6 +262,17 @@ namespace DVLD_2_my.Applications
 
             frm.ShowDialog();
         }
+
+
+        private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
+        {
+            // +++ check if the applicant person already has an ++ vision test appointment ElSE ADD NEW SCHEDULE TEST ++ 
+
+
+            MessageBox.Show("Cooming soon ++ ShowApplicationDetails ++....");
+        
+        }
+
     }
 
 

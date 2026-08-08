@@ -49,10 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\frmListLocalDrivingLicenseApplications.cs">
+    <Compile Include="Applications\Controls\ctrApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ctrApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Controls\ctrLocalDrivingLicenseApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Controls\ctrLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>ctrLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmListLocalDrivingLicenseApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\frmListLocalDrivingLicenseApplications.Designer.cs">
+    <Compile Include="Applications\Local Driving License\frmListLocalDrivingLicenseApplications.Designer.cs">
       <DependentUpon>frmListLocalDrivingLicenseApplications.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\frmManageApplicationTypes.cs">
@@ -67,10 +79,10 @@
     <Compile Include="Applications\frmUpdateApplicationTypes.Designer.cs">
       <DependentUpon>frmUpdateApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\frmNewDrivingLicenseApplication.cs">
+    <Compile Include="Applications\Local Driving License\frmNewDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\frmNewDrivingLicenseApplication.Designer.cs">
+    <Compile Include="Applications\Local Driving License\frmNewDrivingLicenseApplication.Designer.cs">
       <DependentUpon>frmNewDrivingLicenseApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTestTest.cs">
@@ -110,10 +122,10 @@
     <Compile Include="Tests\frmUpdateTestType.Designer.cs">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </Compile>
-    <Compile Include="User\ctrUserCard.cs">
+    <Compile Include="User\Controls\ctrUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User\ctrUserCard.Designer.cs">
+    <Compile Include="User\Controls\ctrUserCard.Designer.cs">
       <DependentUpon>ctrUserCard.cs</DependentUpon>
     </Compile>
     <Compile Include="User\frmAddUpdateUser.cs">
@@ -181,7 +193,13 @@
     <Compile Include="User\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\frmListLocalDrivingLicenseApplications.resx">
+    <EmbeddedResource Include="Applications\Controls\ctrApplicationBasicInfo.resx">
+      <DependentUpon>ctrApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\Controls\ctrLocalDrivingLicenseApplication.resx">
+      <DependentUpon>ctrLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmListLocalDrivingLicenseApplications.resx">
       <DependentUpon>frmListLocalDrivingLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\frmManageApplicationTypes.resx">
@@ -190,7 +208,7 @@
     <EmbeddedResource Include="Applications\frmUpdateApplicationTypes.resx">
       <DependentUpon>frmUpdateApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\frmNewDrivingLicenseApplication.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\frmNewDrivingLicenseApplication.resx">
       <DependentUpon>frmNewDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTestTest.resx">
@@ -211,7 +229,7 @@
     <EmbeddedResource Include="Tests\frmUpdateTestType.resx">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User\ctrUserCard.resx">
+    <EmbeddedResource Include="User\Controls\ctrUserCard.resx">
       <DependentUpon>ctrUserCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmAddUpdateUser.resx">
