@@ -42,7 +42,6 @@ namespace Business
         public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
             int applicantPersonId, DateTime applicationDate, int applicationTypeId, enApplicationStatus applicationStatus, 
             DateTime lastStatusDate,float paidFees, int createdByUserId)
-
         {
             this.LocalDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
             this.ApplicationID = applicationId;
@@ -137,7 +136,6 @@ namespace Business
             bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseAppId,
                 ref applicationId,ref licenseClassId);
             
-
             if(isFound)
             {               
                 clsApplication application = clsApplication.FindBaseApplicationByID(applicationId); 

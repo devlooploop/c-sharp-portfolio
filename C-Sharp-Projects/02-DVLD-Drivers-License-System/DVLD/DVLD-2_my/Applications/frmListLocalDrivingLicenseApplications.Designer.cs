@@ -192,7 +192,6 @@
             this.tsmiShowApplicationDetails.Name = "tsmiShowApplicationDetails";
             this.tsmiShowApplicationDetails.Size = new System.Drawing.Size(346, 32);
             this.tsmiShowApplicationDetails.Text = "Show Application Details";
-            this.tsmiShowApplicationDetails.Click += new System.EventHandler(this.tsmiShowApplicationDetails_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -213,7 +212,6 @@
             this.tsmiDeleteApplication.Name = "tsmiDeleteApplication";
             this.tsmiDeleteApplication.Size = new System.Drawing.Size(346, 32);
             this.tsmiDeleteApplication.Text = "Delete Application";
-            this.tsmiDeleteApplication.Click += new System.EventHandler(this.tsmiDeleteApplication_Click);
             // 
             // toolStripMenuItem2
             // 

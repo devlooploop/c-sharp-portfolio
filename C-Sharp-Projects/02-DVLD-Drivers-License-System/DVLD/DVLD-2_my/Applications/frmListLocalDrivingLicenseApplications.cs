@@ -74,9 +74,7 @@ namespace DVLD_2_my.Applications
 
         private void btnAddNewApplication_Click(object sender, EventArgs e)
         {
-            if (_localDrivingLicenseApplication.ApplicationStatus != clsApplication.enApplicationStatus.New)
-                    return;
-
+         
             frmAddUpdateLocalDrivingLicesnseApplication frm = 
                 new frmAddUpdateLocalDrivingLicesnseApplication();
 
@@ -192,25 +190,6 @@ namespace DVLD_2_my.Applications
                 e.Handled = true;
             }
 
-        }
-
-        private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
-        {
-            // ****** make class/ form LocalDrivingLicesnseApplicationInfo
-
-            /*
-            
-            frmLocalDrivingLicesnseApplicationInfo frm = 
-                new frmLocalDrivingLicesnseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
-            frm.Show();
-            
-             */
-
-        }
-
-        private void tsmiDeleteApplication_Click(object sender, EventArgs e)
-        {
-                  
         }
 
         private void tsmiCancelApplication_Click(object sender, EventArgs e)
