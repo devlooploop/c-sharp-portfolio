@@ -35,7 +35,7 @@ namespace DataAccess
              
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -82,7 +82,7 @@ namespace DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 isFound = false;
                 throw;
@@ -119,7 +119,7 @@ namespace DataAccess
                     localDrivingLicenseApplicationId = resultId;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -154,7 +154,7 @@ namespace DataAccess
                 conn.Open();
                 rowsAffected = cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -183,7 +183,7 @@ namespace DataAccess
                 conn.Open();
                 rowsAffected = cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }

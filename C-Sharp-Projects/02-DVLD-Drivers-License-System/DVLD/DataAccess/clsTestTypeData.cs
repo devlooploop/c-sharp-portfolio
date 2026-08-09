@@ -147,7 +147,7 @@ namespace DataAccess
                 }
             }
 
-            catch (Exception ex)
+            catch (Exception )
             {
                 //Console.WriteLine("Error: " + ex.Message);
             }

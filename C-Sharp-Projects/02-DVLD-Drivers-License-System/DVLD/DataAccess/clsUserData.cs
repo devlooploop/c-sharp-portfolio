@@ -86,7 +86,7 @@ namespace DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
@@ -130,7 +130,7 @@ namespace DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
@@ -355,7 +355,7 @@ namespace DataAccess
                 isFound = reader.HasRows;
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
@@ -387,7 +387,7 @@ namespace DataAccess
                 isFound = reader.HasRows;
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
@@ -419,7 +419,7 @@ namespace DataAccess
                 isFound = reader.HasRows;
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }

@@ -14,7 +14,7 @@ namespace Business
     public class clsLocalDrivingLicenseApplication : clsApplication
     {
         public enum enMode {AddNew = 0,Update = 1 };
-        private enMode _mode = enMode.AddNew;
+        public enMode mode = enMode.AddNew;
         
         public int LocalDrivingLicenseApplicationId {  get; set; }
        
@@ -36,7 +36,7 @@ namespace Business
             LocalDrivingLicenseApplicationId = -1;
             LicenseClassId = -1;
 
-            _mode = enMode.AddNew;
+            mode = enMode.AddNew;
         }
 
         public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
@@ -56,7 +56,7 @@ namespace Business
             
             this.LicenseClassInfo = clsLicenseClass.FindByID(licenseClassId);
 
-            _mode = enMode.Update;
+            mode = enMode.Update;
         }
 
         public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int localDrivingLicenseApplicationId)
@@ -84,7 +84,7 @@ namespace Business
             return  clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoData();
         }
 
-        private bool AddNewApplication()
+        private bool AddNewLocalDrivingLicenseApplication()
         {
              this.LocalDrivingLicenseApplicationId = 
                 clsLocalDrivingLicenseApplicationData.AddNewData(this.ApplicationID, this.LicenseClassId);
@@ -94,25 +94,23 @@ namespace Business
 
         public bool Save()
         {
+            base.mode = (clsApplication.enMode)mode;
+            if (!base.Save())
+                return false;
 
-            if(!base.Save())
-                return !base.Save();
-
-            base.mode = (clsApplication.enMode) _mode;
-
-            switch (_mode)
+            switch (mode)
             {
                 case enMode.AddNew:
-                    if(AddNewApplication())
+                    if(AddNewLocalDrivingLicenseApplication())
                     {
-                        _mode = enMode.Update;
+                        mode = enMode.Update;
                         return true;
                     }
                     else
                     { return false; }
               
                 case enMode.Update:
-                    return UpdateApplication();
+                    return UpdateLocalDrivingLicenseApplication();
             }
 
             return false;
@@ -151,9 +149,9 @@ namespace Business
                     
         }
 
-        private bool UpdateApplication()
+        private bool UpdateLocalDrivingLicenseApplication()
         {
-            // Apply logic later ......
+            clsLocalDrivingLicenseApplicationData.UpdateApplicationStatus
 
             return true;
         }

@@ -49,7 +49,7 @@ namespace DataAccess
                 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 isFound = false;
                 throw;
@@ -84,7 +84,7 @@ namespace DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 // Console.WriteLine("Error: " + ex.Message);
             }
@@ -231,7 +231,7 @@ namespace DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 isFound = false;
                 throw;
@@ -274,7 +274,7 @@ namespace DataAccess
                 }
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return activeApplicationId;
             }
@@ -317,7 +317,7 @@ namespace DataAccess
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return activeApplicationId;
                 //throw;
@@ -351,7 +351,7 @@ namespace DataAccess
                 connection.Open();
                 rowsAffected = command.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -404,7 +404,7 @@ namespace DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //Console.WriteLine("Error: " + ex.Message);
                 isFound = false;
