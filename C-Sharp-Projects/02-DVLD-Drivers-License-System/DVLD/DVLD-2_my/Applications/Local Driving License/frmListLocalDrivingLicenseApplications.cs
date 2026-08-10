@@ -1,4 +1,5 @@
 ﻿using Business;
+using Business.Tests;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -270,9 +271,20 @@ namespace DVLD_2_my.Applications
         {
             // +++ check if the applicant person already has an ++ vision test appointment ElSE ADD NEW SCHEDULE TEST ++ 
 
-            if()
+            DataTable dt = clsTest.GetAllTestsInfo();
 
-        
+            
+            // ***** for test only *******
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dtr = dt.Rows[0];
+
+                MessageBox.Show("TestID =" + dtr["TestID"].ToString());
+                MessageBox.Show("TestAppointmentID =" + dtr["TestAppointmentID"].ToString());
+                MessageBox.Show("TestResult = " + dtr["TestResult"].ToString());
+                MessageBox.Show("Notes = " + dtr["Notes"].ToString());
+                MessageBox.Show("CreatedByUserID = " + dtr["CreatedByUserID"].ToString());
+            }
         }
 
     }
