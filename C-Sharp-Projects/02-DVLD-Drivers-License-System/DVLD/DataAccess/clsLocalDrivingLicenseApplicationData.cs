@@ -145,7 +145,7 @@ namespace DataAccess
 
             SqlCommand cmd = new SqlCommand(query, conn);
             
-            cmd.Parameters.AddWithValue("@applicationID", applicationId);
+            cmd.Parameters.AddWithValue("@applicationId", applicationId);
             cmd.Parameters.AddWithValue("@newStatus", newStatus);
             cmd.Parameters.AddWithValue("@lastStatusDate", DateTime.Now);
 
@@ -166,17 +166,17 @@ namespace DataAccess
             return (rowsAffected > 0);
         }
 
-        public static bool DeleteData(int applicationId)
+        public static bool DeleteData(int localDrivingLicenseApplicationId)
         {
             int rowsAffected = 0;
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"DELETE LocalDrivingLicenseApplications 
-                                    WHERE LocalDrivingLicenseApplicationID = @applicationId";
+                                    WHERE LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationId";
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", applicationId);
+            cmd.Parameters.AddWithValue("@localDrivingLicenseApplicationId", localDrivingLicenseApplicationId);
 
             try
             {
@@ -195,13 +195,41 @@ namespace DataAccess
             return (rowsAffected > 0);
         }
 
-        
-        //public static bool FindData(int appId)
-        //{
-        //    string query = @"SELECT found = 1 From LocalDrivingLicenseApplications 
-        //                       WHERE LocalDrivingLicenseApplicationID = @appId";
 
-        //}
+        public static bool UpdateLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId,
+                int applicationId, int licenseClassId)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Update  LocalDrivingLicenseApplications  
+                            set ApplicationID = @applicationId,
+                                LicenseClassID = @licenseClassId
+                            where LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationId";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@localDrivingLicenseApplicationId", localDrivingLicenseApplicationId);
+            command.Parameters.AddWithValue("ApplicationId", applicationId);
+            command.Parameters.AddWithValue("LicenseClassId", licenseClassId);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch
+            {
+                // Error log here 
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
 
     }
 

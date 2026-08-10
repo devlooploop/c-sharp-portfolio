@@ -261,6 +261,8 @@ namespace DVLD_2_my.Applications
                 new frmAddUpdateLocalDrivingLicesnseApplication(licesnse);
 
             frm.ShowDialog();
+
+            RefreshLocalDrivingLicenseApplications();
         }
 
 
@@ -268,8 +270,8 @@ namespace DVLD_2_my.Applications
         {
             // +++ check if the applicant person already has an ++ vision test appointment ElSE ADD NEW SCHEDULE TEST ++ 
 
+            if()
 
-            MessageBox.Show("Cooming soon ++ ShowApplicationDetails ++....");
         
         }
 

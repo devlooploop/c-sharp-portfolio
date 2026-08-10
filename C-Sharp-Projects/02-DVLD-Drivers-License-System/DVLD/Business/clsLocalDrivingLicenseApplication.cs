@@ -151,9 +151,9 @@ namespace Business
 
         private bool UpdateLocalDrivingLicenseApplication()
         {
-            clsLocalDrivingLicenseApplicationData.UpdateApplicationStatus
-
-            return true;
+            return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationId, 
+                      this.ApplicationID, this.LicenseClassId);
+             
         }
 
     }
