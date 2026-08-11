@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Tests;
+using DVLD_2_my.Applications.Local_Driving_License;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -269,10 +270,12 @@ namespace DVLD_2_my.Applications
 
         private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
         {
-          
+            // **** add Passed tests label value later .... ***
 
+            frmLocalDrivingLicenseApplicationInfo frm = 
+                new frmLocalDrivingLicenseApplicationInfo();
 
-
+            frm.ShowDialog();
 
         }
 
