@@ -52,7 +52,6 @@ namespace DataAccess
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ID", testID);
 
-
             try
             {
                 conn.Open();
@@ -84,8 +83,7 @@ namespace DataAccess
 
             return isFound;
         }
-
-        
+    
         public static bool UpdateTestTypeData(int testID, string title, string description, float fees)
         {
             int rowsAffected = 0; 
@@ -93,15 +91,15 @@ namespace DataAccess
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"UPDATE TestTypes
-                             SET TestTypeTitle = @Title, TestTypeDescription = @Description ,TestTypeFees = @Fees 
-                             WHERE TestTypeID = @ID;";
+                             SET TestTypeTitle = @title, TestTypeDescription = @description ,TestTypeFees = @fees 
+                             WHERE TestTypeID = @testTypeId;";
 
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@ID", testID);
-            cmd.Parameters.AddWithValue("@Title", title);
-            cmd.Parameters.AddWithValue("@Description", description);
-            cmd.Parameters.AddWithValue("@Fees", fees);
+            cmd.Parameters.AddWithValue("@testTypeId", testID);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@description", description);
+            cmd.Parameters.AddWithValue("@fees", fees);
 
             try
             {
@@ -116,7 +114,6 @@ namespace DataAccess
                
             return (rowsAffected > 0);
         }
-
 
         public static int AddNewTestType(string Title, string Description, float Fees)
         {
@@ -146,7 +143,6 @@ namespace DataAccess
                     TestTypeID = insertedID;
                 }
             }
-
             catch (Exception )
             {
                 //Console.WriteLine("Error: " + ex.Message);
@@ -159,6 +155,8 @@ namespace DataAccess
             return TestTypeID;
 
         }
+
+
 
     }
 }

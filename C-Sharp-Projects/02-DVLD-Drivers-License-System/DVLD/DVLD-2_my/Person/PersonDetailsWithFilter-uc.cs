@@ -79,7 +79,6 @@ namespace DVLD_2_my
                 return;
             }
 
-             
             if (cbFilterPersonBy.SelectedIndex == (int)enUserFilter.eNationalNo)
             {
                 personDetails_uc1.LoadPersonInfo(txtFilterPerson.Text);

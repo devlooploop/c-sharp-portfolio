@@ -51,17 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\Controls\ctrApplicationBasicInfo.cs">
+    <Compile Include="Applications\Controls\ctrlDrivingLicenseApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Controls\ctrApplicationBasicInfo.Designer.cs">
-      <DependentUpon>ctrApplicationBasicInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Applications\Local Driving License\Controls\ctrLocalDrivingLicenseApplication.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Applications\Local Driving License\Controls\ctrLocalDrivingLicenseApplication.Designer.cs">
-      <DependentUpon>ctrLocalDrivingLicenseApplication.cs</DependentUpon>
+    <Compile Include="Applications\Controls\ctrlDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Local Driving License\frmListLocalDrivingLicenseApplications.cs">
       <SubType>Form</SubType>
@@ -195,11 +189,8 @@
     <Compile Include="User\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\Controls\ctrApplicationBasicInfo.resx">
-      <DependentUpon>ctrApplicationBasicInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\Controls\ctrLocalDrivingLicenseApplication.resx">
-      <DependentUpon>ctrLocalDrivingLicenseApplication.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Controls\ctrlDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmListLocalDrivingLicenseApplications.resx">
       <DependentUpon>frmListLocalDrivingLicenseApplications.cs</DependentUpon>
@@ -422,6 +413,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Applications\Local Driving License\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

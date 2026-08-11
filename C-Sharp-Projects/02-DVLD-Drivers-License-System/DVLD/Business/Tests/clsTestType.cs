@@ -9,28 +9,29 @@ namespace Business
         private enum enMode { addNew = 0, update = 1 }
         private enMode _mode = enMode.addNew;
 
-        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
+        public enum enTestType { VisionTest = 1, WrittenTheoryTest = 2, StreetPracticalTest = 3 };
 
-        public clsTestType.enTestType ID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public float Fees { get; set; }
+        public int TestTypeID { get; set; }
+        public string TestTypeTitle { get; set; }
+        public string TestTypeDescription { get; set; }
+        public float TestTypeFees { get; set; }
 
         public clsTestType()
         {
-            this.ID = clsTestType.enTestType.VisionTest;
-            this.Title = "";
-            this.Description = "";
-            this.Fees = 0;
+            this.TestTypeID = -1;
+            this.TestTypeTitle = "";
+            this.TestTypeDescription = "";
+            this.TestTypeFees = 0;
+            
             _mode = enMode.addNew;
         }
 
-        public clsTestType(enTestType testID, string title, string description, float fees)
+        public clsTestType(int testID, string title, string description, float fees)
         {
-            this.ID = testID;
-            this.Title = title;
-            this.Description = description;
-            this.Fees = fees;
+            this.TestTypeID = testID;
+            this.TestTypeTitle = title;
+            this.TestTypeDescription = description;
+            this.TestTypeFees = fees;
 
             _mode = enMode.update;
         }
@@ -40,11 +41,11 @@ namespace Business
             return clsTestTypeData.GetAllTestTypeData();
         }
 
-        public static clsTestType FindByID(enTestType testID)
+        public static clsTestType FindByID(int testID)
         {
             string title = ""; string description = ""; float fees = 0;
 
-            if (clsTestTypeData.GetTestTypeInfoID((int) testID, ref title, ref description, ref fees))
+            if (clsTestTypeData.GetTestTypeInfoID( testID, ref title, ref description, ref fees))
                 
                 return new clsTestType(testID, title, description, fees);
             else
@@ -53,16 +54,18 @@ namespace Business
 
         private bool UpdateTestType()
         {
-            return clsTestTypeData.UpdateTestTypeData((int) this.ID, this.Title, this.Description, this.Fees);
+            return clsTestTypeData.UpdateTestTypeData((int) this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, 
+                this.TestTypeFees);
         }
 
         private bool _AddNewTestType()
         {
             //call DataAccess Layer 
 
-            this.ID = (clsTestType.enTestType)clsTestTypeData.AddNewTestType(this.Title, this.Description, this.Fees);
+            this.TestTypeID = clsTestTypeData.AddNewTestType(this.TestTypeTitle, 
+                this.TestTypeDescription, this.TestTypeFees);
 
-            return ((int)this.ID != -1);
+            return (this.TestTypeID != -1);
         }
 
         public bool Save()
@@ -82,7 +85,6 @@ namespace Business
 
                 case enMode.update:
                     return UpdateTestType();
-
             }
 
             return false;

@@ -269,22 +269,11 @@ namespace DVLD_2_my.Applications
 
         private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
         {
-            // +++ check if the applicant person already has an ++ vision test appointment ElSE ADD NEW SCHEDULE TEST ++ 
+          
 
-            DataTable dt = clsTest.GetAllTestsInfo();
 
-            
-            // ***** for test only *******
-            if (dt.Rows.Count > 0)
-            {
-                DataRow dtr = dt.Rows[0];
 
-                MessageBox.Show("TestID =" + dtr["TestID"].ToString());
-                MessageBox.Show("TestAppointmentID =" + dtr["TestAppointmentID"].ToString());
-                MessageBox.Show("TestResult = " + dtr["TestResult"].ToString());
-                MessageBox.Show("Notes = " + dtr["Notes"].ToString());
-                MessageBox.Show("CreatedByUserID = " + dtr["CreatedByUserID"].ToString());
-            }
+
         }
 
     }

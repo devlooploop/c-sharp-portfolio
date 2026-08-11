@@ -8,10 +8,11 @@ namespace DVLD_2_my.Tests
 {
     public partial class frmUpdateTestType : Form
     {
-        private clsTestType.enTestType _testID = clsTestType.enTestType.VisionTest;
+       // private clsTestType.enTestType _testID = clsTestType.enTestType.VisionTest;
+        private int _testID = -1;
         clsTestType _testType;
 
-        public frmUpdateTestType(clsTestType.enTestType testID)
+        public frmUpdateTestType(int testID)
         {
             InitializeComponent();
             _testID = testID;
@@ -19,10 +20,10 @@ namespace DVLD_2_my.Tests
 
         private void LoadTestData()
         {
-            lbl_ID.Text = ((int)_testID).ToString();
-            txtTitle.Text = _testType.Title;
-            txtDescription.Text = _testType.Description;
-            txtFees.Text = _testType.Fees.ToString();
+            lbl_ID.Text = (_testID).ToString();
+            txtTitle.Text = _testType.TestTypeTitle;
+            txtDescription.Text = _testType.TestTypeDescription;
+            txtFees.Text = _testType.TestTypeFees.ToString();
         }
 
         private void frmUpdateTestType_Load(object sender, EventArgs e)
@@ -50,9 +51,9 @@ namespace DVLD_2_my.Tests
                 return;
             }
 
-            _testType.Title = txtTitle.Text;
-            _testType.Description = txtDescription.Text;
-            _testType.Fees = Convert.ToSingle(txtFees.Text);
+            _testType.TestTypeTitle = txtTitle.Text;
+            _testType.TestTypeDescription = txtDescription.Text;
+            _testType.TestTypeFees = Convert.ToSingle(txtFees.Text);
 
             if(_testType.Save())
             {

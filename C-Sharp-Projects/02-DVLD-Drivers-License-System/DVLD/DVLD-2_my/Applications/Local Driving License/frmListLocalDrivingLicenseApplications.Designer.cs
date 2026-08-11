@@ -246,7 +246,7 @@
             // 
             this.tsmiVisionTest.Image = global::DVLD_2_my.Properties.Resources.Vision_Test_32;
             this.tsmiVisionTest.Name = "tsmiVisionTest";
-            this.tsmiVisionTest.Size = new System.Drawing.Size(270, 34);
+            this.tsmiVisionTest.Size = new System.Drawing.Size(197, 34);
             this.tsmiVisionTest.Text = "Vision Test";
             // 
             // toolStripMenuItem4

@@ -75,8 +75,7 @@ namespace DVLD_2_my
         {
             frmListLocalDrivingLicenseApplications frm = new frmListLocalDrivingLicenseApplications();
             frm.ShowDialog();
-            
-            
+
         }
 
 
