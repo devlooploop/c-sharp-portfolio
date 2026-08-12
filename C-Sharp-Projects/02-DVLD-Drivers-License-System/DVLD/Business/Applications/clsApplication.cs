@@ -32,6 +32,7 @@ namespace Business
         public clsApplicationTypes applicationTypeInfo;
 
         public enApplicationStatus ApplicationStatus { get; set; }
+        
         public string StatusText
         {
             get

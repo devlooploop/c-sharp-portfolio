@@ -239,6 +239,7 @@ namespace DVLD_2_my.Applications
                 return;
             }
 
+
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
             clsLocalDrivingLicenseApplication app =
@@ -250,8 +251,31 @@ namespace DVLD_2_my.Applications
                 return;
             }
 
-            tsmiCancelApplication.Enabled = (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
-           
+            if(app.StatusText == "Cancelled")
+            {
+                tsmiEditApplication.Enabled = false;
+                tsmiDeleteApplication.Enabled = false;
+                tsmiCancelApplication.Enabled = false;
+                tsmiSechduleTests.Enabled = false;
+                tsmiIssueDrivingLicenseFirstTime.Enabled = false;
+                tsmiShowLicense.Enabled = false;
+            }
+            else
+            {
+                tsmiEditApplication.Enabled = true;
+                tsmiDeleteApplication.Enabled = true;
+                tsmiCancelApplication.Enabled = true;
+                tsmiSechduleTests.Enabled = true;
+                tsmiIssueDrivingLicenseFirstTime.Enabled = true;
+                tsmiShowLicense.Enabled = true;
+            }
+            
+                tsmiCancelApplication.Enabled = 
+                (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            
+
+
         }
 
         private void tsmiEditApplication_Click(object sender, EventArgs e)
@@ -270,7 +294,7 @@ namespace DVLD_2_my.Applications
 
         private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
         {
-            // **** add Passed tests label value later .... ***
+            // **** ADD  " Passed tests label value later ".... ***
 
             frmLocalDrivingLicenseApplicationInfo frm = 
                 new frmLocalDrivingLicenseApplicationInfo();
