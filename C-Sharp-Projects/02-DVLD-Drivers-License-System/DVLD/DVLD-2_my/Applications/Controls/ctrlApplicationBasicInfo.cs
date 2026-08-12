@@ -34,9 +34,35 @@ namespace DVLD_2_my.Applications.Controls
         public ctrlApplicationBasicInfo(int applicationId)
         {
             InitializeComponent();
-
+            _applicationId = applicationId;
         }
 
-        
+
+        public void LoadApplicationInfo(int applicationId)
+        {
+            _application = clsApplication.FindBaseApplicationByID(applicationId);
+
+            if (_application == null)
+            {
+                MessageBox.Show($"No Application found with Id = {applicationId}");
+                return;
+            }
+
+
+            lbl_ID.Text = _application.ApplicationID.ToString();
+            lbl_Status.Text = _application.StatusText.ToString();
+            lbl_Fees.Text = _application.PaidFees.ToString();
+            lbl_Type.Text = _application.applicationTypeInfo.ToString(); // ??
+            lbl_Applicant.Text = _application.ApplicantFullName.ToString();
+            lbl_Date.Text = _application.ApplicationDate.ToShortDateString();
+            lbl_StatusDate.Text = _application.LastStatusDate.ToString();
+            lbl_CreatedBy.Text = _application.createdByUserInfo.ToString();
+            
+        }
+
+        private void ctrlApplicationBasicInfo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

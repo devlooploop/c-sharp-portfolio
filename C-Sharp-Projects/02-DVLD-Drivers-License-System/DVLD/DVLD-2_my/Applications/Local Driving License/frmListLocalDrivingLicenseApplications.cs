@@ -250,31 +250,16 @@ namespace DVLD_2_my.Applications
                 MessageBox.Show("Application not found.");
                 return;
             }
-
-            if(app.StatusText == "Cancelled")
-            {
-                tsmiEditApplication.Enabled = false;
-                tsmiDeleteApplication.Enabled = false;
-                tsmiCancelApplication.Enabled = false;
-                tsmiSechduleTests.Enabled = false;
-                tsmiIssueDrivingLicenseFirstTime.Enabled = false;
-                tsmiShowLicense.Enabled = false;
-            }
-            else
-            {
-                tsmiEditApplication.Enabled = true;
-                tsmiDeleteApplication.Enabled = true;
-                tsmiCancelApplication.Enabled = true;
-                tsmiSechduleTests.Enabled = true;
-                tsmiIssueDrivingLicenseFirstTime.Enabled = true;
-                tsmiShowLicense.Enabled = true;
-            }
+            
+                tsmiEditApplication.Enabled = !(app.StatusText == "Cancelled");
+                tsmiDeleteApplication.Enabled = !(app.StatusText == "Cancelled");
+                tsmiCancelApplication.Enabled = !(app.StatusText == "Cancelled");
+                tsmiSechduleTests.Enabled = !(app.StatusText == "Cancelled");
+                tsmiIssueDrivingLicenseFirstTime.Enabled = !(app.StatusText == "Cancelled");
+                tsmiShowLicense.Enabled = !(app.StatusText == "Cancelled");
             
                 tsmiCancelApplication.Enabled = 
                 (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
-
-            
-
 
         }
 
@@ -296,8 +281,11 @@ namespace DVLD_2_my.Applications
         {
             // **** ADD  " Passed tests label value later ".... ***
 
+            int localDrivingLicenseApplicationId = 
+               (int) dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
             frmLocalDrivingLicenseApplicationInfo frm = 
-                new frmLocalDrivingLicenseApplicationInfo();
+                new frmLocalDrivingLicenseApplicationInfo(localDrivingLicenseApplicationId);
 
             frm.ShowDialog();
 
