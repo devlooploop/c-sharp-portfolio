@@ -40,6 +40,7 @@
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lbl_AppliedForLicense = new System.Windows.Forms.Label();
+            this.ctrlApplicationBasicInfo1 = new DVLD_2_my.Applications.Controls.ctrlApplicationBasicInfo();
             this.DrivingLicenseApplicationInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -195,15 +196,22 @@
             this.lbl_AppliedForLicense.TabIndex = 111;
             this.lbl_AppliedForLicense.Text = "????";
             // 
+            // ctrlApplicationBasicInfo1
+            // 
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(19, 228);
+            this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
+            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1067, 349);
+            this.ctrlApplicationBasicInfo1.TabIndex = 123;
+            // 
             // ctrDrivingLicenseApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.Controls.Add(this.DrivingLicenseApplicationInfo);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrDrivingLicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(1105, 225);
-            this.Load += new System.EventHandler(this.ctrDrivingLicenseApplicationInfo_Load);
+            this.Size = new System.Drawing.Size(1164, 578);
             this.DrivingLicenseApplicationInfo.ResumeLayout(false);
             this.DrivingLicenseApplicationInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -227,5 +235,6 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Label lbl_AppliedForLicense;
+        private ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
     }
 }

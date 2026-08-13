@@ -15,7 +15,6 @@ namespace DVLD_2_my.Applications.Controls
     public partial class ctrDrivingLicenseApplicationInfo : UserControl
     {
         private int _drivingLicenseApplicationID = -1;
-        // clsApplication _application;
 
         clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
 
@@ -31,18 +30,11 @@ namespace DVLD_2_my.Applications.Controls
             InitializeComponent();
         }
 
-        public ctrDrivingLicenseApplicationInfo(int DrivingLicenseApplicationID)
+
+        public void LoadValues( )
         {
-            InitializeComponent();
 
-            _drivingLicenseApplicationID = DrivingLicenseApplicationID;
-        }
-
-        private void LoadValues(check param later ... _localDrivingLicenseApplication )
-        {
-            // _application = clsApplication.FindBaseApplicationByID(_drivingLicenseApplicationID);
-
-            _localDrivingLicenseApplication = 
+            _localDrivingLicenseApplication =
                 clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_drivingLicenseApplicationID);
 
             if (_localDrivingLicenseApplication == null)
@@ -53,14 +45,14 @@ namespace DVLD_2_my.Applications.Controls
 
             lbl_DLAppID.Text = _localDrivingLicenseApplication.ApplicationID.ToString();
             lbl_AppliedForLicense.Text = _localDrivingLicenseApplication.LicenseClassInfo.ToString();
+            
             lbl_PassedTests.Text = "9999"; // add test count value later ....
 
+            ctrlApplicationBasicInfo1.LoadApplicationInfo(_drivingLicenseApplicationID);
+
         }
 
-        private void ctrDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)
-        {
-            LoadValues();
-        }
+      //  make 2 methods  LoadApplicationInfoByAppID() & LoadApplicationInfoByLocalDrivingAppID()
 
 
     }

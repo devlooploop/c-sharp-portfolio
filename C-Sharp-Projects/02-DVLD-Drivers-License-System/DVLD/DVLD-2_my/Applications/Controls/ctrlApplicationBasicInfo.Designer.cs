@@ -390,7 +390,6 @@
             this.Controls.Add(this.gb_ApplicationBasicInfo);
             this.Name = "ctrlApplicationBasicInfo";
             this.Size = new System.Drawing.Size(1109, 349);
-            this.Load += new System.EventHandler(this.ctrlApplicationBasicInfo_Load);
             this.gb_ApplicationBasicInfo.ResumeLayout(false);
             this.gb_ApplicationBasicInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
