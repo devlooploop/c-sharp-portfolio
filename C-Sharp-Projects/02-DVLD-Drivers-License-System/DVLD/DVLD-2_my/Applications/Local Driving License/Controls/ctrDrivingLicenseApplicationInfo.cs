@@ -41,12 +41,9 @@ namespace DVLD_2_my.Applications.Controls
             
             lbl_PassedTests.Text = "???Add later????"; 
 
-            ctrlApplicationBasicInfo1.LoadApplicationInfoByAppID(_localDrivingLicenseApplication.ApplicationID);
+            ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.ApplicationID);
 
-
-            // **** Remove later ****
-            MessageBox.Show($"Local ID: {_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId}\n" +
-            $"Application ID: {_localDrivingLicenseApplication.ApplicationID}");
+            fixed here later 
         }
 
         

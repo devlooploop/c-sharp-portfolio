@@ -95,16 +95,11 @@ namespace Business
             this.PaidFees = paidFees;
             this.CreatedByUserID = createdByUserId;
 
-            this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationId);
+            this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationTypeId);
             this.createdByUserInfo = clsUser.FindByUserID(CreatedByUserID);
            
             mode = enMode.Update;
         }
-
-        //public static DataTable GetAllApplicationsInfo()
-        //{
-        //       return clsApplicationData.GetAllApplicationsData();
-        //}
 
         private bool AddNewApplication()
         {

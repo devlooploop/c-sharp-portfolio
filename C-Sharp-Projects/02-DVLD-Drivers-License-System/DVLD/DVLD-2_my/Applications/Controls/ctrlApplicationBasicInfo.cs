@@ -48,13 +48,15 @@ namespace DVLD_2_my.Applications.Controls
             }
             else
             {
-                FillCtrlValues();  fix here 
+                FillCtrlValues();  
             }
 
         }
 
         private void FillCtrlValues()
         {
+            _applicationId = _application.ApplicationID;
+
             lbl_ID.Text = _application.ApplicationID.ToString();
             lbl_Status.Text = _application.StatusText;
             lbl_Fees.Text = _application.PaidFees.ToString();
@@ -62,7 +64,7 @@ namespace DVLD_2_my.Applications.Controls
             lbl_Applicant.Text = _application.ApplicantFullName;
             lbl_Date.Text = _application.ApplicationDate.ToShortDateString();
             lbl_StatusDate.Text = _application.LastStatusDate.ToString();
-            lbl_CreatedBy.Text = _application.createdByUserInfo.ToString();
+            lbl_CreatedBy.Text = _application.createdByUserInfo.UserName;
 
         }
 
