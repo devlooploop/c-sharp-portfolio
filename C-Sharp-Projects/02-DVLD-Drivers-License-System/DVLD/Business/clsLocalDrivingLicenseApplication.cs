@@ -62,15 +62,21 @@ namespace Business
         public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int localDrivingLicenseApplicationId)
         {
             int applicationId = -1; int licenseClassId = -1;
-            int applicantPersonId = -1;
-            DateTime applicationDate = DateTime.Now; int applicationTypeId = -1; enApplicationStatus applicationStatus = enApplicationStatus.New; DateTime lastStatusDate = DateTime.Now; 
-            float paidFees = 0; int createdByUserId = -1; 
 
-            if (clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseApplicationId, ref applicationId,
-            ref licenseClassId))
+            bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseApplicationId, ref applicationId,
+            ref licenseClassId);
+            
+            if (isFound)
             {
-                return new clsLocalDrivingLicenseApplication(localDrivingLicenseApplicationId, applicationId, licenseClassId,applicantPersonId, 
-                    applicationDate, applicationTypeId, applicationStatus, lastStatusDate,paidFees, createdByUserId);
+                // find base application first!
+
+                clsApplication baseApplication = clsApplication.FindBaseApplicationByID(applicationId);
+
+                return new clsLocalDrivingLicenseApplication(localDrivingLicenseApplicationId,baseApplication.ApplicationID, 
+                    licenseClassId, baseApplication.ApplicantPersonID,
+                   baseApplication.ApplicationDate, baseApplication.ApplicationTypeID, 
+                   baseApplication.ApplicationStatus, baseApplication.LastStatusDate,
+                   baseApplication.PaidFees, baseApplication.CreatedByUserID);
             }
             else
             {

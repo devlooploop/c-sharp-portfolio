@@ -14,46 +14,42 @@ namespace DVLD_2_my.Applications.Controls
 {
     public partial class ctrDrivingLicenseApplicationInfo : UserControl
     {
-        private int _drivingLicenseApplicationID = -1;
 
         clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
-
-        public int DrivingLicenseApplicationId { get; set; }
-
-        public string LicenseClassName { get; set; }
-
-        public short PassedTestCount { get; set; }
-
 
         public ctrDrivingLicenseApplicationInfo()
         {
             InitializeComponent();
         }
 
-
-        public void LoadValues( )
+        public void LoadDrivingLicenseApplicationInfo(int drivingLicenseApplicationId)
         {
 
             _localDrivingLicenseApplication =
-                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_drivingLicenseApplicationID);
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(drivingLicenseApplicationId);
 
             if (_localDrivingLicenseApplication == null)
             {
-                MessageBox.Show($"No Application found with Id = {_drivingLicenseApplicationID}");
+                MessageBox.Show($"No Application found with Id = {drivingLicenseApplicationId}");
                 return;
             }
 
-            lbl_DLAppID.Text = _localDrivingLicenseApplication.ApplicationID.ToString();
-            lbl_AppliedForLicense.Text = _localDrivingLicenseApplication.LicenseClassInfo.ToString();
+            lbl_DLAppID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
+           
+            lbl_AppliedForLicense.Text =
+                clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName.ToString();
             
-            lbl_PassedTests.Text = "9999"; // add test count value later ....
+            lbl_PassedTests.Text = "???Add later????"; 
 
-            ctrlApplicationBasicInfo1.LoadApplicationInfo(_drivingLicenseApplicationID);
+            ctrlApplicationBasicInfo1.LoadApplicationInfoByAppID(_localDrivingLicenseApplication.ApplicationID);
 
+
+            // **** Remove later ****
+            MessageBox.Show($"Local ID: {_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId}\n" +
+            $"Application ID: {_localDrivingLicenseApplication.ApplicationID}");
         }
 
-      //  make 2 methods  LoadApplicationInfoByAppID() & LoadApplicationInfoByLocalDrivingAppID()
-
-
+        
+       
     }
 }

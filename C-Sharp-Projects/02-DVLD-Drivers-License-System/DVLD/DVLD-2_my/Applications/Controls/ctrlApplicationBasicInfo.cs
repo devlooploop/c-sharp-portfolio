@@ -1,15 +1,6 @@
-﻿using Business;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-
+using Business;
 
 
 namespace DVLD_2_my.Applications.Controls
@@ -25,7 +16,6 @@ namespace DVLD_2_my.Applications.Controls
         { 
             get { return _applicationId; } 
         }
-       
 
         public ctrlApplicationBasicInfo()
         {
@@ -37,37 +27,44 @@ namespace DVLD_2_my.Applications.Controls
             lbl_ID.Text = "[???]";
             lbl_Status.Text = "[???]";
             lbl_Type.Text = "[???]";
-            lbl_Applicant.Text = 
+            lbl_Applicant.Text = "[???]";
             lbl_Date.Text = "[???]";
             lbl_StatusDate.Text = "[???]";
             lbl_CreatedBy.Text = "[???]";
         }
 
+
         public void LoadApplicationInfo(int applicationId)
         {
 
-            _application = clsApplication.FindBaseApplicationByID(_applicationId);
+            _application = clsApplication.FindBaseApplicationByID(applicationId);
 
             if (_application == null)
             {
                 ResetCtrValues();
 
-                MessageBox.Show($"No Application found with Id = {_applicationId}");
+                MessageBox.Show($"No Application found with Id = {applicationId}");
                 return;
             }
+            else
+            {
+                FillCtrlValues();  fix here 
+            }
 
+        }
+
+        private void FillCtrlValues()
+        {
             lbl_ID.Text = _application.ApplicationID.ToString();
             lbl_Status.Text = _application.StatusText;
             lbl_Fees.Text = _application.PaidFees.ToString();
-            lbl_Type.Text = _application.applicationTypeInfo.ToString(); // ??
+            lbl_Type.Text = clsApplicationTypes.FindApplicationByID(_application.ApplicationTypeID).Title; 
             lbl_Applicant.Text = _application.ApplicantFullName;
             lbl_Date.Text = _application.ApplicationDate.ToShortDateString();
             lbl_StatusDate.Text = _application.LastStatusDate.ToString();
             lbl_CreatedBy.Text = _application.createdByUserInfo.ToString();
 
-            fix the bugs later ..
         }
 
-        
     }
 }

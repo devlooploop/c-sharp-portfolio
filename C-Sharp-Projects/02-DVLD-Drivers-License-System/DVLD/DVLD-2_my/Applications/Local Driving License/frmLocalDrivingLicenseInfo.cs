@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DVLD_2_my.Applications.Local_Driving_License
 {
     public partial class frmLocalDrivingLicenseApplicationInfo : Form
     {
-        private int _localDrivingLicenseApplicationID;
+        private int _localDrivingLicenseApplicationID = -1;
         private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
         private clsApplication _application;
 
@@ -33,8 +34,9 @@ namespace DVLD_2_my.Applications.Local_Driving_License
 
         private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)
         {
-            
-            ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplicationID);
+
+            // ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplicationID);
+            ctrlDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_localDrivingLicenseApplicationID);
 
         }
 
