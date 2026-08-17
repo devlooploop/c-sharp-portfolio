@@ -185,7 +185,8 @@ namespace DataAccess
             }
             catch (Exception )
             {
-                throw;
+                rowsAffected = -1; 
+               // throw;
             }
             finally
             {
@@ -221,7 +222,7 @@ namespace DataAccess
             catch
             {
                 // Error log here 
-                return false;
+                rowsAffected = -1;
             }
             finally
             {

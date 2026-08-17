@@ -193,7 +193,7 @@ namespace DVLD_2_my.Applications
         private void tsmiCancelApplication_Click(object sender, EventArgs e)
         {
             
-            if (MessageBox.Show("Are you sure you want to delete this record", "Confirme",
+            if (MessageBox.Show("Are you sure you want to cancel this record", "Confirme",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
@@ -221,7 +221,7 @@ namespace DVLD_2_my.Applications
            }
            else
            {
-                 MessageBox.Show($"Error application deleted");
+                 MessageBox.Show($"Error application not deleted");
            }
 
         }
@@ -304,12 +304,11 @@ namespace DVLD_2_my.Applications
                     RefreshLocalDrivingLicenseApplications();
                 }
                 else
-                { 
-                    MessageBox.Show("Error, Local Driving License Application Not deleted :-(");
+                {
+                    MessageBox.Show("Warning: Cannot delete this Local Driving License Application because it is linked to other data.", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                
-
+                                
             }
 
 
