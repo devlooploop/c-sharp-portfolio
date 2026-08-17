@@ -28,27 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
+            this.ctrDrivingLicenseApplicationInfo1 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
             this.SuspendLayout();
             // 
-            // ctrlApplicationBasicInfo1
+            // ctrDrivingLicenseApplicationInfo1
             // 
-          
-            // 
-            // ctrlDrivingLicenseApplicationInfo1
-            // 
-            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(13, 27);
-            this.ctrlDrivingLicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
-            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(1101, 225);
-            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 0;
+            this.ctrDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(22, 14);
+            this.ctrDrivingLicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrDrivingLicenseApplicationInfo1.Name = "ctrDrivingLicenseApplicationInfo1";
+            this.ctrDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(1133, 576);
+            this.ctrDrivingLicenseApplicationInfo1.TabIndex = 0;
             // 
             // frmLocalDrivingLicenseApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 600);
-            this.Controls.Add(this.ctrlDrivingLicenseApplicationInfo1);
+            this.ClientSize = new System.Drawing.Size(1222, 617);
+            this.Controls.Add(this.ctrDrivingLicenseApplicationInfo1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLocalDrivingLicenseApplicationInfo";
             this.Text = "Local Driving License Application Info";
@@ -59,6 +55,6 @@
 
         #endregion
 
-        private Controls.ctrDrivingLicenseApplicationInfo ctrlDrivingLicenseApplicationInfo1;
+        private Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo1;
     }
 }

@@ -275,8 +275,7 @@ namespace DVLD_2_my.Applications
 
         private void tsmiShowApplicationDetails_Click(object sender, EventArgs e)
         {
-            // **** ADD  " Passed tests label value later ".... ***
-
+            
             int localDrivingLicenseApplicationId = 
                (int) dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 

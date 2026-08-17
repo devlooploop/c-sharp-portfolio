@@ -198,9 +198,9 @@
             // 
             // ctrlApplicationBasicInfo1
             // 
-            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(19, 228);
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(19, 222);
             this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
-            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1067, 349);
+            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1101, 332);
             this.ctrlApplicationBasicInfo1.TabIndex = 123;
             // 
             // ctrDrivingLicenseApplicationInfo
@@ -211,7 +211,7 @@
             this.Controls.Add(this.DrivingLicenseApplicationInfo);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrDrivingLicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(1164, 578);
+            this.Size = new System.Drawing.Size(1133, 576);
             this.DrivingLicenseApplicationInfo.ResumeLayout(false);
             this.DrivingLicenseApplicationInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -237,4 +237,6 @@
         private System.Windows.Forms.Label lbl_AppliedForLicense;
         private ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
     }
+
+
 }

@@ -14,6 +14,16 @@ namespace DVLD_2_my.Applications.Controls
             InitializeComponent();
         }
 
+        private void FillValues()
+        {
+            lbl_DLAppID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
+
+            lbl_AppliedForLicense.Text =
+                clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName.ToString();
+
+            lbl_PassedTests.Text = "???Add later????";
+        }
+
         public void LoadDrivingLicenseApplicationInfo(int drivingLicenseApplicationId)
         {
 
@@ -26,33 +36,11 @@ namespace DVLD_2_my.Applications.Controls
                 return;
             }
 
-            lbl_DLAppID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
-
-            lbl_AppliedForLicense.Text =
-                clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName.ToString();
-            
-            lbl_PassedTests.Text = "???Add later????";
-
-            //<<
-            int applicationId = _localDrivingLicenseApplication.ApplicationID;
-
-            MessageBox.Show($"Local DL App ID: {_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId}\n" +
-                            $"Application ID: {applicationId}");
-            //>>
+            FillValues();
 
             ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.ApplicationID);
-            //ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId);
-
-            MessageBox.Show(
-    $"Control Name: {ctrlApplicationBasicInfo1.Name}\n" +
-    $"Visible: {ctrlApplicationBasicInfo1.Visible}\n" +
-    $"Size: {ctrlApplicationBasicInfo1.Size}\n" +
-    $"Location: {ctrlApplicationBasicInfo1.Location}"
-);
+       
 
         }
-
-        make neww ctrBasicInfo in the frmlocaldriving ...
-       
     }
 }
