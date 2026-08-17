@@ -184,7 +184,7 @@
             this.toolStripMenuItem6,
             this.tsmiShowPersonLicenseHistory});
             this.cmsListLocalDrivingLicenseApplications.Name = "contextMenuStrip1";
-            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(347, 296);
+            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(347, 329);
             this.cmsListLocalDrivingLicenseApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsListLocalDrivingLicenseApplications_Opening);
             // 
             // tsmiShowApplicationDetails
@@ -214,6 +214,7 @@
             this.tsmiDeleteApplication.Name = "tsmiDeleteApplication";
             this.tsmiDeleteApplication.Size = new System.Drawing.Size(346, 32);
             this.tsmiDeleteApplication.Text = "Delete Application";
+            this.tsmiDeleteApplication.Click += new System.EventHandler(this.tsmiDeleteApplication_Click);
             // 
             // toolStripMenuItem2
             // 

@@ -247,12 +247,12 @@ namespace DVLD_2_my.Applications
                 return;
             }
             
-                tsmiEditApplication.Enabled = !(app.StatusText == "Cancelled");
-                tsmiDeleteApplication.Enabled = !(app.StatusText == "Cancelled");
-                tsmiCancelApplication.Enabled = !(app.StatusText == "Cancelled");
-                tsmiSechduleTests.Enabled = !(app.StatusText == "Cancelled");
-                tsmiIssueDrivingLicenseFirstTime.Enabled = !(app.StatusText == "Cancelled");
-                tsmiShowLicense.Enabled = !(app.StatusText == "Cancelled");
+                tsmiEditApplication.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
+                tsmiDeleteApplication.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
+                tsmiCancelApplication.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
+                tsmiSechduleTests.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
+                tsmiIssueDrivingLicenseFirstTime.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
+                tsmiShowLicense.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
             
                 tsmiCancelApplication.Enabled = 
                 (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
@@ -286,6 +286,34 @@ namespace DVLD_2_my.Applications
 
         }
 
+        private void tsmiDeleteApplication_Click(object sender, EventArgs e)
+        {
+            int localApplicationId =
+              (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+           int baseApplicationId = clsLocalDrivingLicenseApplication.FindLocalApplicationById(localApplicationId).ApplicationID;
+
+            if (IsApplicationExist(baseApplicationId))
+            {
+                clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
+                    clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(localApplicationId);
+
+                if (localDrivingLicenseApplication.Delete())
+                {
+                    MessageBox.Show("Local Driving License Application deleted successfully :-)");
+                    RefreshLocalDrivingLicenseApplications();
+                }
+                else
+                { 
+                    MessageBox.Show("Error, Local Driving License Application Not deleted :-(");
+                }
+
+                
+
+            }
+
+
+        }
     }
 
 
