@@ -1,14 +1,6 @@
-﻿using Business;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Business;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DVLD_2_my.Applications.Local_Driving_License
@@ -19,7 +11,6 @@ namespace DVLD_2_my.Applications.Local_Driving_License
         private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
         private clsApplication _application;
 
-
         public frmLocalDrivingLicenseApplicationInfo()
         {
             InitializeComponent();
@@ -29,7 +20,6 @@ namespace DVLD_2_my.Applications.Local_Driving_License
         {
             InitializeComponent();
             _localDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
-
         }
 
         private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)

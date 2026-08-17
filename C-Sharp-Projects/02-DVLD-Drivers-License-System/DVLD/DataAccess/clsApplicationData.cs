@@ -14,53 +14,7 @@ namespace DataAccess
 
     public class clsApplicationData
     {
-        public static bool GetApplicationInfoBuyIdData(int applicationId, ref int applicantPersonId, ref DateTime applicationDate, ref int applicationTypeId,
-                                                     ref byte applicationStatus, ref DateTime lastStatusDate, ref float paidFees, ref int createdByUserId)
-        {
-            bool isFound = false;
-            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            
-            string query = @"SELECT * FROM Applications WHERE ApplicationID = @applicationId";
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@ApplicationID", applicationId);
-
-            try
-            {
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    isFound = true;
-
-                    applicantPersonId = (int)reader["ApplicantPersonID"];
-                    applicationDate = (DateTime)reader["ApplicationDate"];
-                    applicationTypeId = (int)reader["ApplicationTypeID"];
-                    applicationStatus = (byte)reader["ApplicationStatus"];
-                    lastStatusDate = (DateTime)reader["LastStatusDate"];
-                    paidFees = Convert.ToSingle(reader["PaidFees"]);
-                    createdByUserId = (int)reader["CreatedByUserID"];
-                }
-                else
-                {
-                    isFound = false;
-                }
-                
-                reader.Close();
-            }
-            catch (Exception )
-            {
-                isFound = false;
-                throw;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return isFound;
-        }
-
+     
         public static DataTable GetAllApplicationsInfoData()
         {
 
@@ -330,7 +284,6 @@ namespace DataAccess
             return activeApplicationId;
         }
 
-
         public static bool UpdateStatus(int applicationId, short newStatus)
         {
             int rowsAffected = 0;
@@ -374,7 +327,7 @@ namespace DataAccess
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicationID", applicationId);
+            command.Parameters.AddWithValue("@ApplicationId", applicationId);
 
             try
             {

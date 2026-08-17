@@ -1,12 +1,5 @@
 ﻿using DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Business.clsApplication;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Business
@@ -81,8 +74,10 @@ namespace Business
             mode = enMode.AddNew;
         }
 
-        private clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
+        protected clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
             int applicationTypeId, enApplicationStatus applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserId)
+        //private clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
+        //    int applicationTypeId, enApplicationStatus applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserId)
         {
             this.ApplicationID = applicationId;
             this.ApplicantPersonID = applicantPersonId;

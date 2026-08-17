@@ -39,22 +39,56 @@ namespace Business
             mode = enMode.AddNew;
         }
 
-        public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
-            int applicantPersonId, DateTime applicationDate, int applicationTypeId, enApplicationStatus applicationStatus, 
-            DateTime lastStatusDate,float paidFees, int createdByUserId)
+        //private clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId, int applicationId, int licenseClassId,
+        //    int applicantPersonId, DateTime applicationDate, int applicationTypeId, enApplicationStatus applicationStatus,
+        //    DateTime lastStatusDate, float paidFees, int createdByUserId)
+        //{
+        //    this.LocalDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
+        //    this.ApplicationID = applicationId;
+        //    this.ApplicantPersonID = applicantPersonId;
+        //    this.ApplicationDate = applicationDate;
+        //    this.ApplicationTypeID = (int)applicationTypeId;
+        //    this.ApplicationStatus = applicationStatus;
+        //    this.LastStatusDate = lastStatusDate;
+        //    this.PaidFees = paidFees;
+        //    this.CreatedByUserID = createdByUserId;
+        //    this.LicenseClassId = licenseClassId;
+
+        //    this.LicenseClassInfo = clsLicenseClass.FindByID(licenseClassId);
+
+        //    this.PersonInfo = ...
+        //    this.applicationTypeInfo = ...
+        //    this.createdByUserInfo = ...
+
+        //    mode = enMode.Update;
+        //}
+
+        // **** for testing only ****
+    public clsLocalDrivingLicenseApplication(int localDrivingLicenseApplicationId,int applicationId,int licenseClassId,
+    int applicantPersonId,
+    DateTime applicationDate,
+    int applicationTypeId,
+    enApplicationStatus applicationStatus,
+    DateTime lastStatusDate,
+    float paidFees,
+    int createdByUserId)
+    : base(
+        applicationId,
+        applicantPersonId,
+        applicationDate,
+        applicationTypeId,
+        applicationStatus,
+        lastStatusDate,
+        paidFees,
+        createdByUserId)
         {
-            this.LocalDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
-            this.ApplicationID = applicationId;
-            this.ApplicantPersonID = applicantPersonId;
-            this.ApplicationDate = applicationDate;
-            this.ApplicationTypeID = (int)applicationTypeId;
-            this.ApplicationStatus = applicationStatus;
-            this.LastStatusDate = lastStatusDate;
-            this.PaidFees = paidFees;
-            this.CreatedByUserID = createdByUserId;
+            this.LocalDrivingLicenseApplicationId =
+                localDrivingLicenseApplicationId;
+
             this.LicenseClassId = licenseClassId;
-            
-            this.LicenseClassInfo = clsLicenseClass.FindByID(licenseClassId);
+
+            this.LicenseClassInfo =
+                clsLicenseClass.FindByID(licenseClassId);
 
             mode = enMode.Update;
         }

@@ -84,7 +84,6 @@ namespace DVLD_2_my.Applications
 
             RefreshLocalDrivingLicenseApplications();
             lblRecordCount.Text = _AllApplicationsInfo.DefaultView.Count.ToString();
-       
         }
 
         private string  GetColumnName(string filter)
@@ -170,7 +169,6 @@ namespace DVLD_2_my.Applications
             {
                 txtFilterValue.Show();
             }
-
         }
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
@@ -180,7 +178,6 @@ namespace DVLD_2_my.Applications
             {
                 e.Handled = true;
             }
-
         }
 
         private void txtFilterValue_KeyDown(object sender, KeyEventArgs e)
@@ -191,7 +188,6 @@ namespace DVLD_2_my.Applications
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
-
         }
 
         private void tsmiCancelApplication_Click(object sender, EventArgs e)

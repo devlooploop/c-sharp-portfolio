@@ -1,14 +1,6 @@
 ﻿using Business;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_2_my.Applications.Controls
 {
@@ -35,15 +27,29 @@ namespace DVLD_2_my.Applications.Controls
             }
 
             lbl_DLAppID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
-           
+
             lbl_AppliedForLicense.Text =
                 clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName.ToString();
             
-            lbl_PassedTests.Text = "???Add later????"; 
+            lbl_PassedTests.Text = "???Add later????";
+
+            //<<
+            int applicationId = _localDrivingLicenseApplication.ApplicationID;
+
+            MessageBox.Show($"Local DL App ID: {_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId}\n" +
+                            $"Application ID: {applicationId}");
+            //>>
 
             ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.ApplicationID);
+            //ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId);
 
-            fixed here later 
+            MessageBox.Show(
+    $"Control Name: {ctrlApplicationBasicInfo1.Name}\n" +
+    $"Visible: {ctrlApplicationBasicInfo1.Visible}\n" +
+    $"Size: {ctrlApplicationBasicInfo1.Size}\n" +
+    $"Location: {ctrlApplicationBasicInfo1.Location}"
+);
+
         }
 
         
