@@ -52,7 +52,7 @@ namespace DVLD_2_my.Applications.Controls
 
         }
 
-        
+        make neww ctrBasicInfo in the frmlocaldriving ...
        
     }
 }
