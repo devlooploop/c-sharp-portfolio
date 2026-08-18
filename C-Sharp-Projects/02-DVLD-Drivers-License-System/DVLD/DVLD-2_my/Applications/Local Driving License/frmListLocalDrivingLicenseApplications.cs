@@ -212,12 +212,11 @@ namespace DVLD_2_my.Applications
 
            if (localDrivingLicenseApplication.Cancel())
            {
-                MessageBox.Show(localDrivingLicenseApplication.ApplicationStatus.ToString());
+           //     MessageBox.Show(localDrivingLicenseApplication.ApplicationStatus.ToString());
 
-                MessageBox.Show($"Application deleted successfully");
+                MessageBox.Show($"Application canceled successfully");
                     
                 RefreshLocalDrivingLicenseApplications();
-           
            }
            else
            {
@@ -234,7 +233,6 @@ namespace DVLD_2_my.Applications
                 e.Cancel = true;   // don't show the menu
                 return;
             }
-
 
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
@@ -312,6 +310,12 @@ namespace DVLD_2_my.Applications
             }
 
 
+        }
+
+        private void tsmiVisionTest_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("WIP: work in progress .....", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 

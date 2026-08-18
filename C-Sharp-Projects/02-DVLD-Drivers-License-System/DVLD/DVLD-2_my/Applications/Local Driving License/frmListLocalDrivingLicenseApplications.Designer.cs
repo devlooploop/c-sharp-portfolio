@@ -178,7 +178,7 @@
             this.toolStripMenuItem6,
             this.tsmiShowPersonLicenseHistory});
             this.cmsListLocalDrivingLicenseApplications.Name = "contextMenuStrip1";
-            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 280);
+            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 302);
             this.cmsListLocalDrivingLicenseApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsListLocalDrivingLicenseApplications_Opening);
             // 
             // tsmiShowApplicationDetails
@@ -241,8 +241,9 @@
             // 
             this.tsmiVisionTest.Image = global::DVLD_2_my.Properties.Resources.Vision_Test_32;
             this.tsmiVisionTest.Name = "tsmiVisionTest";
-            this.tsmiVisionTest.Size = new System.Drawing.Size(130, 22);
+            this.tsmiVisionTest.Size = new System.Drawing.Size(188, 30);
             this.tsmiVisionTest.Text = "Vision Test";
+            this.tsmiVisionTest.Click += new System.EventHandler(this.tsmiVisionTest_Click);
             // 
             // toolStripMenuItem4
             // 
