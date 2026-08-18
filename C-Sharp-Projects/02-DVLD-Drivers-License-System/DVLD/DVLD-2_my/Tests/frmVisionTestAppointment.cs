@@ -12,9 +12,23 @@ namespace DVLD_2_my.Tests
 {
     public partial class frmVisionTestAppointment : Form
     {
+
+        private int _testAppointmentId = -1;
+
         public frmVisionTestAppointment()
         {
             InitializeComponent();
+        }
+
+        public frmVisionTestAppointment(int testAppointmentId)
+        {
+            InitializeComponent();
+            _testAppointmentId = testAppointmentId;
+        }
+
+        private void frmVisionTestAppointment_Load(object sender, EventArgs e)
+        {
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_testAppointmentId);
         }
     }
 }

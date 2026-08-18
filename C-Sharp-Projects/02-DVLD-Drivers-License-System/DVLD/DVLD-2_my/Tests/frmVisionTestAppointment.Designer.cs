@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ctrDrivingLicenseApplicationInfo1 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
             this.txtVisionTestAppointment = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddVisionTestAppointment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ctrDrivingLicenseApplicationInfo1 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,13 +62,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
-            // 
-            // ctrDrivingLicenseApplicationInfo1
-            // 
-            this.ctrDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 152);
-            this.ctrDrivingLicenseApplicationInfo1.Name = "ctrDrivingLicenseApplicationInfo1";
-            this.ctrDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(755, 359);
-            this.ctrDrivingLicenseApplicationInfo1.TabIndex = 45;
             // 
             // txtVisionTestAppointment
             // 
@@ -140,6 +133,13 @@
             this.label2.TabIndex = 52;
             this.label2.Text = "# Records:";
             // 
+            // ctrDrivingLicenseApplicationInfo1
+            // 
+            this.ctrDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 152);
+            this.ctrDrivingLicenseApplicationInfo1.Name = "ctrDrivingLicenseApplicationInfo1";
+            this.ctrDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(755, 359);
+            this.ctrDrivingLicenseApplicationInfo1.TabIndex = 45;
+            // 
             // frmVisionTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +156,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmVisionTestAppointment";
             this.Text = "frmVisionTestAppointment";
+            this.Load += new System.EventHandler(this.frmVisionTestAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

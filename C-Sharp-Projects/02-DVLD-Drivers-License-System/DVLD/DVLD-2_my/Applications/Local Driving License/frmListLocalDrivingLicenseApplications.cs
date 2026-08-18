@@ -1,6 +1,7 @@
 ﻿using Business;
 using Business.Tests;
 using DVLD_2_my.Applications.Local_Driving_License;
+using DVLD_2_my.Tests;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -309,15 +310,33 @@ namespace DVLD_2_my.Applications
                                 
             }
 
-
         }
 
         private void tsmiVisionTest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("WIP: work in progress .....", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            int vesionTestAppointmentID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
+            frmVisionTestAppointment frm = new frmVisionTestAppointment(vesionTestAppointmentID);
+            frm.ShowDialog();
 
+        }
+
+        private void tsmiIssueDrivingLicenseFirstTime_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("WIP: work in progress ....", "Warning",
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void tsmiShowLicense_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("WIP: work in progress ....", "Warning",
+                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void tsmiShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("WIP: work in progress ....", "Warning",
+                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 
