@@ -61,11 +61,11 @@
             this.DrivingLicenseApplicationInfo.Controls.Add(this.pictureBox12);
             this.DrivingLicenseApplicationInfo.Controls.Add(this.pictureBox13);
             this.DrivingLicenseApplicationInfo.Controls.Add(this.lbl_AppliedForLicense);
-            this.DrivingLicenseApplicationInfo.Location = new System.Drawing.Point(19, 23);
+            this.DrivingLicenseApplicationInfo.Location = new System.Drawing.Point(4, 5);
             this.DrivingLicenseApplicationInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DrivingLicenseApplicationInfo.Name = "DrivingLicenseApplicationInfo";
             this.DrivingLicenseApplicationInfo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DrivingLicenseApplicationInfo.Size = new System.Drawing.Size(1067, 178);
+            this.DrivingLicenseApplicationInfo.Size = new System.Drawing.Size(1100, 155);
             this.DrivingLicenseApplicationInfo.TabIndex = 122;
             this.DrivingLicenseApplicationInfo.TabStop = false;
             this.DrivingLicenseApplicationInfo.Text = "Driving License Application Info";
@@ -115,6 +115,7 @@
             this.ll_ShowLicenseInfo.TabIndex = 117;
             this.ll_ShowLicenseInfo.TabStop = true;
             this.ll_ShowLicenseInfo.Text = "Show License Info";
+            this.ll_ShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_ShowLicenseInfo_LinkClicked);
             // 
             // label8
             // 
@@ -198,9 +199,9 @@
             // 
             // ctrlApplicationBasicInfo1
             // 
-            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(19, 222);
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(3, 168);
             this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
-            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1101, 332);
+            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1101, 317);
             this.ctrlApplicationBasicInfo1.TabIndex = 123;
             // 
             // ctrDrivingLicenseApplicationInfo
@@ -211,7 +212,7 @@
             this.Controls.Add(this.DrivingLicenseApplicationInfo);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrDrivingLicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(1133, 576);
+            this.Size = new System.Drawing.Size(1118, 499);
             this.DrivingLicenseApplicationInfo.ResumeLayout(false);
             this.DrivingLicenseApplicationInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();

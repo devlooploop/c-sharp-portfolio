@@ -274,6 +274,7 @@
             // 
             // gbxPersonInfo
             // 
+            this.gbxPersonInfo.BackColor = System.Drawing.SystemColors.Control;
             this.gbxPersonInfo.Controls.Add(this.pbEditPersonInfo);
             this.gbxPersonInfo.Controls.Add(this.lblPhone1);
             this.gbxPersonInfo.Controls.Add(this.LinkLabelEditPerson);
@@ -323,7 +324,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox5.Image = global::DVLD_2_my.Properties.Resources.Email_32;
             this.pictureBox5.Location = new System.Drawing.Point(164, 211);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -335,7 +336,7 @@
             // 
             // pbGender
             // 
-            this.pbGender.BackColor = System.Drawing.Color.White;
+            this.pbGender.BackColor = System.Drawing.SystemColors.Control;
             this.pbGender.Image = global::DVLD_2_my.Properties.Resources.Man_32;
             this.pbGender.Location = new System.Drawing.Point(164, 165);
             this.pbGender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -347,7 +348,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox3.Image = global::DVLD_2_my.Properties.Resources.Address_32;
             this.pictureBox3.Location = new System.Drawing.Point(164, 258);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -359,7 +360,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox2.Image = global::DVLD_2_my.Properties.Resources.Person_32;
             this.pictureBox2.Location = new System.Drawing.Point(164, 90);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -371,7 +372,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.Image = global::DVLD_2_my.Properties.Resources.Number_32;
             this.pictureBox1.Location = new System.Drawing.Point(164, 127);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -383,7 +384,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.White;
+            this.pictureBox6.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox6.Image = global::DVLD_2_my.Properties.Resources.Calendar_32;
             this.pictureBox6.Location = new System.Drawing.Point(750, 84);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -395,7 +396,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox7.Image = global::DVLD_2_my.Properties.Resources.Phone_32;
             this.pictureBox7.Location = new System.Drawing.Point(750, 132);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -407,7 +408,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox8.Image = global::DVLD_2_my.Properties.Resources.Country_32;
             this.pictureBox8.Location = new System.Drawing.Point(750, 181);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

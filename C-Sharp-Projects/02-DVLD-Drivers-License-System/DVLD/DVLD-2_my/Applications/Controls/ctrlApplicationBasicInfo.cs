@@ -57,6 +57,7 @@ namespace DVLD_2_my.Applications.Controls
             lbl_ID.Text = _application.ApplicationID.ToString();
             lbl_Status.Text = _application.StatusText;
             lbl_Fees.Text = _application.PaidFees.ToString("0.00");
+       //     lbl_Fees.Text = _application.PaidFees.ToString("0.00");
 
             clsApplicationTypes applicationType =
                 clsApplicationTypes.FindApplicationByID(_application.ApplicationTypeID);
@@ -75,5 +76,11 @@ namespace DVLD_2_my.Applications.Controls
 
         }
 
+        private void ll_ViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            frmPersonDetails frm = new frmPersonDetails(_application.ApplicantPersonID);
+            frm.ShowDialog();
+        }
     }
 }

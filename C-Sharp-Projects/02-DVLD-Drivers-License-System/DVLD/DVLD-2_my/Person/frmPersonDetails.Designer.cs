@@ -68,7 +68,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::DVLD_2_my.Properties.Resources.Close_32;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1085, 490);
+            this.button1.Location = new System.Drawing.Point(985, 382);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(188, 49);
             this.button1.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(490, 33);
+            this.label2.Location = new System.Drawing.Point(467, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(251, 40);
@@ -91,16 +91,17 @@
             // personDetails_uc1
             // 
             this.personDetails_uc1.AllowLinkLabelEditPersonEnabled = true;
-            this.personDetails_uc1.Location = new System.Drawing.Point(48, 87);
+            this.personDetails_uc1.BackColor = System.Drawing.SystemColors.Control;
+            this.personDetails_uc1.Location = new System.Drawing.Point(22, 52);
             this.personDetails_uc1.Name = "personDetails_uc1";
-            this.personDetails_uc1.Size = new System.Drawing.Size(1236, 383);
+            this.personDetails_uc1.Size = new System.Drawing.Size(1166, 324);
             this.personDetails_uc1.TabIndex = 2;
             // 
             // frmPersonDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1296, 563);
+            this.ClientSize = new System.Drawing.Size(1198, 439);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.personDetails_uc1);

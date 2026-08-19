@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
+using Business.Tests;
 
 namespace DVLD_2_my.Tests
 {
@@ -28,7 +30,18 @@ namespace DVLD_2_my.Tests
 
         private void frmVisionTestAppointment_Load(object sender, EventArgs e)
         {
-            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_testAppointmentId);
+            // ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_testAppointmentId);
+            DrivingLicenseApplicationID ??
+
+            int DrivingLicenseApplicationID = clsTestAppointment.FindTestAppointmentByID(_testAppointmentId);
+
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo();
+
+            made my view  TestAppointments_My_View in MMSM 
+
+                fix the C# later ..
         }
+
+        
     }
 }

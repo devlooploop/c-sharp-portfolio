@@ -38,8 +38,16 @@ namespace DVLD_2_my.Applications.Controls
 
             FillValues();
 
+           // ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.ApplicationID);
             ctrlApplicationBasicInfo1.LoadApplicationInfo(_localDrivingLicenseApplication.ApplicationID);
        
+
+        }
+
+        private void ll_ShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show($"Under construction","Comming soon ....",
+                MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
     }

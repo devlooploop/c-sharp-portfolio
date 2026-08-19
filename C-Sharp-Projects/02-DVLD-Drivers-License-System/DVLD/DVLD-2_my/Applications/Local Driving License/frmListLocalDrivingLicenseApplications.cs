@@ -1,11 +1,11 @@
-﻿using Business;
-using Business.Tests;
-using DVLD_2_my.Applications.Local_Driving_License;
-using DVLD_2_my.Tests;
-using System;
+﻿using System;
+using Business;
 using System.Data;
+using DVLD_2_my.Tests;
 using System.Windows.Forms;
 using static Business.clsApplication;
+using static Business.Tests.clsTestAppointment;
+using DVLD_2_my.Applications.Local_Driving_License;
 
 
 namespace DVLD_2_my.Applications
@@ -33,7 +33,6 @@ namespace DVLD_2_my.Applications
 
            _localDrivingLicenseApplicationId = localDrivingLicenseApplicationId;
            mode = enMode.Update;
-       
        }
 
        private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
@@ -304,7 +303,7 @@ namespace DVLD_2_my.Applications
                 }
                 else
                 {
-                    MessageBox.Show("Warning: Cannot delete this Local Driving License Application because it is linked to other data.", "Warning",
+                    MessageBox.Show("Warning: Can not delete this Local Driving License Application because it is linked to other data.", "Warning",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                                 
@@ -314,10 +313,18 @@ namespace DVLD_2_my.Applications
 
         private void tsmiVisionTest_Click(object sender, EventArgs e)
         {
+            // ??
             int vesionTestAppointmentID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            frmVisionTestAppointment frm = new frmVisionTestAppointment(vesionTestAppointmentID);
+            Business.Tests.clsTestAppointment.GetTestAppointmentsInfo();
+            // ++++  check vesionTestAppointmentID param instead try local driving app ID as param bellow: 
+            //frmVisionTestAppointment frm = new frmVisionTestAppointment(vesionTestAppointmentID);
+
+
+
+            frmVisionTestAppointment frm = new frmVisionTestAppointment(25);
             frm.ShowDialog();
+
 
         }
 
