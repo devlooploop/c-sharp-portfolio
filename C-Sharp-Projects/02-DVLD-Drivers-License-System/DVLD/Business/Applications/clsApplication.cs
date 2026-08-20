@@ -74,10 +74,8 @@ namespace Business
             mode = enMode.AddNew;
         }
 
-        protected clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
+        private clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
             int applicationTypeId, enApplicationStatus applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserId)
-        //private clsApplication(int applicationId, int applicantPersonId, DateTime applicationDate, 
-        //    int applicationTypeId, enApplicationStatus applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserId)
         {
             this.ApplicationID = applicationId;
             this.ApplicantPersonID = applicantPersonId;
@@ -147,7 +145,6 @@ namespace Business
                
                 case enMode.Update:
                     return UpdateApplication();
-
             }
 
             return false;

@@ -1,11 +1,12 @@
-﻿using System;
-using Business;
-using System.Data;
+﻿using Business;
+using Business.Tests;
+using DVLD_2_my.Applications.Local_Driving_License;
 using DVLD_2_my.Tests;
+using System;
+using System.Data;
 using System.Windows.Forms;
 using static Business.clsApplication;
 using static Business.Tests.clsTestAppointment;
-using DVLD_2_my.Applications.Local_Driving_License;
 
 
 namespace DVLD_2_my.Applications
@@ -212,8 +213,6 @@ namespace DVLD_2_my.Applications
 
            if (localDrivingLicenseApplication.Cancel())
            {
-           //     MessageBox.Show(localDrivingLicenseApplication.ApplicationStatus.ToString());
-
                 MessageBox.Show($"Application canceled successfully");
                     
                 RefreshLocalDrivingLicenseApplications();
@@ -314,15 +313,20 @@ namespace DVLD_2_my.Applications
         private void tsmiVisionTest_Click(object sender, EventArgs e)
         {
             // ??
-            int vesionTestAppointmentID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+           int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            
-            // ++++  check vesionTestAppointmentID param instead try local driving app ID as param bellow: 
-            //frmVisionTestAppointment frm = new frmVisionTestAppointment(vesionTestAppointmentID);
+            clsTestAppointment testAppointment = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(localDrivingLicenseApplicationsID);
 
+            if (testAppointment == null)
+            {
+                MessageBox.Show("No test appointment found", "Warning",
+                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            int TestAppointmentID = testAppointment.TestAppointmentID;
 
+            // ++++  check vesionTestAppointmentID param instead try local driving app ID as param bellow:         
 
-            frmVisionTestAppointment frm = new frmVisionTestAppointment(25);
+            frmVisionTestAppointment frm = new frmVisionTestAppointment(TestAppointmentID);
             frm.ShowDialog();
 
 

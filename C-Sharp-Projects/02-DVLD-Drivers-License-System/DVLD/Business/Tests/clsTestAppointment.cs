@@ -22,7 +22,11 @@ namespace Business.Tests
 
         public int TestAppointmentID { get; set; }
         public int TestTypeID { get; set; }
-        public int LocalDrivingLicenseApplicationID { get; set; }
+        public int LocalDrivingLicenseApplicationID 
+        {
+            get { return _localDrivingLicenseApplicationID; } 
+            set { _localDrivingLicenseApplicationID = value; } 
+        }
         public DateTime AppointmentDate { get; set; }
         public float PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
@@ -98,9 +102,8 @@ namespace Business.Tests
             DateTime appointment_Date = DateTime.Now; float paid_Fees = 0.00F;
             int createdByUser_ID = -1; bool is_Locked = false; int retakeTestApplication_ID = -1;
 
-            bool isFound =  clsTestAppointmentData.FindTestAppointmentDataByID(localDrivingLicenseApplicationId, ref testAppointmentID, ref testTypeId,
-            ref localDrivingLicenseApplicationId, ref appointment_Date,
-            ref paid_Fees, ref createdByUser_ID, ref is_Locked, ref retakeTestApplication_ID);
+            bool isFound =  clsTestAppointmentData.FindTestAppointmentByDrivinglicenseID_Data( localDrivingLicenseApplicationID, ref int testAppointmentID, ref int testTypeID,
+                  ref DateTime appointmentDate, ref float paidFees, ref int createdByUserID, ref bool isLocked, ref int retakeTestApplicationID);
 
             if(isFound)
             {

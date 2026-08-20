@@ -30,12 +30,12 @@ namespace DVLD_2_my.Tests
 
         private void frmVisionTestAppointment_Load(object sender, EventArgs e)
         {
-            // ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_testAppointmentId);
-            int DrivingLicenseApplicationID = clsTestAppointment.FindTestAppointmentByID(_testAppointmentId).LocalDrivingLicenseApplicationID;
+            int localDrivingLicenseApplicationID = clsTestAppointment.FindTestAppointmentByID(_testAppointmentId).LocalDrivingLicenseApplicationID;
+            clsTestAppointment.FindTestAppointmentByDrivinglicenseID(localDrivingLicenseApplicationID);
 
-            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(DrivingLicenseApplicationID);
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(localDrivingLicenseApplicationID);
 
-            
+            fix the frmListTest
         }
 
         
