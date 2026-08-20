@@ -97,8 +97,21 @@ namespace DataAccess.Tests
             return isFound;
 
         }
- 
+
+
+        public static bool FindTestAppointmentByDrivinglicenseID(localDrivingLicenseApplicationId, ref testAppointmentID, ref testTypeId,
+            ref localDrivingLicenseApplicationId, ref appointment_Date,
+            ref paid_Fees, ref createdByUser_ID, ref is_Locked, ref retakeTestApplication_ID)
+        {
+
+
+            return true;
+        }
+
     }
+
+
+
 
 }
 

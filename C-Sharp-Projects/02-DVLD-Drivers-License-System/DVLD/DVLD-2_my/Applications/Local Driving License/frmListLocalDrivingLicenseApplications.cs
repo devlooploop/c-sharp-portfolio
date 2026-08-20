@@ -316,7 +316,7 @@ namespace DVLD_2_my.Applications
             // ??
             int vesionTestAppointmentID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            Business.Tests.clsTestAppointment.GetTestAppointmentsInfo();
+            
             // ++++  check vesionTestAppointmentID param instead try local driving app ID as param bellow: 
             //frmVisionTestAppointment frm = new frmVisionTestAppointment(vesionTestAppointmentID);
 

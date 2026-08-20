@@ -31,15 +31,11 @@ namespace DVLD_2_my.Tests
         private void frmVisionTestAppointment_Load(object sender, EventArgs e)
         {
             // ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_testAppointmentId);
-            DrivingLicenseApplicationID ??
+            int DrivingLicenseApplicationID = clsTestAppointment.FindTestAppointmentByID(_testAppointmentId).LocalDrivingLicenseApplicationID;
 
-            int DrivingLicenseApplicationID = clsTestAppointment.FindTestAppointmentByID(_testAppointmentId);
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(DrivingLicenseApplicationID);
 
-            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo();
-
-            made my view  TestAppointments_My_View in MMSM 
-
-                fix the C# later ..
+            
         }
 
         

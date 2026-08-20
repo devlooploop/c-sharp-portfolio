@@ -92,6 +92,28 @@ namespace Business.Tests
 
         }
 
+        public static clsTestAppointment FindTestAppointmentByDrivinglicenseID(int localDrivingLicenseApplicationId)
+        {
+            int testAppointmentID = -1;  int testTypeId = -1; 
+            DateTime appointment_Date = DateTime.Now; float paid_Fees = 0.00F;
+            int createdByUser_ID = -1; bool is_Locked = false; int retakeTestApplication_ID = -1;
+
+            bool isFound =  clsTestAppointmentData.FindTestAppointmentDataByID(localDrivingLicenseApplicationId, ref testAppointmentID, ref testTypeId,
+            ref localDrivingLicenseApplicationId, ref appointment_Date,
+            ref paid_Fees, ref createdByUser_ID, ref is_Locked, ref retakeTestApplication_ID);
+
+            if(isFound)
+            {
+                return new clsTestAppointment(testAppointmentID,testTypeId,localDrivingLicenseApplicationId, 
+                    appointment_Date,paid_Fees,createdByUser_ID, is_Locked, retakeTestApplication_ID);
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
 
     }
 }
