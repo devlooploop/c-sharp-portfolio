@@ -130,11 +130,11 @@
     <Compile Include="Tests\frmUpdateTestType.Designer.cs">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tests\frmVisionTestAppointment.cs">
+    <Compile Include="Tests\frmListTestAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tests\frmVisionTestAppointment.Designer.cs">
-      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
+    <Compile Include="Tests\frmListTestAppointments.Designer.cs">
+      <DependentUpon>frmListTestAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="User\Controls\ctrUserCard.cs">
       <SubType>UserControl</SubType>
@@ -246,8 +246,8 @@
     <EmbeddedResource Include="Tests\frmUpdateTestType.resx">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tests\frmVisionTestAppointment.resx">
-      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
+    <EmbeddedResource Include="Tests\frmListTestAppointments.resx">
+      <DependentUpon>frmListTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Controls\ctrUserCard.resx">
       <DependentUpon>ctrUserCard.cs</DependentUpon>

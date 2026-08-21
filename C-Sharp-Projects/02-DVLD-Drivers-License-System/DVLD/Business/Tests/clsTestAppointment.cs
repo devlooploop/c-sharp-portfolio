@@ -96,19 +96,19 @@ namespace Business.Tests
 
         }
 
-        public static clsTestAppointment FindTestAppointmentByDrivinglicenseID(int localDrivingLicenseApplicationId)
+        public static clsTestAppointment FindTestAppointmentByDrivinglicenseID(int localDrivingLicenseApplicationID)
         {
-            int testAppointmentID = -1;  int testTypeId = -1; 
-            DateTime appointment_Date = DateTime.Now; float paid_Fees = 0.00F;
-            int createdByUser_ID = -1; bool is_Locked = false; int retakeTestApplication_ID = -1;
+            int testAppointmentID = -1;  int testTypeID = -1; 
+            DateTime appointmentDate = DateTime.Now; float paidFees = 0.00F;
+            int createdByUserID = -1; bool isLocked = false; int retakeTestApplicationID = -1;
 
-            bool isFound =  clsTestAppointmentData.FindTestAppointmentByDrivinglicenseID_Data( localDrivingLicenseApplicationID, ref int testAppointmentID, ref int testTypeID,
-                  ref DateTime appointmentDate, ref float paidFees, ref int createdByUserID, ref bool isLocked, ref int retakeTestApplicationID);
+            bool isFound =  clsTestAppointmentData.FindTestAppointmentByDrivinglicenseID_Data( localDrivingLicenseApplicationID, ref testAppointmentID, ref testTypeID,
+                  ref  appointmentDate, ref paidFees, ref createdByUserID, ref  isLocked, ref retakeTestApplicationID);
 
             if(isFound)
             {
-                return new clsTestAppointment(testAppointmentID,testTypeId,localDrivingLicenseApplicationId, 
-                    appointment_Date,paid_Fees,createdByUser_ID, is_Locked, retakeTestApplication_ID);
+                return new clsTestAppointment(testAppointmentID,testTypeID,localDrivingLicenseApplicationID, 
+                    appointmentDate,paidFees,createdByUserID, isLocked, retakeTestApplicationID);
             }
             else
             {

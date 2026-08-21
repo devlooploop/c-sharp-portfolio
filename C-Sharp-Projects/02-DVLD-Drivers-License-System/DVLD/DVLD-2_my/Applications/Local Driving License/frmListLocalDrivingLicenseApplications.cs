@@ -313,22 +313,21 @@ namespace DVLD_2_my.Applications
         private void tsmiVisionTest_Click(object sender, EventArgs e)
         {
             // ??
-           int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            clsTestAppointment testAppointment = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(localDrivingLicenseApplicationsID);
+            //clsTestAppointment testAppointment = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(localDrivingLicenseApplicationsID);
 
-            if (testAppointment == null)
-            {
-                MessageBox.Show("No test appointment found", "Warning",
-                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            int TestAppointmentID = testAppointment.TestAppointmentID;
+            //if (testAppointment == null)
+            //{
+            //    MessageBox.Show("No test appointment found", "Warning",
+            //          MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+           // int TestAppointmentID = testAppointment.TestAppointmentID;
 
             // ++++  check vesionTestAppointmentID param instead try local driving app ID as param bellow:         
 
-            frmVisionTestAppointment frm = new frmVisionTestAppointment(TestAppointmentID);
+            frmListTestAppointments frm = new frmListTestAppointments(localDrivingLicenseApplicationsID, clsTestType.enTestType.VisionTest);
             frm.ShowDialog();
-
 
         }
 
@@ -348,6 +347,11 @@ namespace DVLD_2_my.Applications
         {
             MessageBox.Show("WIP: work in progress ....", "Warning",
                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void sechduleTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

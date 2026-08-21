@@ -55,6 +55,9 @@ namespace Business
             this.LicenseClassId = licenseClassId;
 
             this.LicenseClassInfo = clsLicenseClass.FindByID(licenseClassId);
+            
+            //  ===== >> This line added  << =====
+            this.PersonInfo = clsPerson.Find(ApplicantPersonID);
 
             mode = enMode.Update;
         }
@@ -77,7 +80,6 @@ namespace Business
                    baseApplication.ApplicationDate, baseApplication.ApplicationTypeID, 
                    baseApplication.ApplicationStatus, baseApplication.LastStatusDate,
                    baseApplication.PaidFees, baseApplication.CreatedByUserID);
-
             }
             else
             {
@@ -160,7 +162,6 @@ namespace Business
         {
             return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationId, 
                       this.ApplicationID, this.LicenseClassId);
-             
         }
 
     }
