@@ -36,13 +36,15 @@ namespace DVLD_2_my.Tests
 
           frmListTestAppointments frm = new frmListTestAppointments(_localDrivingLicenseApplicationID, clsTestType.enTestType.VisionTest);
 
+
             ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_localDrivingLicenseApplicationID);
 
-        
         }
 
-
-
-
+        private void btnAddVisionTestAppointment_Click(object sender, EventArgs e)
+        {
+            frmScheduleTest frm = new frmScheduleTest();
+            frm.ShowDialog();
+        }
     }
 }

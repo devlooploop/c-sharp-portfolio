@@ -124,17 +124,23 @@
   <data name="Users2400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Users2400.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Applications" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Applications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Driver_Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Driver_Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Test_Type_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_Type_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Add_Appointment_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add_Appointment_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="People64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\People64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Manage_Applications_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Manage_Applications_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Notes_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Notes_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,20 +154,17 @@
   <data name="Retake_Test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Retake_Test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Close_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Close_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Add_New_User_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add_New_User_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Woman_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Woman_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Issue_Driving_License_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Issue_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lost_Driving_License_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lost_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Detain_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Detain_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Schedule_Test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Schedule_Test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,20 +175,23 @@
   <data name="Male_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Male_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Application_Types_641" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Application_Types_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Exit_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Application_Types_5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Application_Types_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="New_Driving_License_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Driver_License_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Driver_License_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_User_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_User_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Question_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Question_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="account_settings 64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\account_settings 64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_Black_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_Black_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,14 +202,14 @@
   <data name="Vision_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vision_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Man_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Man_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sign_Out_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sign_Out_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="License_Type_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\License_Type_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Test_Type_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Test_Type_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Renew_Driving_License_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Renew_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Person_Details_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Person_Details_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -216,6 +222,9 @@
   </data>
   <data name="Application_Types_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Application_Types_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Applications64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Applications64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Release_Detained_License_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Release_Detained_License 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,9 +244,6 @@
   <data name="Test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cross_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cross_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Vision_Test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vision_Test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,9 +262,6 @@
   <data name="edit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete_User_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete_User_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Prev_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Prev_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -274,11 +277,14 @@
   <data name="Drivers_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Drivers_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cross_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cross_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Application_Types_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Application_Types_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="driving_test_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\driving_test_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete_32_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete_32_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Close_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close_Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,17 +307,17 @@
   <data name="International_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\International_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Test_Type_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Test_Type_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Street_Test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Street_Test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calendar_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="driving_test_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\driving_test_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Release_Detained_License_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Release_Detained_License_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="People_400" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\People_400.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="List_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\List_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,20 +328,17 @@
   <data name="Female_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Female_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Exit_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Man_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Man_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Phone_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Phone_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Driver_License_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Driver_License_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete_User_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete_User_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Detain_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Detain_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Detained_Driving_License_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Detained_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Person_License_History_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Person_License_History_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,14 +349,14 @@
   <data name="edit_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Detain_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Detain_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Renew_Driving_License_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Renew_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sign_out_32_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sign_out 32_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Application_Types_5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Application_Types_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="People_400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\People_400.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Local_Driving_License_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Local_Driving_License_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -388,8 +391,8 @@
   <data name="Count_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Count_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Sign_Out_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sign_Out_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Woman_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Woman_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Users_2_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Users_2_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -421,23 +424,23 @@
   <data name="Release_Detained_License_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Release_Detained_License_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Test_Type_5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Test_Type_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Application_Types_641" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Application_Types_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Country_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Country_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Applications64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Applications64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="account_settings 64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\account_settings 64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Test_Type_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Test_Type_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Test_Type_5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_Type_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="License_Type_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\License_Type_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Close_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Close_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Street_Test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Street_Test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="People64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\People64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Application_Title1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Application_Title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -454,11 +457,11 @@
   <data name="Local_Driving_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Local_Driving_License.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete_32_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete_32_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Test_Type_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_Type_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Manage_Applications_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Manage_Applications_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Detained_Driving_License_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Detained_Driving_License_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Passed_Tests_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Passed_Tests_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -466,7 +469,7 @@
   <data name="Add_Person_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add_Person_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Applications" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Applications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Count_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Count_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

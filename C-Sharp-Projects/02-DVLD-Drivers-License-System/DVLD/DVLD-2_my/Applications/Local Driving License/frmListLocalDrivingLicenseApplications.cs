@@ -285,8 +285,7 @@ namespace DVLD_2_my.Applications
 
         private void tsmiDeleteApplication_Click(object sender, EventArgs e)
         {
-            int localApplicationId =
-              (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            int localApplicationId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
            int baseApplicationId = clsLocalDrivingLicenseApplication.FindLocalApplicationById(localApplicationId).ApplicationID;
 
@@ -312,23 +311,10 @@ namespace DVLD_2_my.Applications
 
         private void tsmiVisionTest_Click(object sender, EventArgs e)
         {
-            // ??
-            int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
-
-            //clsTestAppointment testAppointment = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(localDrivingLicenseApplicationsID);
-
-            //if (testAppointment == null)
-            //{
-            //    MessageBox.Show("No test appointment found", "Warning",
-            //          MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-           // int TestAppointmentID = testAppointment.TestAppointmentID;
-
-            // ++++  check vesionTestAppointmentID param instead try local driving app ID as param bellow:         
+            int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;         
 
             frmListTestAppointments frm = new frmListTestAppointments(localDrivingLicenseApplicationsID, clsTestType.enTestType.VisionTest);
             frm.ShowDialog();
-
         }
 
         private void tsmiIssueDrivingLicenseFirstTime_Click(object sender, EventArgs e)

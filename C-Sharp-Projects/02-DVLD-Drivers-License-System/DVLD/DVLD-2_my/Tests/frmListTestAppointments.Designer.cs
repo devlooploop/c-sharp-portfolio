@@ -36,8 +36,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ctrDrivingLicenseApplicationInfo3 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
-            this.ctrDrivingLicenseApplicationInfo2 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
             this.ctrDrivingLicenseApplicationInfo1 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -96,6 +94,7 @@
             this.btnAddVisionTestAppointment.Size = new System.Drawing.Size(39, 27);
             this.btnAddVisionTestAppointment.TabIndex = 48;
             this.btnAddVisionTestAppointment.UseVisualStyleBackColor = false;
+            this.btnAddVisionTestAppointment.Click += new System.EventHandler(this.btnAddVisionTestAppointment_Click);
             // 
             // btnClose
             // 
@@ -135,35 +134,19 @@
             this.label2.TabIndex = 52;
             this.label2.Text = "# Records:";
             // 
-            // ctrDrivingLicenseApplicationInfo3
-            // 
-            this.ctrDrivingLicenseApplicationInfo3.Location = new System.Drawing.Point(9, 132);
-            this.ctrDrivingLicenseApplicationInfo3.Name = "ctrDrivingLicenseApplicationInfo3";
-            this.ctrDrivingLicenseApplicationInfo3.Size = new System.Drawing.Size(745, 294);
-            this.ctrDrivingLicenseApplicationInfo3.TabIndex = 54;
-            // 
-            // ctrDrivingLicenseApplicationInfo2
-            // 
-            this.ctrDrivingLicenseApplicationInfo2.Location = new System.Drawing.Point(13, 203);
-            this.ctrDrivingLicenseApplicationInfo2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrDrivingLicenseApplicationInfo2.Name = "ctrDrivingLicenseApplicationInfo2";
-            this.ctrDrivingLicenseApplicationInfo2.Size = new System.Drawing.Size(1118, 447);
-            this.ctrDrivingLicenseApplicationInfo2.TabIndex = 54;
-            // 
             // ctrDrivingLicenseApplicationInfo1
             // 
-            this.ctrDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 152);
-            this.ctrDrivingLicenseApplicationInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(11, 132);
             this.ctrDrivingLicenseApplicationInfo1.Name = "ctrDrivingLicenseApplicationInfo1";
-            this.ctrDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(755, 359);
-            this.ctrDrivingLicenseApplicationInfo1.TabIndex = 45;
+            this.ctrDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(745, 291);
+            this.ctrDrivingLicenseApplicationInfo1.TabIndex = 54;
             // 
             // frmListTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 656);
-            this.Controls.Add(this.ctrDrivingLicenseApplicationInfo3);
+            this.ClientSize = new System.Drawing.Size(766, 656);
+            this.Controls.Add(this.ctrDrivingLicenseApplicationInfo1);
             this.Controls.Add(this.lblRecordCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
@@ -172,8 +155,9 @@
             this.Controls.Add(this.txtVisionTestAppointment);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmListTestAppointments";
-            this.Text = "List Test Appointment";
+            this.Text = "Vision Test Appointment";
             this.Load += new System.EventHandler(this.frmListTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -185,6 +169,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo3;
         private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo1;
         private System.Windows.Forms.TextBox txtVisionTestAppointment;
         private System.Windows.Forms.Label label4;
@@ -193,6 +178,5 @@
         private System.Windows.Forms.Label lblRecordCount;
         private System.Windows.Forms.Label label2;
         private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo2;
-        private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo3;
     }
 }
