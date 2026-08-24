@@ -41,10 +41,17 @@ namespace DVLD_2_my.Tests
 
         }
 
-        private void btnAddVisionTestAppointment_Click(object sender, EventArgs e)
+        private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
             frmScheduleTest frm = new frmScheduleTest();
+
+            IsApplicantHasActiveApp Y/ N ?
+
             frm.ShowDialog();
+
         }
+
+
+
     }
 }

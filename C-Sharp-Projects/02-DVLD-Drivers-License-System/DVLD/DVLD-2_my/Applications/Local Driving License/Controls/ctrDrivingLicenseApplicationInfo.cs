@@ -21,7 +21,7 @@ namespace DVLD_2_my.Applications.Controls
             lbl_AppliedForLicense.Text =
                 clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName.ToString();
 
-            lbl_PassedTests.Text = "???Add later????";
+            lbl_PassedTests.Text = "comming soon ....";
         }
 
         public void LoadDrivingLicenseApplicationInfo(int drivingLicenseApplicationId)

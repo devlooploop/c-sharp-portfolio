@@ -32,7 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtVisionTestAppointment = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAddVisionTestAppointment = new System.Windows.Forms.Button();
+            this.btnAddNewAppointment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,19 +82,19 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "Appointments:";
             // 
-            // btnAddVisionTestAppointment
+            // btnAddNewAppointment
             // 
-            this.btnAddVisionTestAppointment.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAddVisionTestAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddVisionTestAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAddVisionTestAppointment.Image = global::DVLD_2_my.Properties.Resources.Add_Appointment_32;
-            this.btnAddVisionTestAppointment.Location = new System.Drawing.Point(703, 429);
-            this.btnAddVisionTestAppointment.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnAddVisionTestAppointment.Name = "btnAddVisionTestAppointment";
-            this.btnAddVisionTestAppointment.Size = new System.Drawing.Size(39, 27);
-            this.btnAddVisionTestAppointment.TabIndex = 48;
-            this.btnAddVisionTestAppointment.UseVisualStyleBackColor = false;
-            this.btnAddVisionTestAppointment.Click += new System.EventHandler(this.btnAddVisionTestAppointment_Click);
+            this.btnAddNewAppointment.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddNewAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAddNewAppointment.Image = global::DVLD_2_my.Properties.Resources.Add_Appointment_32;
+            this.btnAddNewAppointment.Location = new System.Drawing.Point(703, 429);
+            this.btnAddNewAppointment.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAddNewAppointment.Name = "btnAddNewAppointment";
+            this.btnAddNewAppointment.Size = new System.Drawing.Size(39, 27);
+            this.btnAddNewAppointment.TabIndex = 48;
+            this.btnAddNewAppointment.UseVisualStyleBackColor = false;
+            this.btnAddNewAppointment.Click += new System.EventHandler(this.btnAddNewAppointment_Click);
             // 
             // btnClose
             // 
@@ -150,7 +150,7 @@
             this.Controls.Add(this.lblRecordCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnAddVisionTestAppointment);
+            this.Controls.Add(this.btnAddNewAppointment);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtVisionTestAppointment);
             this.Controls.Add(this.pictureBox1);
@@ -173,7 +173,7 @@
         private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo1;
         private System.Windows.Forms.TextBox txtVisionTestAppointment;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnAddVisionTestAppointment;
+        private System.Windows.Forms.Button btnAddNewAppointment;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblRecordCount;
         private System.Windows.Forms.Label label2;

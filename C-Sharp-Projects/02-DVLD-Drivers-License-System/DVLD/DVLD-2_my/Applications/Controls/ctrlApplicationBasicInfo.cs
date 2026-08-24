@@ -57,7 +57,6 @@ namespace DVLD_2_my.Applications.Controls
             lbl_ID.Text = _application.ApplicationID.ToString();
             lbl_Status.Text = _application.StatusText;
             lbl_Fees.Text = _application.PaidFees.ToString("0.00");
-       //     lbl_Fees.Text = _application.PaidFees.ToString("0.00");
 
             clsApplicationTypes applicationType =
                 clsApplicationTypes.FindApplicationByID(_application.ApplicationTypeID);
