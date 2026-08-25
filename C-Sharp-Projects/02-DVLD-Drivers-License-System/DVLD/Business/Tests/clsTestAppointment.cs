@@ -107,6 +107,7 @@ namespace Business.Tests
 
             if(isFound)
             {
+                // check retakeTestApplicationID ???
                 return new clsTestAppointment(testAppointmentID,testTypeID,localDrivingLicenseApplicationID, 
                     appointmentDate,paidFees,createdByUserID, isLocked, retakeTestApplicationID);
             }

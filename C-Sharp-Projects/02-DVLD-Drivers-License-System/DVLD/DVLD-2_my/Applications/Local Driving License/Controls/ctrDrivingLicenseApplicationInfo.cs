@@ -24,7 +24,7 @@ namespace DVLD_2_my.Applications.Controls
             lbl_PassedTests.Text = "comming soon ....";
         }
 
-        public void LoadDrivingLicenseApplicationInfo(int drivingLicenseApplicationId)
+        public void LoadDrivingLicenseApplicationInfoByID(int drivingLicenseApplicationId)
         {
 
             _localDrivingLicenseApplication =
@@ -46,7 +46,6 @@ namespace DVLD_2_my.Applications.Controls
         {
             MessageBox.Show($"Under construction","Comming soon ....",
                 MessageBoxButtons.OK,MessageBoxIcon.Information);
-
         }
     }
 }

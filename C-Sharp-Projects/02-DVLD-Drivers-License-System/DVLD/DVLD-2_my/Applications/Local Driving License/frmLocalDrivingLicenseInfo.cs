@@ -17,7 +17,7 @@ namespace DVLD_2_my.Applications.Local_Driving_License
 
         private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)
         {
-            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_localDrivingLicenseApplicationID);
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfoByID(_localDrivingLicenseApplicationID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
