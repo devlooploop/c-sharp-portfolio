@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using DVLD_2_my.Applications.Controls;
+using System;
 using System.Windows.Forms;
 using Business;
 using Business.Tests;
+
 
 namespace DVLD_2_my.Tests
 {
@@ -36,8 +32,7 @@ namespace DVLD_2_my.Tests
 
           frmListTestAppointments frm = new frmListTestAppointments(_localDrivingLicenseApplicationID, clsTestType.enTestType.VisionTest);
 
-
-            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_localDrivingLicenseApplicationID);
+          ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_localDrivingLicenseApplicationID);
 
         }
 
@@ -45,7 +40,15 @@ namespace DVLD_2_my.Tests
         {
             frmScheduleTest frm = new frmScheduleTest();
 
-            IsApplicantHasActiveApp Y/ N ?
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfo(_localDrivingLicenseApplicationID);
+
+            clsTestAppointment testAppointment = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(_localDrivingLicenseApplicationID);
+
+            if (testAppointment == null)
+            {
+                MessageBox.Show("No Test Appointment found!!!");
+                return;
+            }
 
             frm.ShowDialog();
 

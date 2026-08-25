@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+
 
 
 namespace DataAccess.Tests
@@ -109,7 +106,7 @@ namespace DataAccess.Tests
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT * FROM TestAppointments  
-                                WHERE LocalDrivingLicenseApplicationId = @localDrivingLicenseApplicationId";
+                                WHERE LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationId";
 
             SqlCommand command = new SqlCommand(query, conn);
             command.Parameters.AddWithValue("@localDrivingLicenseApplicationId", localDrivingLicenseApplicationID);
@@ -126,12 +123,17 @@ namespace DataAccess.Tests
                     
                     testAppointmentID = (int)reader["TestAppointmentID"];
                     testTypeID = (int)reader["TestTypeID"];
-                    localDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
+              //      localDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
                     appointmentDate = (DateTime)reader["AppointmentDate"];
                     paidFees = Convert.ToSingle(reader["PaidFees"]);
                     createdByUserID = (int)reader["CreatedByUserID"];
                     isLocked = (bool)reader["IsLocked"];
-                    retakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
+
+                    if (reader["RetakeTestApplicationID"] == DBNull.Value)
+                        retakeTestApplicationID = -1;
+                    else
+                        retakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
+
                 }
 
                 reader.Close();
