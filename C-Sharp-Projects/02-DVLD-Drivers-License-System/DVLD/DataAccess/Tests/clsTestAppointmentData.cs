@@ -76,8 +76,12 @@ namespace DataAccess.Tests
                     appointmentDate = (DateTime)reader["AppointmentDate"];
                     paidFees = Convert.ToSingle(reader["PaidFees"]); 
                     createdByUserID = (int)reader["CreatedByUserID"]; 
-                    isLocked = (bool)reader["IsLocked"]; 
-                    retakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
+                    isLocked = (bool)reader["IsLocked"];
+
+                    if (reader["RetakeTestApplicationID"] == DBNull.Value)
+                        retakeTestApplicationID = -1;
+                    else
+                        retakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
                 }
 
                 reader.Close();

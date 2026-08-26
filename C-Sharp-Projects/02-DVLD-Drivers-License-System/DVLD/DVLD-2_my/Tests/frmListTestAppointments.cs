@@ -38,19 +38,27 @@ namespace DVLD_2_my.Tests
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            frmScheduleTest frm = new frmScheduleTest(localdrivingID, TestType);
+           
+             frmScheduleTest frm = new frmScheduleTest();
+           
+            // frmScheduleTest frm = new frmScheduleTest(localdrivingID, TestType);
 
            // ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfoByID(_localDrivingLicenseApplicationID);
 
             clsTestAppointment testAppointment = 
                 clsTestAppointment.FindTestAppointmentByDrivinglicenseID(_localDrivingLicenseApplicationID);
-            
-            int testAppointmentID = testAppointment.TestAppointmentID;
 
-            if (int.TryParse("testAppointmentID", out int testAppointment_ID) && testAppointmentID != -1)
+            if (testAppointment == null)
+            {
+                MessageBox.Show("testAppointment = NULL!", "NULL Exception Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (testAppointment.TestAppointmentID != -1)
             {
                 MessageBox.Show("This person already has an active appointment for this test." +
-                                    "You cannot add a new appointment!","Active Appointment", 
+                                    "You cannot add a new appointment!", "Active Appointment",
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

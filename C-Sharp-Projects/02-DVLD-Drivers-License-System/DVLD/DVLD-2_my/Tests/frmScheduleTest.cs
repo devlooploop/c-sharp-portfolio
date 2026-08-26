@@ -26,11 +26,16 @@ namespace DVLD_2_my.Tests
         {
             InitializeComponent();
         }
-        
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            addd savee logic 1st !!!
+        }
+
 
         /* make schedule test at this point ... enum and switch on the 3-tets(vision, street & written)
          * then let the switch-on statment chose witch (pic-box to show + related info).
          * .... later at this point!
-         */ 
+         */
     }
 }
