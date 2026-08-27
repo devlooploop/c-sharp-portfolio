@@ -133,7 +133,6 @@ namespace DataAccess.Tests
                     fullName = (string)reader["FullName"];
                     isLocked = (bool)reader["IsLocked"];
 
-
                     //if (reader["RetakeTestApplicationID"] == DBNull.Value)
                     //    retakeTestApplicationID = -1;
                     //else

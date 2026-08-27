@@ -67,7 +67,8 @@ namespace DVLD_2_my.Tests
                 
             }
 
-                frm.ShowDialog();
+
+            frm.ShowDialog();
 
         }
 

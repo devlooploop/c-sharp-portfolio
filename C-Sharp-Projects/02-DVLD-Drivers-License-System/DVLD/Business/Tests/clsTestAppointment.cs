@@ -123,10 +123,11 @@ namespace Business.Tests
 
         }
 
-        public void LoadTestAppointmentInfo(int testAppointmentID)
+        public void LoadTestAppointmentInfo()
         {
-            clsTestAppointmentData.GetTestAppointmentsInfoData (int testAppointmentID);
+            clsTestAppointmentData.GetTestAppointmentsInfoData();
         }
+
 
     }
 }
