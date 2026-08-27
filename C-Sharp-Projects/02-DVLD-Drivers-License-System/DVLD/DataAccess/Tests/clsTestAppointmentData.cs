@@ -101,15 +101,15 @@ namespace DataAccess.Tests
         }
 
 
-        public static bool FindTestAppointmentByDrivinglicenseID_Data(int localDrivingLicenseApplicationID, ref int testAppointmentID, ref int testTypeID,
-                  ref DateTime appointmentDate, ref float paidFees, ref int createdByUserID, ref bool isLocked, ref int retakeTestApplicationID)
+        public static bool FindTestAppointmentByDrivinglicenseID_Data(int localDrivingLicenseApplicationID, ref int testAppointmentID, ref string testTypeTitle,
+                  ref string className, ref DateTime appointmentDate, ref float paidFees, ref string fullName ,ref bool isLocked, ref int retakeTestApplicationID)
         {
             
             bool isFound = false;
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM TestAppointments  
+            string query = @"SELECT * FROM TestAppointments_View  
                                 WHERE LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationId";
 
             SqlCommand command = new SqlCommand(query, conn);
@@ -126,17 +126,18 @@ namespace DataAccess.Tests
                     isFound = true;
                     
                     testAppointmentID = (int)reader["TestAppointmentID"];
-                    testTypeID = (int)reader["TestTypeID"];
-              //      localDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
+                    testTypeTitle = (string)reader["TestTypeTitle"];
+                    className = (string)reader["ClassName"];
                     appointmentDate = (DateTime)reader["AppointmentDate"];
                     paidFees = Convert.ToSingle(reader["PaidFees"]);
-                    createdByUserID = (int)reader["CreatedByUserID"];
+                    fullName = (string)reader["FullName"];
                     isLocked = (bool)reader["IsLocked"];
 
-                    if (reader["RetakeTestApplicationID"] == DBNull.Value)
-                        retakeTestApplicationID = -1;
-                    else
-                        retakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
+
+                    //if (reader["RetakeTestApplicationID"] == DBNull.Value)
+                    //    retakeTestApplicationID = -1;
+                    //else
+                    //    retakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
 
                 }
 

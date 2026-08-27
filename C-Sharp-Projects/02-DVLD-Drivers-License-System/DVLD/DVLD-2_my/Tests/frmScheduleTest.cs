@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Business.Tests;
 
 
 
@@ -15,21 +16,58 @@ namespace DVLD_2_my.Tests
 {
     public partial class frmScheduleTest : Form
     {
-        //int _localDrivingLicenseApplicationID = -1;
+        int _localDrivingLicenseApplicationID = -1;
+
+
+        private clsTestType.enTestType _testType;
 
         public frmScheduleTest()
         {
             InitializeComponent();
         }
 
-        public frmScheduleTest(int localDrivingLicenseApplicationID, clsTestType.enTestType TestType)
+        public frmScheduleTest(int localDrivingLicenseApplicationID, clsTestType.enTestType testType)
         {
             InitializeComponent();
+
+            _localDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
+            _testType = testType;
         }
 
+        private void LoadValues()
+        {
+            clsTestAppointment testAppointment 
+                = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(_localDrivingLicenseApplicationID);
+
+            if (testAppointment == null)
+            {
+                MessageBox.Show("Test Appointment value is NULL", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            lbl_DLAppID.Text = testAppointment.LocalDrivingLicenseApplicationID.ToString();
+            lbl_DClass.Text = testAppointment.LicenseClassInfo.ClassName.ToString();
+
+            lbl_Name.Text = testAppointment.LocalDrivingLicenseApplication.ApplicantFullName;
+            //lbl_Trail.Text;
+            
+            dtpScheduleTest.Text = testAppointment.AppointmentDate.ToString();
+            lbl_Fees.Text = testAppointment.PaidFees.ToString();
+
+            // RetakTestInfo group box:
+            lbl_RAppFees.Text =  testAppointment.PaidFees.ToString();
+            lbl_RTestAppID.Text = testAppointment.RetakeTestApplicationID.ToString();
+            //lbl_TotalFees.Text = 
+
+        }
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            addd savee logic 1st !!!
+
+        }
+
+        private void frmScheduleTest_Load(object sender, EventArgs e)
+        {
+            LoadValues();
         }
 
 
@@ -38,4 +76,5 @@ namespace DVLD_2_my.Tests
          * .... later at this point!
          */
     }
+
 }

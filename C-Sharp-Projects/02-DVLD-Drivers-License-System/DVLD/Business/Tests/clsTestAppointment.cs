@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Tests;
@@ -32,6 +33,9 @@ namespace Business.Tests
         public int CreatedByUserID { get; set; }
         public bool IsLocked { get; set; }
         public int RetakeTestApplicationID { get; set; }
+
+        public clsLicenseClass LicenseClassInfo;
+
 
         private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
 
@@ -101,9 +105,10 @@ namespace Business.Tests
             int testAppointmentID = -1;  int testTypeID = -1; 
             DateTime appointmentDate = DateTime.Now; float paidFees = 0.00F;
             int createdByUserID = -1; bool isLocked = false; int retakeTestApplicationID = -1;
+            string testTypeTitle = ""; string fullName = ""; string className = "";
 
-            bool isFound =  clsTestAppointmentData.FindTestAppointmentByDrivinglicenseID_Data( localDrivingLicenseApplicationID, ref testAppointmentID, ref testTypeID,
-                  ref  appointmentDate, ref paidFees, ref createdByUserID, ref  isLocked, ref retakeTestApplicationID);
+            bool isFound =  clsTestAppointmentData.FindTestAppointmentByDrivinglicenseID_Data( localDrivingLicenseApplicationID, ref testAppointmentID, 
+                ref testTypeTitle, ref className, ref appointmentDate, ref paidFees, ref fullName, ref isLocked, ref retakeTestApplicationID);
 
             if(isFound)
             {
@@ -118,6 +123,10 @@ namespace Business.Tests
 
         }
 
+        public void LoadTestAppointmentInfo(int testAppointmentID)
+        {
+            clsTestAppointmentData.GetTestAppointmentsInfoData (int testAppointmentID);
+        }
 
     }
 }
