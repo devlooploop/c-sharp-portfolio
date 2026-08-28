@@ -151,7 +151,7 @@
             this.toolStripMenuItem6,
             this.tsmiShowPersonLicenseHistory});
             this.cmsListLocalDrivingLicenseApplications.Name = "contextMenuStrip1";
-            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 280);
+            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 302);
             this.cmsListLocalDrivingLicenseApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsListLocalDrivingLicenseApplications_Opening);
             // 
             // tsmiShowApplicationDetails
@@ -216,7 +216,7 @@
             // 
             this.tsmiVisionTest.Image = global::DVLD_2_my.Properties.Resources.Vision_Test_32;
             this.tsmiVisionTest.Name = "tsmiVisionTest";
-            this.tsmiVisionTest.Size = new System.Drawing.Size(188, 22);
+            this.tsmiVisionTest.Size = new System.Drawing.Size(196, 30);
             this.tsmiVisionTest.Text = "Schedule Vision Test";
             this.tsmiVisionTest.Click += new System.EventHandler(this.tsmiVisionTest_Click);
             // 
@@ -224,7 +224,7 @@
             // 
             this.sechduleTestToolStripMenuItem.Image = global::DVLD_2_my.Properties.Resources.Written_Test_32;
             this.sechduleTestToolStripMenuItem.Name = "sechduleTestToolStripMenuItem";
-            this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(196, 30);
             this.sechduleTestToolStripMenuItem.Text = "Schedule Written Test";
             this.sechduleTestToolStripMenuItem.Click += new System.EventHandler(this.sechduleTestToolStripMenuItem_Click);
             // 
@@ -232,7 +232,7 @@
             // 
             this.sechduleStreetTestToolStripMenuItem.Image = global::DVLD_2_my.Properties.Resources.Street_Test_32;
             this.sechduleStreetTestToolStripMenuItem.Name = "sechduleStreetTestToolStripMenuItem";
-            this.sechduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.sechduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(196, 30);
             this.sechduleStreetTestToolStripMenuItem.Text = "Sechdule Street Test";
             // 
             // toolStripMenuItem4

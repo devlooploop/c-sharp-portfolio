@@ -6,6 +6,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using static Business.clsApplication;
+using static Business.clsTestType;
 using static Business.Tests.clsTestAppointment;
 
 
@@ -309,12 +310,20 @@ namespace DVLD_2_my.Applications
 
         }
 
+
+        private void ScheduleTest(clsTestType.enTestType testType)
+        {
+            int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmListTestAppointments frm = new frmListTestAppointments(localDrivingLicenseApplicationsID, testType);
+            frm.ShowDialog();
+        }
+
         private void tsmiVisionTest_Click(object sender, EventArgs e)
         {
-            int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;         
 
-            frmListTestAppointments frm = new frmListTestAppointments(localDrivingLicenseApplicationsID, clsTestType.enTestType.VisionTest);
-            frm.ShowDialog();
+            ScheduleTest(enTestType.VisionTest);
+            
         }
 
         private void tsmiIssueDrivingLicenseFirstTime_Click(object sender, EventArgs e)
@@ -337,7 +346,7 @@ namespace DVLD_2_my.Applications
 
         private void sechduleTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 
