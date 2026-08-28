@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Business.clsApplication;
+using static Business.clsTestType;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -87,6 +88,8 @@ namespace Business
             }
 
         }
+
+        IsThereAnActiveScheduledTest(_TestType)
 
         public static DataTable GetLocalDrivingLicenseApplicationInfo()
         {

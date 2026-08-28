@@ -22,6 +22,10 @@ namespace DVLD_2_my.Applications
        private DataTable _AllApplicationsInfo;
 
        private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
+       
+        private clsTestType.enTestType _testType = clsTestType.enTestType.VisionTest; 
+
+
 
        public frmListLocalDrivingLicenseApplications()
        {
@@ -86,6 +90,7 @@ namespace DVLD_2_my.Applications
 
             RefreshLocalDrivingLicenseApplications();
             lblRecordCount.Text = _AllApplicationsInfo.DefaultView.Count.ToString();
+
         }
 
         private string  GetColumnName(string filter)
@@ -316,15 +321,14 @@ namespace DVLD_2_my.Applications
             int localDrivingLicenseApplicationsID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
             frmListTestAppointments frm = new frmListTestAppointments(localDrivingLicenseApplicationsID, testType);
+      
             frm.ShowDialog();
+
+            RefreshLocalDrivingLicenseApplications();
+
         }
 
-        private void tsmiVisionTest_Click(object sender, EventArgs e)
-        {
-
-            ScheduleTest(enTestType.VisionTest);
-            
-        }
+       
 
         private void tsmiIssueDrivingLicenseFirstTime_Click(object sender, EventArgs e)
         {
@@ -344,10 +348,21 @@ namespace DVLD_2_my.Applications
                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void sechduleTestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiScheduleVisionTest_Click(object sender, EventArgs e)
         {
-            
+            ScheduleTest(enTestType.VisionTest);
         }
+
+        private void tsmiScheduleWrittenTest_Click(object sender, EventArgs e)
+        {
+            ScheduleTest(enTestType.WrittenTheoryTest);
+        }
+
+        private void tsmiScheduleStreetTest_Click(object sender, EventArgs e)
+        {
+            ScheduleTest(enTestType.StreetPracticalTest);
+        }
+
     }
 
 

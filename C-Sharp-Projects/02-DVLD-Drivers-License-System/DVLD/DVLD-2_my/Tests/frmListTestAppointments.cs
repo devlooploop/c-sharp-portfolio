@@ -1,9 +1,11 @@
 ﻿
-using DVLD_2_my.Applications.Controls;
-using System;
-using System.Windows.Forms;
 using Business;
 using Business.Tests;
+using DVLD_2_my.Applications.Controls;
+using DVLD_2_my.Properties;
+using System;
+using System.Windows.Forms;
+using static Business.clsTestType;
 
 
 namespace DVLD_2_my.Tests
@@ -27,12 +29,47 @@ namespace DVLD_2_my.Tests
             _testType = testType;
         }
 
+        private void _LoadTestTypeImageAndTitle(clsTestType.enTestType testType)
+        {
+            frmListTestAppointments frm = new frmListTestAppointments();
+            
+            switch (testType)
+            {
+                case clsTestType.enTestType.VisionTest:
+                    frm.Text = "Vision Test";
+                    frm.lbl_Title_frmListTestAppointments.Text = "Vision Test Appointments";
+                    frm.pbListTestAppointments.Image = Resources.Vision_512;
+                    break;
+
+                case clsTestType.enTestType.WrittenTheoryTest:
+                    frm.Text = "Written Theory Test";
+                    frm.lbl_Title_frmListTestAppointments.Text = "Written Theory Test Appointments";
+                    frm.pbListTestAppointments.Image = Resources.Written_Test_512;
+                    break;
+                case clsTestType.enTestType.StreetPracticalTest:
+                    frm.Text = "Practical Street Test";
+                    frm.lbl_Title_frmListTestAppointments.Text = "Practical Street Appointments";
+                    frm.pbListTestAppointments.Image = Resources.Street_Test_32;
+                    break;
+
+                default:
+                    frm.Text = "List Test Appointment";
+                    frm.pbListTestAppointments.Image = Resources.Vision_512;
+                    break;
+            
+            }
+
+        }
+
+
         private void frmListTestAppointments_Load(object sender, EventArgs e)
         {
 
-          frmListTestAppointments frm = new frmListTestAppointments(_localDrivingLicenseApplicationID, clsTestType.enTestType.VisionTest);
+            _LoadTestTypeImageAndTitle(_testType);
 
-          ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfoByID(_localDrivingLicenseApplicationID);
+            frmListTestAppointments frm = new frmListTestAppointments(_localDrivingLicenseApplicationID, clsTestType.enTestType.VisionTest);
+
+            ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfoByID(_localDrivingLicenseApplicationID);
 
         }
 
@@ -41,31 +78,20 @@ namespace DVLD_2_my.Tests
            
              frmScheduleTest frm = new frmScheduleTest(_localDrivingLicenseApplicationID, _testType);
            
-            // frmScheduleTest frm = new frmScheduleTest(localdrivingID, TestType);
+           clsLocalDrivingLicenseApplication _localDrivingLicenseApplication = 
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicenseApplicationID);
 
-           // ctrDrivingLicenseApplicationInfo1.LoadDrivingLicenseApplicationInfoByID(_localDrivingLicenseApplicationID);
 
-            clsTestAppointment testAppointment = 
-                clsTestAppointment.FindTestAppointmentByDrivinglicenseID(_localDrivingLicenseApplicationID);
 
-            //if (testAppointment == null)
-            //{
-            //    MessageBox.Show("testAppointment = NULL!", "NULL Exception Error",
-            //                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            if (testAppointment.TestAppointmentID != -1)
+            //if (testAppointment.TestAppointmentID != -1)
+            if (clsLocalDrivingLicenseApplication.IsThereAnActiveScheduledTest(_testType))
             {
                 MessageBox.Show("This person already has an active appointment for this test." +
                                     " You cannot add a new appointment!", "Active Appointment",
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else
-            {
-                
-            }
+
 
 
             frm.ShowDialog();
