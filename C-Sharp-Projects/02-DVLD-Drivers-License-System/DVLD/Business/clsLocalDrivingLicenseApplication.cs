@@ -89,7 +89,10 @@ namespace Business
 
         }
 
-        IsThereAnActiveScheduledTest(_TestType)
+        public  bool IsThereAnActiveScheduledTest(clsTestType.enTestType testTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsThereAnActiveScheduledTest_Data(this.LocalDrivingLicenseApplicationId, (int)testTypeID);
+        }
 
         public static DataTable GetLocalDrivingLicenseApplicationInfo()
         {

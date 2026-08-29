@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -231,6 +232,50 @@ namespace DataAccess
 
             return (rowsAffected > 0);
         }
+
+
+       public static  bool IsThereAnActiveScheduledTest_Data(int localDrivingLicensApplicationID, int testTypeID)
+       {
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT TOP 1 Found = 1 FROM LocalDrivingLicenseApplications 
+                              INNER JOIN TestAppointments ON
+              LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID
+                              WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @localDrivingLicensApplicationID
+                              AND TestAppointments.TestTypeID = @testTypeID AND IsLocked = 0
+              ORDER BY TestAppointments.TestAppointmentID DESC";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@localDrivingLicensApplicationID", localDrivingLicensApplicationID);
+            cmd.Parameters.AddWithValue("@testTypeID", testTypeID);
+
+            bool isFound = false;
+            try
+            {
+                connection.Open();
+              //  SqlDataReader reader = cmd.ExecuteReader();
+                object obj = cmd.ExecuteScalar();
+
+                if (obj != null)
+                    isFound = true;
+                else
+                    isFound = false;
+                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+       }
+
 
     }
 

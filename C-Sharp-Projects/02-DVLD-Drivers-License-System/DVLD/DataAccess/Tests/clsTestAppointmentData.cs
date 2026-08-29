@@ -14,7 +14,7 @@ namespace DataAccess.Tests
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM TestAppointments";
+            string query = "SELECT * FROM TestAppointments_View";
 
             SqlCommand command = new SqlCommand(query, conn);
 

@@ -21,11 +21,9 @@ namespace DVLD_2_my.Applications
 
        private DataTable _AllApplicationsInfo;
 
-       private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
+       //private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
        
-        private clsTestType.enTestType _testType = clsTestType.enTestType.VisionTest; 
-
-
+        //private clsTestType.enTestType _testType = clsTestType.enTestType.VisionTest; 
 
        public frmListLocalDrivingLicenseApplications()
        {

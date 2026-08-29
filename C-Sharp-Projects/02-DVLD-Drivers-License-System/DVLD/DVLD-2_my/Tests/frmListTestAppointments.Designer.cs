@@ -30,14 +30,15 @@
         {
             this.lbl_Title_frmListTestAppointments = new System.Windows.Forms.Label();
             this.pbListTestAppointments = new System.Windows.Forms.PictureBox();
-            this.txtVisionTestAppointment = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.lblRecordCount = new System.Windows.Forms.Label();
+            this.lbl_RecordCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dgvLicenseTestAppointments = new System.Windows.Forms.DataGridView();
             this.ctrDrivingLicenseApplicationInfo1 = new DVLD_2_my.Applications.Controls.ctrDrivingLicenseApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pbListTestAppointments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicenseTestAppointments)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Title_frmListTestAppointments
@@ -63,15 +64,6 @@
             this.pbListTestAppointments.TabIndex = 44;
             this.pbListTestAppointments.TabStop = false;
             // 
-            // txtVisionTestAppointment
-            // 
-            this.txtVisionTestAppointment.Location = new System.Drawing.Point(16, 712);
-            this.txtVisionTestAppointment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtVisionTestAppointment.Multiline = true;
-            this.txtVisionTestAppointment.Name = "txtVisionTestAppointment";
-            this.txtVisionTestAppointment.Size = new System.Drawing.Size(1096, 196);
-            this.txtVisionTestAppointment.TabIndex = 46;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -88,7 +80,7 @@
             this.btnAddNewAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnAddNewAppointment.Image = global::DVLD_2_my.Properties.Resources.Add_Appointment_32;
-            this.btnAddNewAppointment.Location = new System.Drawing.Point(1054, 660);
+            this.btnAddNewAppointment.Location = new System.Drawing.Point(1064, 659);
             this.btnAddNewAppointment.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnAddNewAppointment.Name = "btnAddNewAppointment";
             this.btnAddNewAppointment.Size = new System.Drawing.Size(58, 42);
@@ -104,7 +96,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnClose.Image = global::DVLD_2_my.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(868, 934);
+            this.btnClose.Location = new System.Drawing.Point(920, 935);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(202, 60);
@@ -112,15 +104,15 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // lblRecordCount
+            // lbl_RecordCount
             // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblRecordCount.Location = new System.Drawing.Point(166, 934);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(52, 29);
-            this.lblRecordCount.TabIndex = 53;
-            this.lblRecordCount.Text = "???";
+            this.lbl_RecordCount.AutoSize = true;
+            this.lbl_RecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_RecordCount.Location = new System.Drawing.Point(166, 934);
+            this.lbl_RecordCount.Name = "lbl_RecordCount";
+            this.lbl_RecordCount.Size = new System.Drawing.Size(52, 29);
+            this.lbl_RecordCount.TabIndex = 53;
+            this.lbl_RecordCount.Text = "???";
             // 
             // label2
             // 
@@ -131,6 +123,24 @@
             this.label2.Size = new System.Drawing.Size(139, 29);
             this.label2.TabIndex = 52;
             this.label2.Text = "# Records:";
+            // 
+            // dgvLicenseTestAppointments
+            // 
+            this.dgvLicenseTestAppointments.AllowUserToAddRows = false;
+            this.dgvLicenseTestAppointments.AllowUserToDeleteRows = false;
+            this.dgvLicenseTestAppointments.AllowUserToResizeRows = false;
+            this.dgvLicenseTestAppointments.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLicenseTestAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLicenseTestAppointments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvLicenseTestAppointments.Location = new System.Drawing.Point(17, 709);
+            this.dgvLicenseTestAppointments.MultiSelect = false;
+            this.dgvLicenseTestAppointments.Name = "dgvLicenseTestAppointments";
+            this.dgvLicenseTestAppointments.ReadOnly = true;
+            this.dgvLicenseTestAppointments.RowHeadersWidth = 62;
+            this.dgvLicenseTestAppointments.RowTemplate.Height = 28;
+            this.dgvLicenseTestAppointments.Size = new System.Drawing.Size(1099, 222);
+            this.dgvLicenseTestAppointments.TabIndex = 55;
+            this.dgvLicenseTestAppointments.TabStop = false;
             // 
             // ctrDrivingLicenseApplicationInfo1
             // 
@@ -145,13 +155,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1149, 1009);
+            this.Controls.Add(this.dgvLicenseTestAppointments);
             this.Controls.Add(this.ctrDrivingLicenseApplicationInfo1);
-            this.Controls.Add(this.lblRecordCount);
+            this.Controls.Add(this.lbl_RecordCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddNewAppointment);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtVisionTestAppointment);
             this.Controls.Add(this.pbListTestAppointments);
             this.Controls.Add(this.lbl_Title_frmListTestAppointments);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -160,6 +170,7 @@
             this.Text = "Vision Test Appointment";
             this.Load += new System.EventHandler(this.frmListTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbListTestAppointments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicenseTestAppointments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,12 +182,12 @@
         private System.Windows.Forms.PictureBox pbListTestAppointments;
         private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo3;
         private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo1;
-        private System.Windows.Forms.TextBox txtVisionTestAppointment;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAddNewAppointment;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblRecordCount;
+        private System.Windows.Forms.Label lbl_RecordCount;
         private System.Windows.Forms.Label label2;
         private Applications.Controls.ctrDrivingLicenseApplicationInfo ctrDrivingLicenseApplicationInfo2;
+        private System.Windows.Forms.DataGridView dgvLicenseTestAppointments;
     }
 }
