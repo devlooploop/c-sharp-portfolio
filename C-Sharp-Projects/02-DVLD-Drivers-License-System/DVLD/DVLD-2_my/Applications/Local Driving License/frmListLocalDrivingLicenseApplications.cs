@@ -364,7 +364,7 @@ namespace DVLD_2_my.Applications
         private void tsmiSechduleTests_Click(object sender, EventArgs e)
         {
             int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
-            clsTestAppointment.isPassedTest(clsTestType.enTestType testType, int localDrivingLicenseApplicationsID);
+            clsTestAppointment.isPassedTest(clsTestType.enTestType testTypeID, int localDrivingLicenseApplicationsID);
         }
 
 

@@ -165,9 +165,31 @@ namespace DataAccess.Tests
                                 INNER JOIN TestAppointments on  TestAppointments.TestAppointmentID = tests.TestAppointmentID
                                 INNER JOIN LocalDrivingLicenseApplications ON  
 					                TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
-                                    WHERE TestAppointments.TestTypeID = 1 AND LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = 38";
+                                    
+                                    WHERE TestAppointments.TestTypeID = @testTypeID 
+                                    AND    LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationsID";
 
-            return (testTypeID == 1); laterrr 
+
+            bool isFound = false;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue(@"testTypeID", testTypeID);
+            command.Parameters.AddWithValue(@"localDrivingLicenseApplicationID", localDrivingLicenseApplicationsID);
+
+            try
+            {
+                SqlDataReader reader =  command.ExecuteReader();
+                aaa
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { conn.Close(); }
         }
     }
 

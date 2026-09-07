@@ -128,6 +128,10 @@ namespace Business.Tests
             clsTestAppointmentData.GetTestAppointmentsInfoData();
         }
 
+        public static bool isPassedTest(clsTestType.enTestType testTypeID, int localDrivingLicenseApplicationsID)
+        {
+            return clsTestAppointmentData.isPassedTestData((int)testTypeID, localDrivingLicenseApplicationsID);
+        }
 
     }
 }
