@@ -67,7 +67,7 @@ namespace Business
         {
             int applicationId = -1; int licenseClassId = -1;
 
-            bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseApplicationId, ref applicationId,
+            bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByID_Data(localDrivingLicenseApplicationId, ref applicationId,
             ref licenseClassId);
             
             if (isFound)
@@ -146,7 +146,7 @@ namespace Business
         {
             int applicationId = -1; int licenseClassId = -1; 
 
-            bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByIdData(localDrivingLicenseAppId,
+            bool isFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByID_Data(localDrivingLicenseAppId,
                 ref applicationId,ref licenseClassId);
             
             if(isFound)

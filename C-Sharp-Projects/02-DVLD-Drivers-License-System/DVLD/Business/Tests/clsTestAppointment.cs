@@ -12,6 +12,7 @@ namespace Business.Tests
 {
     public class clsTestAppointment
     {
+
         private int _testAppointmentID = -1;
         private int _testTypeID = -1;
         private int _localDrivingLicenseApplicationID = -1;
@@ -56,7 +57,6 @@ namespace Business.Tests
             this.CreatedByUserID = -1;
             this.IsLocked = false;
             this.RetakeTestApplicationID = -1;
-
         }
 
         private clsTestAppointment(int testAppointmentID, int testTypeID,int localDrivingLicenseApplicationID, 

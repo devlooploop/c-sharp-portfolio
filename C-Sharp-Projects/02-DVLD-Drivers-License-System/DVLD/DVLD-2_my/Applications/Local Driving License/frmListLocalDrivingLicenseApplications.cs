@@ -361,6 +361,13 @@ namespace DVLD_2_my.Applications
             ScheduleTest(enTestType.StreetPracticalTest);
         }
 
+        private void tsmiSechduleTests_Click(object sender, EventArgs e)
+        {
+            int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            clsTestAppointment.isPassedTest(clsTestType.enTestType testType, int localDrivingLicenseApplicationsID);
+        }
+
+
     }
 
 

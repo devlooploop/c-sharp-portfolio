@@ -47,7 +47,7 @@ namespace DataAccess
             return dt;
         }
 
-        public static bool GetLocalDrivingLicenseApplicationInfoByIdData(int localDrivingLicenseApplicationId, ref int applicationId,
+        public static bool GetLocalDrivingLicenseApplicationInfoByID_Data(int localDrivingLicenseApplicationId, ref int applicationId,
             ref int licenseClassId)
         {
             

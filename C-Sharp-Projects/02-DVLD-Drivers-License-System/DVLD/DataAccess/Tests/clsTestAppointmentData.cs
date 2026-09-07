@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 
 
 
@@ -156,6 +157,18 @@ namespace DataAccess.Tests
 
         }
 
+
+        public static bool isPassedTestData(int testTypeID, int localDrivingLicenseApplicationsID)
+        {
+
+            string query = @"SELECT Tests.TestResult FROM Tests 
+                                INNER JOIN TestAppointments on  TestAppointments.TestAppointmentID = tests.TestAppointmentID
+                                INNER JOIN LocalDrivingLicenseApplications ON  
+					                TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+                                    WHERE TestAppointments.TestTypeID = 1 AND LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = 38";
+
+            return (testTypeID == 1); laterrr 
+        }
     }
 
 }
