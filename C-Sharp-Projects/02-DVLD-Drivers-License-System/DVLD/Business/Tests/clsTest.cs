@@ -13,11 +13,17 @@ namespace Business.Tests
 
         // TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID
 
+        enum enTestResult { Fail=0, Pass=1};
+
         public static DataTable GetAllTestsInfo()
         {
             return clsTestData.GetAllTestsInfoData();
         }
 
+        public static byte PassedTestCount()
+        {
+            clsTestData.
+        }
 
 
     }

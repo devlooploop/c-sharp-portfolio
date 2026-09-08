@@ -255,7 +255,6 @@ namespace DataAccess
             try
             {
                 connection.Open();
-              //  SqlDataReader reader = cmd.ExecuteReader();
                 object obj = cmd.ExecuteScalar();
 
                 if (obj != null)

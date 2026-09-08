@@ -21,10 +21,6 @@ namespace DVLD_2_my.Applications
 
        private DataTable _AllApplicationsInfo;
 
-       //private clsLocalDrivingLicenseApplication _localDrivingLicenseApplication;
-       
-        //private clsTestType.enTestType _testType = clsTestType.enTestType.VisionTest; 
-
        public frmListLocalDrivingLicenseApplications()
        {
            InitializeComponent();
@@ -237,26 +233,33 @@ namespace DVLD_2_my.Applications
                 return;
             }
 
-            int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            int currentLocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            clsLocalDrivingLicenseApplication app =
-                 clsLocalDrivingLicenseApplication.FindLocalApplicationById(recordId);
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication =
+                 clsLocalDrivingLicenseApplication.FindLocalApplicationById(currentLocalDrivingLicenseApplicationID);
 
-            if (app == null)
+            if (localDrivingLicenseApplication == null)
             {
                 MessageBox.Show("Application not found.");
                 return;
             }
             
-                tsmiEditApplication.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
-                tsmiDeleteApplication.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
-                tsmiCancelApplication.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
-                tsmiSechduleTests.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
-                tsmiIssueDrivingLicenseFirstTime.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
-                tsmiShowLicense.Enabled = !(app.StatusText == "Cancelled" || app.StatusText == "Completed");
+                tsmiEditApplication.Enabled = !(localDrivingLicenseApplication.StatusText == "Cancelled" || localDrivingLicenseApplication.StatusText == "Completed");
+                tsmiDeleteApplication.Enabled = !(localDrivingLicenseApplication.StatusText == "Cancelled" || localDrivingLicenseApplication.StatusText == "Completed");
+                tsmiCancelApplication.Enabled = !(localDrivingLicenseApplication.StatusText == "Cancelled" || localDrivingLicenseApplication.StatusText == "Completed");
+                tsmiSechduleTests.Enabled = !(localDrivingLicenseApplication.StatusText == "Cancelled" || localDrivingLicenseApplication.StatusText == "Completed");
+                tsmiIssueDrivingLicenseFirstTime.Enabled = !(localDrivingLicenseApplication.StatusText == "Cancelled" || localDrivingLicenseApplication.StatusText == "Completed");
+                tsmiShowLicense.Enabled = !(localDrivingLicenseApplication.StatusText == "Cancelled" || localDrivingLicenseApplication.StatusText == "Completed");
             
                 tsmiCancelApplication.Enabled = 
-                (app.ApplicationStatus == clsApplication.enApplicationStatus.New);
+                (localDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            
+            if (!clsTestAppointment.isPassedTest(clsTestType.enTestType.WrittenTheoryTest, currentLocalDrivingLicenseApplicationID))
+                tsmiScheduleWrittenTest.Enabled = false;
+
+            if (!clsTestAppointment.isPassedTest(clsTestType.enTestType.StreetPracticalTest, currentLocalDrivingLicenseApplicationID))
+                tsmiScheduleStreetTest.Enabled = false;
 
         }
 
@@ -359,12 +362,6 @@ namespace DVLD_2_my.Applications
         private void tsmiScheduleStreetTest_Click(object sender, EventArgs e)
         {
             ScheduleTest(enTestType.StreetPracticalTest);
-        }
-
-        private void tsmiSechduleTests_Click(object sender, EventArgs e)
-        {
-            int recordId = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
-            clsTestAppointment.isPassedTest(clsTestType.enTestType testTypeID, int localDrivingLicenseApplicationsID);
         }
 
 

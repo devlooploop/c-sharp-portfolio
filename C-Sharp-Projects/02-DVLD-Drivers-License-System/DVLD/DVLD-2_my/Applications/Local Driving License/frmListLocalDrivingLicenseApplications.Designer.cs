@@ -151,7 +151,7 @@
             this.toolStripMenuItem6,
             this.tsmiShowPersonLicenseHistory});
             this.cmsListLocalDrivingLicenseApplications.Name = "contextMenuStrip1";
-            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 302);
+            this.cmsListLocalDrivingLicenseApplications.Size = new System.Drawing.Size(255, 280);
             this.cmsListLocalDrivingLicenseApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsListLocalDrivingLicenseApplications_Opening);
             // 
             // tsmiShowApplicationDetails
@@ -217,7 +217,7 @@
             // 
             this.tsmiScheduleVisionTest.Image = global::DVLD_2_my.Properties.Resources.Vision_Test_32;
             this.tsmiScheduleVisionTest.Name = "tsmiScheduleVisionTest";
-            this.tsmiScheduleVisionTest.Size = new System.Drawing.Size(196, 30);
+            this.tsmiScheduleVisionTest.Size = new System.Drawing.Size(188, 22);
             this.tsmiScheduleVisionTest.Text = "Schedule Vision Test";
             this.tsmiScheduleVisionTest.Click += new System.EventHandler(this.tsmiScheduleVisionTest_Click);
             // 
@@ -225,7 +225,7 @@
             // 
             this.tsmiScheduleWrittenTest.Image = global::DVLD_2_my.Properties.Resources.Written_Test_32;
             this.tsmiScheduleWrittenTest.Name = "tsmiScheduleWrittenTest";
-            this.tsmiScheduleWrittenTest.Size = new System.Drawing.Size(196, 30);
+            this.tsmiScheduleWrittenTest.Size = new System.Drawing.Size(188, 22);
             this.tsmiScheduleWrittenTest.Text = "Schedule Written Test";
             this.tsmiScheduleWrittenTest.Click += new System.EventHandler(this.tsmiScheduleWrittenTest_Click);
             // 
@@ -233,7 +233,7 @@
             // 
             this.tsmiScheduleStreetTest.Image = global::DVLD_2_my.Properties.Resources.Street_Test_32;
             this.tsmiScheduleStreetTest.Name = "tsmiScheduleStreetTest";
-            this.tsmiScheduleStreetTest.Size = new System.Drawing.Size(196, 30);
+            this.tsmiScheduleStreetTest.Size = new System.Drawing.Size(188, 22);
             this.tsmiScheduleStreetTest.Text = "Sechdule Street Test";
             this.tsmiScheduleStreetTest.Click += new System.EventHandler(this.tsmiScheduleStreetTest_Click);
             // 

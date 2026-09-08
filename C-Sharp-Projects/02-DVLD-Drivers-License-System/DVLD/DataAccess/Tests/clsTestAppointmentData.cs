@@ -176,20 +176,29 @@ namespace DataAccess.Tests
 
             SqlCommand command = new SqlCommand(query, conn);
 
-            command.Parameters.AddWithValue(@"testTypeID", testTypeID);
-            command.Parameters.AddWithValue(@"localDrivingLicenseApplicationID", localDrivingLicenseApplicationsID);
+            command.Parameters.AddWithValue("@testTypeID", testTypeID);
+            command.Parameters.AddWithValue("@localDrivingLicenseApplicationsID", localDrivingLicenseApplicationsID);
 
             try
             {
+                conn.Open();
+
                 SqlDataReader reader =  command.ExecuteReader();
-                aaa
+                
+                if(reader.HasRows)
+                    isFound = reader.HasRows;
+                else
+                    isFound = false;
+
+                reader.Close();
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally { conn.Close(); }
+
+            return isFound;
         }
     }
 

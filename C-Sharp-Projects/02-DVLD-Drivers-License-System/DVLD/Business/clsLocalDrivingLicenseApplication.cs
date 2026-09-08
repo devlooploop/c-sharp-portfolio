@@ -170,6 +170,12 @@ namespace Business
                       this.ApplicationID, this.LicenseClassId);
         }
 
+        public static byte PassedTestCount()
+        {
+            lklkl
+        }
+
+
     }
 
 }

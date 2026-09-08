@@ -39,5 +39,16 @@ namespace DataAccess.Tests
             return dt;
         }
 
+        public static byte PassedTestCountData()
+        {
+
+            // need to join 2 tables and get the result + count back
+            string query @" SELECT *  FROM Tests INNER JOIN TestTypes ON  Tests.TestID = TestTypes.TestTypeID
+                WHERE TestTypes.TestTypeID = 3 AND Tests.TestID = 64";
+
+        }
+
+
+
     }
 }
