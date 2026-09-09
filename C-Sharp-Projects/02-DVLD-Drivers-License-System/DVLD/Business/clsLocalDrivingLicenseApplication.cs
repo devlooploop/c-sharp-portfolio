@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using Business.Tests;
+using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -170,10 +171,8 @@ namespace Business
                       this.ApplicationID, this.LicenseClassId);
         }
 
-        public static byte PassedTestCount()
-        {
-            lklkl
-        }
+
+        public static 
 
 
     }

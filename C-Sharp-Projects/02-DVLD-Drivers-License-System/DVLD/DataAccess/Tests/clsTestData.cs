@@ -39,13 +39,17 @@ namespace DataAccess.Tests
             return dt;
         }
 
-        public static byte PassedTestCountData()
+        public static byte PassedTestCountData(int localDrivingLicenseApplicationID)
         {
 
             // need to join 2 tables and get the result + count back
-            string query @" SELECT *  FROM Tests INNER JOIN TestTypes ON  Tests.TestID = TestTypes.TestTypeID
-                WHERE TestTypes.TestTypeID = 3 AND Tests.TestID = 64";
+            string query @"SELECT TestResult = COUNT(TestTypeID)  FROM Tests 
+                            INNER JOIN TestAppointments on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                                WHERE TestAppointments.LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationID 
+                                  AND Tests.TestResult = 1";
 
+
+            return  0;
         }
 
 

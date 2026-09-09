@@ -211,7 +211,6 @@
             this.tsmiSechduleTests.Name = "tsmiSechduleTests";
             this.tsmiSechduleTests.Size = new System.Drawing.Size(254, 30);
             this.tsmiSechduleTests.Text = "Sechdule Tests";
-            this.tsmiSechduleTests.Click += new System.EventHandler(this.tsmiSechduleTests_Click);
             // 
             // tsmiScheduleVisionTest
             // 
