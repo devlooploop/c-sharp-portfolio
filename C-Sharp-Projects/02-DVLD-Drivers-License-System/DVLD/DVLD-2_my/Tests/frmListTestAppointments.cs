@@ -77,7 +77,6 @@ namespace DVLD_2_my.Tests
             
             _dtTestAppointments = clsTestAppointment.GetTestAppointmentsInfo();
 
-           // dgvLicenseTestAppointments.DataSource = _dtTestAppointments.DefaultView;
             dgvLicenseTestAppointments.DataSource = _dtTestAppointments;
 
             if (dgvLicenseTestAppointments.RowCount > 0)
@@ -121,10 +120,11 @@ namespace DVLD_2_my.Tests
             if (_localDrivingLicenseApplication.IsThereAnActiveScheduledTest(_testType))
             {
                 MessageBox.Show("This person already has an active appointment for this test." +
-                                    " You cannot add a new appointment!", "Active Appointment",
+                                    "You cannot add a new appointment! ", "Active Appointment",
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 
 
             frm.ShowDialog();

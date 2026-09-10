@@ -11,15 +11,15 @@ using Business;
 using Business.Tests;
 
 
-
 namespace DVLD_2_my.Tests
 {
     public partial class frmScheduleTest : Form
     {
         int _localDrivingLicenseApplicationID = -1;
 
-
         private clsTestType.enTestType _testType;
+        private clsTestType _testTypeDetails;
+
 
         public frmScheduleTest()
         {
@@ -48,7 +48,7 @@ namespace DVLD_2_my.Tests
             lbl_DClass.Text = testAppointment.LicenseClassInfo.ClassName.ToString();
 
             lbl_Name.Text = testAppointment.LocalDrivingLicenseApplication.ApplicantFullName;
-            //lbl_Trail.Text;
+            //lbl_Trail.Text = ;
             
             dtpScheduleTest.Text = testAppointment.AppointmentDate.ToString();
             lbl_Fees.Text = testAppointment.PaidFees.ToString();
@@ -56,10 +56,15 @@ namespace DVLD_2_my.Tests
             // RetakTestInfo group box:
             lbl_RAppFees.Text =  testAppointment.PaidFees.ToString();
             lbl_RTestAppID.Text = testAppointment.RetakeTestApplicationID.ToString();
-            //lbl_TotalFees.Text = 
+            lbl_TotalFees.Text = _testTypeDetails.TestTypeFees.ToString();
 
         }
-        
+
+        /* make schedule test at this point ... enum and switch on the 3-tets(vision, street & written)
+        * then let the switch-on statment chose witch (pic-box to show + related info).
+        * .... later at this point!
+        */
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Comming soon near you ", "Save Button", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -70,11 +75,7 @@ namespace DVLD_2_my.Tests
             LoadValues();
         }
 
-
-        /* make schedule test at this point ... enum and switch on the 3-tets(vision, street & written)
-         * then let the switch-on statment chose witch (pic-box to show + related info).
-         * .... later at this point!
-         */
+       
     }
 
 }

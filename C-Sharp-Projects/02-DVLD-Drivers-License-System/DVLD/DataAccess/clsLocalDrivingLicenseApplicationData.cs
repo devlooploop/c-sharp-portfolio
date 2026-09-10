@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DataAccess
@@ -36,7 +29,7 @@ namespace DataAccess
              
                 reader.Close();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 throw;
             }
