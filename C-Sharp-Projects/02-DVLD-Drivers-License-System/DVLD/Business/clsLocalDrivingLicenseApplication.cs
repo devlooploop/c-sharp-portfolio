@@ -1,20 +1,16 @@
-﻿using Business.Tests;
+﻿using System;
 using DataAccess;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Business.clsApplication;
-using static Business.clsTestType;
-using static System.Net.Mime.MediaTypeNames;
+using Business;
+using Business.Tests;
+
 
 
 namespace Business
 {
     public class clsLocalDrivingLicenseApplication : clsApplication
     {
+
         public enum enMode {AddNew = 0,Update = 1 };
         public enMode mode = enMode.AddNew;
         
@@ -172,7 +168,7 @@ namespace Business
         }
 
 
-        public static 
+        
 
 
     }

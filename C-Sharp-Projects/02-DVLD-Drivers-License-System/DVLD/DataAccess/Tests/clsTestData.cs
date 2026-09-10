@@ -14,18 +14,18 @@ namespace DataAccess.Tests
             string query = @"SELECT * FROM Tests";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            SqlCommand cmd = new SqlCommand(query,connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
             try
             {
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if(reader.Read())
+                if (reader.Read())
                 {
                     dt.Load(reader);
                 }
-                
+
             }
             catch (Exception)
             {
@@ -42,16 +42,41 @@ namespace DataAccess.Tests
         public static byte PassedTestCountData(int localDrivingLicenseApplicationID)
         {
 
-            // need to join 2 tables and get the result + count back
-            string query @"SELECT TestResult = COUNT(TestTypeID)  FROM Tests 
-                            INNER JOIN TestAppointments on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
-                                WHERE TestAppointments.LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationID 
-                                  AND Tests.TestResult = 1";
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT PassedTestCount=COUNT(TestTypeID)  FROM Tests 
+							INNER JOIN TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+								
+                                  WHERE TestAppointments.LocalDrivingLicenseApplicationID = @localDrivingLicenseApplicationID 
+								    AND Tests.TestResult = 1";
 
 
-            return  0;
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue(@"localDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+            byte passedTestCounter = 0;
+            try
+            {
+                connection.Open();
+                object returnedObj = cmd.ExecuteScalar();
+
+                if (returnedObj != null && byte.TryParse(returnedObj.ToString(), out byte testCount))
+                {
+                    passedTestCounter = testCount;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return passedTestCounter;
         }
-
 
 
     }

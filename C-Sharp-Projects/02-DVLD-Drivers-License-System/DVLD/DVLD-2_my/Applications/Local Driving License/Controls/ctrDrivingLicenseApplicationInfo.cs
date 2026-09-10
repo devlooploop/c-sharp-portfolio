@@ -1,5 +1,6 @@
-﻿using Business;
-using System;
+﻿using System;
+using Business;
+using Business.Tests;
 using System.Windows.Forms;
 
 namespace DVLD_2_my.Applications.Controls
@@ -16,13 +17,14 @@ namespace DVLD_2_my.Applications.Controls
 
         private void FillValues()
         {
-            lbl_DLAppID.Text = _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
+            lbl_DLAppID.Text = 
+                _localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
 
             lbl_AppliedForLicense.Text =
                 clsLicenseClass.FindByID(_localDrivingLicenseApplication.LicenseClassId).ClassName.ToString();
 
-            lbl_PassedTests.Text = _localDrivingLicenseApplication.;
-
+            lbl_PassedTests.Text = 
+                clsTest.PassedTestCount(_localDrivingLicenseApplication.LocalDrivingLicenseApplicationId).ToString();
         }
 
         public void LoadDrivingLicenseApplicationInfoByID(int drivingLicenseApplicationId)
@@ -48,5 +50,8 @@ namespace DVLD_2_my.Applications.Controls
             MessageBox.Show($"Under construction","Comming soon ....",
                 MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
+   
+        
+    
     }
 }

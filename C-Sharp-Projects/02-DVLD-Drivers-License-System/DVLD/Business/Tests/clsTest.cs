@@ -11,18 +11,34 @@ namespace Business.Tests
     public class clsTest
     {
 
-        // TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID
-
         enum enTestResult { Fail=0, Pass=1};
+
+        // TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID
+        public int TestID { get; }
+        public int TestAppointmentID { get; }
+        public bool TestResult { get; set; }
+        public string Notes { get; set; }
+        public int CreatedByUserID { get; set; }
+
+
+        public clsTest()
+        {
+            TestID = -1;
+            TestAppointmentID = -1;
+            TestResult = false;
+            Notes = ""; 
+            CreatedByUserID = -1;
+        }
 
         public static DataTable GetAllTestsInfo()
         {
             return clsTestData.GetAllTestsInfoData();
         }
 
-        public static byte PassedTestCount()
+
+        public static byte PassedTestCount(int localDrivingLicenseApplicationID)
         {
-            clsTestData.
+           return clsTestData.PassedTestCountData(localDrivingLicenseApplicationID);
         }
 
 
