@@ -114,10 +114,10 @@ namespace DVLD_2_my.Tests
            
              frmScheduleTest frm = new frmScheduleTest(_localDrivingLicenseApplicationID, _testType);
            
-           clsLocalDrivingLicenseApplication _localDrivingLicenseApplication = 
+           clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
                 clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicenseApplicationID);
 
-            if (_localDrivingLicenseApplication.IsThereAnActiveScheduledTest(_testType))
+            if (localDrivingLicenseApplication.IsThereAnActiveScheduledTest(_testType))
             {
                 MessageBox.Show("This person already has an active appointment for this test." +
                                     "You cannot add a new appointment! ", "Active Appointment",
@@ -125,6 +125,7 @@ namespace DVLD_2_my.Tests
                 return;
             }
 
+            loggic must be completed here  
 
 
             frm.ShowDialog();
