@@ -34,6 +34,7 @@ namespace DVLD_2_my.Tests
 
             _localDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
             _testType = testType;
+
         }
 
         private void _LoadTestTypeImageAndTitle(clsTestType.enTestType testType)
@@ -71,13 +72,12 @@ namespace DVLD_2_my.Tests
 
         private void LoadValues()
         {
-            clsTestAppointment testAppointment 
-                = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(_localDrivingLicenseApplicationID);
-
+            
             clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
                 clsLocalDrivingLicenseApplication.FindLocalApplicationById(_localDrivingLicenseApplicationID);
 
-            bool HasActiveTest =  clsLocalDrivingLicenseApplication.DoesPersonHaveActiveApplication(, _testType);
+            bool HasActiveTest =  
+                clsLocalDrivingLicenseApplication.DoesPersonHaveActiveApplication(localDrivingLicenseApplication.LocalDrivingLicenseApplicationId, (int)_testType);
 
             //if (testAppointment == null)
             //{
@@ -87,30 +87,32 @@ namespace DVLD_2_my.Tests
 
             if (HasActiveTest)
             {
-                MessageBox.Show("This person has already an active test Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This person has already an active test Appointment", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            lbl_DLAppID.Text = testAppointment.LocalDrivingLicenseApplicationID.ToString();
-            lbl_DClass.Text = testAppointment.LicenseClassInfo.ClassName.ToString();
+            lbl_DLAppID.Text = localDrivingLicenseApplication.LocalDrivingLicenseApplicationId.ToString();
+            lbl_DClass.Text = localDrivingLicenseApplication.LicenseClassInfo.ClassName.ToString();
 
-            lbl_Name.Text = testAppointment.LocalDrivingLicenseApplication.ApplicantFullName;
+            lbl_Name.Text = localDrivingLicenseApplication.ApplicantFullName;
             //lbl_Trail.Text = ;
             
-            dtpScheduleTest.Text = testAppointment.AppointmentDate.ToString();
-            lbl_Fees.Text = testAppointment.PaidFees.ToString();
+            dtpScheduleTest.Text = localDrivingLicenseApplication.ApplicationDate.ToString();
+            lbl_Fees.Text = localDrivingLicenseApplication.PaidFees.ToString();
 
             // RetakTestInfo group box:
-            lbl_RAppFees.Text =  testAppointment.PaidFees.ToString();
-            lbl_RTestAppID.Text = testAppointment.RetakeTestApplicationID.ToString();
-            lbl_TotalFees.Text = _testTypeDetails.TestTypeFees.ToString();
+            lbl_RAppFees.Text =  localDrivingLicenseApplication.PaidFees.ToString();
+            lbl_TotalFees.Text = _testTypeDetails.TestTypeFees.ToString();  
 
-            _LoadTestTypeImageAndTitle( _testType);
+
+            _LoadTestTypeImageAndTitle(_testType);
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Comming soon near you ", "Save Button", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Comming soon .....", "Save Button", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void frmScheduleTest_Load(object sender, EventArgs e)

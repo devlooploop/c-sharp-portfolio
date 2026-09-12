@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Business
 {
-    public class clsApplicationTypes
+    public class clsApplicationType
     {
         private enum enMode { addNew = 0, update = 1 }
         private enMode _mode = enMode.addNew;
@@ -15,7 +15,7 @@ namespace Business
 
         public float Fees { get; set; }
 
-        public clsApplicationTypes()
+        public clsApplicationType()
         {
             this.ID = -1;
             this.Title = "";
@@ -23,7 +23,7 @@ namespace Business
             _mode = enMode.addNew;
         }
 
-        public clsApplicationTypes(int appID, string title, float fees)
+        public clsApplicationType(int appID, string title, float fees)
         {
             this.ID = appID;
             this.Title = title;
@@ -31,13 +31,13 @@ namespace Business
             _mode = enMode.update;
         }
 
-        public static clsApplicationTypes FindApplicationByID(int appID)
+        public static clsApplicationType FindApplicationByID(int appID)
         {
             string title = "";
             float fees = 0;
 
-            if (clsApplicationTypesData.GetApplicationTypeByID((int)appID, ref title, ref fees))
-                return new clsApplicationTypes(appID, title, fees);
+            if (clsApplicationTypeData.GetApplicationTypeByID((int)appID, ref title, ref fees))
+                return new clsApplicationType(appID, title, fees);
             else
                 return null;
         }
@@ -45,19 +45,19 @@ namespace Business
         private bool _AddNewApplicationType()
         {
             //call DataAccess Layer 
-            this.ID = clsApplicationTypesData.AddNewApplicationType(this.Title, this.Fees);
+            this.ID = clsApplicationTypeData.AddNewApplicationType(this.Title, this.Fees);
 
             return (this.ID != -1);
         }
 
         public static DataTable GetApplicationTypeInfo()
         {
-            return clsApplicationTypesData.GetAllApplicationTypeInfoData();
+            return clsApplicationTypeData.GetAllApplicationTypeInfoData();
         }
 
         private bool _UpdateTestType()
         {
-            return clsApplicationTypesData.UpdateTestTypeData(this.ID, this.Title, this.Fees);
+            return clsApplicationTypeData.UpdateTestTypeData(this.ID, this.Title, this.Fees);
         }
 
         public bool Save()
@@ -84,6 +84,8 @@ namespace Business
 
         }
 
+   
+    
     }
 
 }

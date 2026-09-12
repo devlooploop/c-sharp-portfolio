@@ -22,7 +22,7 @@ namespace Business
         public DateTime ApplicationDate { get; set; }
         
         public int ApplicationTypeID { get; set; }
-        public clsApplicationTypes applicationTypeInfo;
+        public clsApplicationType applicationTypeInfo;
 
         public enApplicationStatus ApplicationStatus { get; set; }
         
@@ -88,7 +88,7 @@ namespace Business
             this.PaidFees = paidFees;
             this.CreatedByUserID = createdByUserId;
 
-            this.applicationTypeInfo = clsApplicationTypes.FindApplicationByID(applicationTypeId);
+            this.applicationTypeInfo = clsApplicationType.FindApplicationByID(applicationTypeId);
             this.createdByUserInfo = clsUser.FindByUserID(CreatedByUserID);
            
             mode = enMode.Update;

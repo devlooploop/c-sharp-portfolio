@@ -10,7 +10,7 @@ namespace DVLD_2_my.Applications
     {
 
         private int _applicationID = -1;
-        private clsApplicationTypes _applicationTypes;
+        private clsApplicationType _applicationTypes;
 
         public frmUpdateApplicationType(int applicationID)
         {
@@ -21,7 +21,7 @@ namespace DVLD_2_my.Applications
         private void LoadApplicationInfo()
         {
             lbl_ID.Text = _applicationID.ToString();
-            _applicationTypes = clsApplicationTypes.FindApplicationByID(_applicationID);
+            _applicationTypes = clsApplicationType.FindApplicationByID(_applicationID);
 
             if (_applicationTypes != null)
             {

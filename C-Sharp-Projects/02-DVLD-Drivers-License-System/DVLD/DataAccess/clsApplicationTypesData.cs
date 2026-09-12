@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public class clsApplicationTypesData
+    public class clsApplicationTypeData
     {
 
         public static DataTable GetAllApplicationTypeInfoData()

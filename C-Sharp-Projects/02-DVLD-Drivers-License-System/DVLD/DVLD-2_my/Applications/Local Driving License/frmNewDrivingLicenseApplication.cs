@@ -56,7 +56,7 @@ namespace DVLD_2_my
                 _localDrivingLicenseApplication = new clsLocalDrivingLicenseApplication();
                 
                 lbl_ApplicationFees.Text =
-                clsApplicationTypes.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
+                clsApplicationType.FindApplicationByID((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString();
             
                 lblDate.Text = DateTime.Now.ToShortDateString();
                 lbl_UserName.Text = clsGlobal.currentUser.UserName;

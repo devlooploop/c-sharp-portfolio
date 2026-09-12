@@ -18,7 +18,7 @@ namespace DVLD_2_my.Applications
 
         private void RefreshData()
         {
-            _dtAllApplicationTypes = clsApplicationTypes.GetApplicationTypeInfo();
+            _dtAllApplicationTypes = clsApplicationType.GetApplicationTypeInfo();
             dgvApplicationTypes.DataSource = _dtAllApplicationTypes;
             lblRecordCount.Text = dgvApplicationTypes.Rows.Count.ToString();
 
