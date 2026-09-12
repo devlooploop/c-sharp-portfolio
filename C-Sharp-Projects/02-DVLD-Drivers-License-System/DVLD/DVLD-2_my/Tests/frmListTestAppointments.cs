@@ -52,6 +52,7 @@ namespace DVLD_2_my.Tests
                     frm.lbl_Title_frmListTestAppointments.Text = "Written Theory Test Appointments";
                     frm.pbListTestAppointments.Image = Resources.Written_Test_512;
                     break;
+
                 case clsTestType.enTestType.StreetPracticalTest:
                     frm.Text = "Practical Street Test";
                     frm.lbl_Title_frmListTestAppointments.Text = "Practical Street Appointments";
@@ -102,17 +103,15 @@ namespace DVLD_2_my.Tests
 
             lbl_RecordCount.Text = dgvLicenseTestAppointments.RowCount.ToString();
 
-            //_LoadTestTypeImageAndTitle(_testType);
+           // _LoadTestTypeImageAndTitle(_testType);
 
-            //frmListTestAppointments frm = new frmListTestAppointments(_localDrivingLicenseApplicationID, clsTestType.enTestType.VisionTest);
-            
 
         }
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
            
-             frmScheduleTest frm = new frmScheduleTest(_localDrivingLicenseApplicationID, _testType);
+           frmScheduleTest frm = new frmScheduleTest(_localDrivingLicenseApplicationID, _testType);
            
            clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
                 clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_localDrivingLicenseApplicationID);
@@ -125,13 +124,11 @@ namespace DVLD_2_my.Tests
                 return;
             }
 
-            loggic must be completed here  
-
+            _LoadTestTypeImageAndTitle(_testType);
 
             frm.ShowDialog();
 
         }
-
 
 
     }

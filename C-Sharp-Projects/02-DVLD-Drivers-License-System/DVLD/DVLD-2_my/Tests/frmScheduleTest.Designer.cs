@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_FromScheduleTitle = new System.Windows.Forms.Label();
             this.lbl_DLAppID = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbScheduleTest = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -63,7 +63,7 @@
             this.gbRetakeTestInfo = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScheduleTest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -75,18 +75,18 @@
             this.gbRetakeTestInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_FromScheduleTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(144, 149);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 37);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Schedule Test";
+            this.lbl_FromScheduleTitle.AutoSize = true;
+            this.lbl_FromScheduleTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_FromScheduleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_FromScheduleTitle.ForeColor = System.Drawing.Color.Red;
+            this.lbl_FromScheduleTitle.Location = new System.Drawing.Point(144, 149);
+            this.lbl_FromScheduleTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_FromScheduleTitle.Name = "lbl_FromScheduleTitle";
+            this.lbl_FromScheduleTitle.Size = new System.Drawing.Size(233, 37);
+            this.lbl_FromScheduleTitle.TabIndex = 45;
+            this.lbl_FromScheduleTitle.Text = "Schedule Test";
             // 
             // lbl_DLAppID
             // 
@@ -226,15 +226,15 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // pbScheduleTest
             // 
-            this.pictureBox1.Image = global::DVLD_2_my.Properties.Resources.Vision_512;
-            this.pictureBox1.Location = new System.Drawing.Point(198, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
+            this.pbScheduleTest.Image = global::DVLD_2_my.Properties.Resources.Vision_512;
+            this.pbScheduleTest.Location = new System.Drawing.Point(198, 47);
+            this.pbScheduleTest.Name = "pbScheduleTest";
+            this.pbScheduleTest.Size = new System.Drawing.Size(130, 94);
+            this.pbScheduleTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbScheduleTest.TabIndex = 46;
+            this.pbScheduleTest.TabStop = false;
             // 
             // pictureBox10
             // 
@@ -410,8 +410,8 @@
             this.gbVisionTest.Controls.Add(this.pictureBox5);
             this.gbVisionTest.Controls.Add(this.lbl_Trail);
             this.gbVisionTest.Controls.Add(this.dtpScheduleTest);
-            this.gbVisionTest.Controls.Add(this.pictureBox1);
-            this.gbVisionTest.Controls.Add(this.label1);
+            this.gbVisionTest.Controls.Add(this.pbScheduleTest);
+            this.gbVisionTest.Controls.Add(this.lbl_FromScheduleTitle);
             this.gbVisionTest.Controls.Add(this.label3);
             this.gbVisionTest.Controls.Add(this.pictureBox2);
             this.gbVisionTest.Controls.Add(this.label5);
@@ -472,7 +472,7 @@
             this.Load += new System.EventHandler(this.frmScheduleTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScheduleTest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -490,8 +490,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbScheduleTest;
+        private System.Windows.Forms.Label lbl_FromScheduleTitle;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label lbl_DLAppID;

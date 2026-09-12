@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Business;
+using Business.Tests;
+using DVLD_2_my.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
-using Business.Tests;
+using static Business.clsTestType;
 
 
 namespace DVLD_2_my.Tests
@@ -34,14 +36,51 @@ namespace DVLD_2_my.Tests
             _testType = testType;
         }
 
+        private void _LoadTestTypeImageAndTitle(clsTestType.enTestType testType)
+        {
+            frmScheduleTest frm = new frmScheduleTest();
+
+            switch (testType)
+            {
+                case clsTestType.enTestType.VisionTest:
+                    frm.Text = "Vision Test";
+                    frm.lbl_FromScheduleTitle.Text = "Vision Test Appointments";
+                    frm.pbScheduleTest.Image = Resources.Vision_512;
+                    break;
+
+                case clsTestType.enTestType.WrittenTheoryTest:
+                    frm.Text = "Written Theory Test";
+                    frm.lbl_FromScheduleTitle.Text = "Written Theory Test Appointments";
+                    frm.pbScheduleTest.Image = Resources.Written_Test_512;
+                    break;
+
+                case clsTestType.enTestType.StreetPracticalTest:
+                    frm.Text = "Practical Street Test";
+                    frm.lbl_FromScheduleTitle.Text = "Practical Street Appointments";
+                    frm.pbScheduleTest.Image = Resources.Street_Test_32;
+                    break;
+
+                default:
+                    frm.Text = "Schedule Test";
+                    frm.pbScheduleTest.Image = Resources.Vision_512;
+                    break;
+
+            }
+
+        }
+
         private void LoadValues()
         {
             clsTestAppointment testAppointment 
                 = clsTestAppointment.FindTestAppointmentByDrivinglicenseID(_localDrivingLicenseApplicationID);
 
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
+                clsLocalDrivingLicenseApplication.FindLocalApplicationById(_localDrivingLicenseApplicationID);
+
             if (testAppointment == null)
             {
                 MessageBox.Show("Test Appointment value is NULL", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             lbl_DLAppID.Text = testAppointment.LocalDrivingLicenseApplicationID.ToString();
@@ -58,12 +97,8 @@ namespace DVLD_2_my.Tests
             lbl_RTestAppID.Text = testAppointment.RetakeTestApplicationID.ToString();
             lbl_TotalFees.Text = _testTypeDetails.TestTypeFees.ToString();
 
+            _LoadTestTypeImageAndTitle( _testType);
         }
-
-        /* make schedule test at this point ... enum and switch on the 3-tets(vision, street & written)
-        * then let the switch-on statment chose witch (pic-box to show + related info).
-        * .... later at this point!
-        */
 
         private void btnSave_Click(object sender, EventArgs e)
         {
