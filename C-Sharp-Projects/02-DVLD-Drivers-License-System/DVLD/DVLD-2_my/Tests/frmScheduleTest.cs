@@ -77,9 +77,17 @@ namespace DVLD_2_my.Tests
             clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
                 clsLocalDrivingLicenseApplication.FindLocalApplicationById(_localDrivingLicenseApplicationID);
 
-            if (testAppointment == null)
+            bool HasActiveTest =  clsLocalDrivingLicenseApplication.DoesPersonHaveActiveApplication(, _testType);
+
+            //if (testAppointment == null)
+            //{
+            //    MessageBox.Show("Test Appointment value is NULL", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
+            if (HasActiveTest)
             {
-                MessageBox.Show("Test Appointment value is NULL", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This person has already an active test Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
