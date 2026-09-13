@@ -11,17 +11,32 @@ namespace Business
 
         public enum enTestType { VisionTest = 1, WrittenTheoryTest = 2, StreetPracticalTest = 3 };
 
+        private float _feesOfTestType;
+
         public int TestTypeID { get; set; }
-        public string TestTypeTitle { get; set; }
-        public string TestTypeDescription { get; set; }
-        public float TestTypeFees { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+
+        public float Fees 
+        { 
+            get  TestTypeFees 
+            
+            
+            set; 
+        }
+
+
+        public float GetFeesOfTestType(int localDrivingLicenseApplicationID,enTestType TestType)
+        {
+            return clsTestTypeData.GetTestTypeInfoByID(TestTypeID,) 
+        }
 
         public clsTestType()
         {
             this.TestTypeID = -1;
-            this.TestTypeTitle = "";
-            this.TestTypeDescription = "";
-            this.TestTypeFees = 0;
+            this.Title = "";
+            this.Description = "";
+            this.Fees = 0;
             
             _mode = enMode.addNew;
         }
@@ -29,9 +44,9 @@ namespace Business
         public clsTestType(int testID, string title, string description, float fees)
         {
             this.TestTypeID = testID;
-            this.TestTypeTitle = title;
-            this.TestTypeDescription = description;
-            this.TestTypeFees = fees;
+            this.Title = title;
+            this.Description = description;
+            this.Fees = fees;
 
             _mode = enMode.update;
         }
@@ -54,16 +69,16 @@ namespace Business
 
         private bool UpdateTestType()
         {
-            return clsTestTypeData.UpdateTestTypeData((int) this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, 
-                this.TestTypeFees);
+            return clsTestTypeData.UpdateTestTypeData((int) this.TestTypeID, this.Title, this.Description, 
+                this.Fees);
         }
 
         private bool _AddNewTestType()
         {
             //call DataAccess Layer 
 
-            this.TestTypeID = clsTestTypeData.AddNewTestType(this.TestTypeTitle, 
-                this.TestTypeDescription, this.TestTypeFees);
+            this.TestTypeID = clsTestTypeData.AddNewTestType(this.Title, 
+                this.Description, this.Fees);
 
             return (this.TestTypeID != -1);
         }

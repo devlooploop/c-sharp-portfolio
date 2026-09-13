@@ -34,7 +34,6 @@ namespace DVLD_2_my.Tests
 
             _localDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
             _testType = testType;
-
         }
 
         private void _LoadTestTypeImageAndTitle(clsTestType.enTestType testType)
@@ -65,7 +64,6 @@ namespace DVLD_2_my.Tests
                     frm.Text = "Schedule Test";
                     frm.pbScheduleTest.Image = Resources.Vision_512;
                     break;
-
             }
 
         }
@@ -96,16 +94,16 @@ namespace DVLD_2_my.Tests
             lbl_DClass.Text = localDrivingLicenseApplication.LicenseClassInfo.ClassName.ToString();
 
             lbl_Name.Text = localDrivingLicenseApplication.ApplicantFullName;
-            //lbl_Trail.Text = ;
+            lbl_Trail.Text = "will be added soon ....";
             
             dtpScheduleTest.Text = localDrivingLicenseApplication.ApplicationDate.ToString();
-            lbl_Fees.Text = localDrivingLicenseApplication.PaidFees.ToString();
+            lbl_Fees.Text = _testTypeDetails.
 
             // RetakTestInfo group box:
-            lbl_RAppFees.Text =  localDrivingLicenseApplication.PaidFees.ToString();
-            lbl_TotalFees.Text = _testTypeDetails.TestTypeFees.ToString();  
+            lbl_RAppFees.Text  =  localDrivingLicenseApplication.PaidFees.ToString();
+            lbl_TotalFees.Text = (localDrivingLicenseApplication.PaidFees + );
 
-
+             
             _LoadTestTypeImageAndTitle(_testType);
 
         }

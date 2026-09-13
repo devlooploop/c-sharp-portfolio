@@ -41,8 +41,7 @@ namespace DataAccess
             return dt;
         }
 
-        
-        public static bool GetTestTypeInfoID(int testID, ref string title, ref string description, ref float fees)
+        public static bool GetTestTypeInfoByID(int testTypeID, ref string title, ref string description, ref float fees)
         {
             bool isFound = false;
 
@@ -50,7 +49,7 @@ namespace DataAccess
             string query = @"SELECT * FROM TestTypes WHERE TestTypeID = @ID";
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@ID", testID);
+            cmd.Parameters.AddWithValue("@ID", testTypeID);
 
             try
             {
@@ -84,7 +83,7 @@ namespace DataAccess
             return isFound;
         }
     
-        public static bool UpdateTestTypeData(int testID, string title, string description, float fees)
+        public static bool UpdateTestTypeData(int testTypeID, string title, string description, float fees)
         {
             int rowsAffected = 0; 
 
@@ -96,7 +95,7 @@ namespace DataAccess
 
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@testTypeId", testID);
+            cmd.Parameters.AddWithValue("@testTypeId", testTypeID);
             cmd.Parameters.AddWithValue("@title", title);
             cmd.Parameters.AddWithValue("@description", description);
             cmd.Parameters.AddWithValue("@fees", fees);
@@ -155,8 +154,6 @@ namespace DataAccess
             return TestTypeID;
 
         }
-
-
 
     }
 }
