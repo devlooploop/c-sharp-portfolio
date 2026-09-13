@@ -21,9 +21,9 @@ namespace DVLD_2_my.Tests
         private void LoadTestData()
         {
             lbl_ID.Text = (_testID).ToString();
-            txtTitle.Text = _testType.TestTypeTitle;
-            txtDescription.Text = _testType.TestTypeDescription;
-            txtFees.Text = _testType.TestTypeFees.ToString();
+            txtTitle.Text = _testType.Title;
+            txtDescription.Text = _testType.Description;
+            txtFees.Text = _testType.Fees.ToString();
         }
 
         private void frmUpdateTestType_Load(object sender, EventArgs e)
@@ -51,18 +51,14 @@ namespace DVLD_2_my.Tests
                 return;
             }
 
-            _testType.TestTypeTitle = txtTitle.Text;
-            _testType.TestTypeDescription = txtDescription.Text;
-            _testType.TestTypeFees = Convert.ToSingle(txtFees.Text);
+            _testType.Title = txtTitle.Text;
+            _testType.Description = txtDescription.Text;
+            _testType.Fees = Convert.ToSingle(txtFees.Text);
 
             if(_testType.Save())
-            {
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
             else
-            {
                 MessageBox.Show("Error: Data is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
         }
 

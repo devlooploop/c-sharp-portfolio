@@ -11,25 +11,11 @@ namespace Business
 
         public enum enTestType { VisionTest = 1, WrittenTheoryTest = 2, StreetPracticalTest = 3 };
 
-        private float _feesOfTestType;
-
         public int TestTypeID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
 
-        public float Fees 
-        { 
-            get  TestTypeFees 
-            
-            
-            set; 
-        }
-
-
-        public float GetFeesOfTestType(int localDrivingLicenseApplicationID,enTestType TestType)
-        {
-            return clsTestTypeData.GetTestTypeInfoByID(TestTypeID,) 
-        }
+        public float Fees { get; set; }
 
         public clsTestType()
         {
@@ -60,11 +46,11 @@ namespace Business
         {
             string title = ""; string description = ""; float fees = 0;
 
-            if (clsTestTypeData.GetTestTypeInfoID( testID, ref title, ref description, ref fees))
-                
+            if (clsTestTypeData.GetTestTypeInfoByID( testID, ref title, ref description, ref fees))
                 return new clsTestType(testID, title, description, fees);
             else
                 return null;
+        
         }
 
         private bool UpdateTestType()

@@ -77,12 +77,6 @@ namespace DVLD_2_my.Tests
             bool HasActiveTest =  
                 clsLocalDrivingLicenseApplication.DoesPersonHaveActiveApplication(localDrivingLicenseApplication.LocalDrivingLicenseApplicationId, (int)_testType);
 
-            //if (testAppointment == null)
-            //{
-            //    MessageBox.Show("Test Appointment value is NULL", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
             if (HasActiveTest)
             {
                 MessageBox.Show("This person has already an active test Appointment", "Error", 
@@ -97,13 +91,23 @@ namespace DVLD_2_my.Tests
             lbl_Trail.Text = "will be added soon ....";
             
             dtpScheduleTest.Text = localDrivingLicenseApplication.ApplicationDate.ToString();
-            lbl_Fees.Text = _testTypeDetails.
+
+            _testTypeDetails = clsTestType.FindByID(localDrivingLicenseApplication.ApplicationTypeID);
+            if (_testTypeDetails == null)
+            {
+                MessageBox.Show("The fee can not be NULL!", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                lbl_Fees.Text = _testTypeDetails.Fees.ToString();
+            }
 
             // RetakTestInfo group box:
-            lbl_RAppFees.Text  =  localDrivingLicenseApplication.PaidFees.ToString();
-            lbl_TotalFees.Text = (localDrivingLicenseApplication.PaidFees + );
+            lbl_RAppFees.Text = "Add later..";
+            lbl_TotalFees.Text = (_testTypeDetails.Fees + 0 ).ToString(); later ....
 
-             
             _LoadTestTypeImageAndTitle(_testType);
 
         }
